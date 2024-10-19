@@ -1,0 +1,1329 @@
+
+
+========savecustomervisit=======Called (2024_09_14_08_08_20)===================
+Params (2024_09_14_08_08_20): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":4074,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_08_20): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machine` FOREIGN KEY (`MachineId`) REFERENCES `t_machine` (`MachineId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_11_29)===================
+Params (2024_09_14_08_11_29): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":4074,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_11_29): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_customer` FOREIGN KEY (`CustomerId`) REFERENCES `t_customer` (`CustomerId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_11_56)===================
+Params (2024_09_14_08_11_56): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":4074,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_11_56): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_customer` FOREIGN KEY (`CustomerId`) REFERENCES `t_customer` (`CustomerId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_12_05)===================
+Params (2024_09_14_08_12_05): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":4074,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_12_05): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_customer` FOREIGN KEY (`CustomerId`) REFERENCES `t_customer` (`CustomerId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_13_07)===================
+Params (2024_09_14_08_13_07): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_13_07): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machine` FOREIGN KEY (`MachineId`) REFERENCES `t_machine` (`MachineId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_13_47)===================
+Params (2024_09_14_08_13_47): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_13_47): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machine` FOREIGN KEY (`MachineId`) REFERENCES `t_machine` (`MachineId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_14_23)===================
+Params (2024_09_14_08_14_23): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_14_23): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machine` FOREIGN KEY (`MachineId`) REFERENCES `t_machine` (`MachineId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_14_43)===================
+Params (2024_09_14_08_14_43): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_14_43): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machine` FOREIGN KEY (`MachineId`) REFERENCES `t_machine` (`MachineId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_15_02)===================
+Params (2024_09_14_08_15_02): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_15_02): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machine` FOREIGN KEY (`MachineId`) REFERENCES `t_machine` (`MachineId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_15_19)===================
+Params (2024_09_14_08_15_19): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"3","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_15_19): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machinemodel` FOREIGN KEY (`MachineModelId`) REFERENCES `t_machinemodel` (`MachineModelId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_15_26)===================
+Params (2024_09_14_08_15_26): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_15_26): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machine` FOREIGN KEY (`MachineId`) REFERENCES `t_machine` (`MachineId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_16_00)===================
+Params (2024_09_14_08_16_00): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_16_00): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machine` FOREIGN KEY (`MachineId`) REFERENCES `t_machine` (`MachineId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_16_28)===================
+Params (2024_09_14_08_16_28): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_16_28): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machine` FOREIGN KEY (`MachineId`) REFERENCES `t_machine` (`MachineId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_16_59)===================
+Params (2024_09_14_08_16_59): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_16_59): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machine` FOREIGN KEY (`MachineId`) REFERENCES `t_machine` (`MachineId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_20_54)===================
+Params (2024_09_14_08_20_54): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_20_54): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_machinemodel` FOREIGN KEY (`MachineModelId`) REFERENCES `t_machinemodel` (`MachineModelId`))"}]
+
+
+========savecustomervisit=======Called (2024_09_14_08_21_50)===================
+Params (2024_09_14_08_21_50): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_21_50): Success
+
+
+========savecustomervisit=======Called (2024_09_14_08_23_22)===================
+Params (2024_09_14_08_23_22): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_14_12_23_22): Success
+
+
+========savecustomervisit=======Called (2024_09_15_08_36_59)===================
+Params (2024_09_15_08_36_59): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_15_12_36_59): Success
+
+
+========savecustomervisit=======Called (2024_09_15_08_39_06)===================
+Params (2024_09_15_08_39_06): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_15_12_39_06): Success
+
+
+========login=======Called (2024_09_15_09_07_40)===================
+Params (2024_09_15_09_07_40): {"LoginID":"Kangkan","Password":"Kangkan","TerminalID":"mi","IPAddress":"192"}
+Output (2024_09_15_13_07_41): Success
+
+
+========appinfo=======Called (2024_09_15_09_08_01)===================
+Params (2024_09_15_09_08_01): {"CompanyCode":"NG-SSL"}
+Output (2024_09_15_13_08_01): Success
+
+
+========appinfo=======Called (2024_09_15_09_08_27)===================
+Params (2024_09_15_09_08_27): {"CompanyCode":"NG-SSL"}
+Output (2024_09_15_13_08_27): Success
+
+
+========customerlist=======Called (2024_09_15_09_26_19)===================
+Params (2024_09_15_09_26_19): {"Search":""}
+Output (2024_09_15_13_26_19): Success
+
+
+========customervisitlist=======Called (2024_09_15_20_06_37)===================
+Params (2024_09_15_20_06_37): []
+Output (2024_09_16_00_06_37): [{"SysValue":0,"SysMessage":"MachineId or MachineModelId param is missing"}]
+
+
+========savecustomervisit=======Called (2024_09_15_20_06_59)===================
+Params (2024_09_15_20_06_59): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachinePartsId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_16_00_06_59): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========customervisitlist=======Called (2024_09_15_20_22_02)===================
+Params (2024_09_15_20_22_02): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_16_00_22_02): Success
+
+
+========customervisitlist=======Called (2024_09_15_20_22_26)===================
+Params (2024_09_15_20_22_26): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_16_00_22_26): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========customervisitlist=======Called (2024_09_15_20_22_32)===================
+Params (2024_09_15_20_22_32): {"UserInfoID":"3","Search":"N"}
+Output (2024_09_16_00_22_32): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========customervisitlist=======Called (2024_09_15_20_26_03)===================
+Params (2024_09_15_20_26_03): {"UserInfoID":"3","Search":"N"}
+Output (2024_09_16_00_26_03): Success
+
+
+========customervisitlist=======Called (2024_09_15_20_26_15)===================
+Params (2024_09_15_20_26_15): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_16_00_26_15): Success
+
+
+========customervisitlist=======Called (2024_09_15_20_26_40)===================
+Params (2024_09_15_20_26_40): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_16_00_26_40): Success
+
+
+========dropdownlist=======Called (2024_09_15_20_37_51)===================
+Params (2024_09_15_20_37_51): {"CategoryID":"8"}
+Output (2024_09_16_00_37_51): Success
+
+
+========savevisitselffeedback=======Called (2024_09_15_20_45_17)===================
+Params (2024_09_15_20_45_17): {"SalesForceCustomerVisitID":"39262","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Aug-2024","UserInfoID":"124"}
+Output (2024_09_16_00_45_17): [{"SysValue":0,"SysMessage":"Unknown column 'SelfFollowUpDate' in 'field list'"}]
+
+
+========savevisitselffeedback=======Called (2024_09_15_20_46_48)===================
+Params (2024_09_15_20_46_48): {"SalesForceCustomerVisitID":"39262","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Aug-2024","UserInfoID":"124"}
+Output (2024_09_16_00_46_48): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_20_47_37)===================
+Params (2024_09_15_20_47_37): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Aug-2024","UserInfoID":"124"}
+Output (2024_09_16_00_47_37): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_20_50_08)===================
+Params (2024_09_15_20_50_08): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Aug-2024","UserInfoID":"124"}
+Output (2024_09_16_00_50_08): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_20_53_09)===================
+Params (2024_09_15_20_53_09): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Aug-2024","UserInfoID":"124"}
+Output (2024_09_16_00_53_09): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_20_53_20)===================
+Params (2024_09_15_20_53_20): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"124"}
+Output (2024_09_16_00_53_20): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_20_53_30)===================
+Params (2024_09_15_20_53_30): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"","UserInfoID":"124"}
+Output (2024_09_16_00_53_30): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========dropdownlist=======Called (2024_09_15_21_00_18)===================
+Params (2024_09_15_21_00_18): {"CategoryID":"8"}
+Output (2024_09_16_01_00_18): Success
+
+
+========dropdownlist=======Called (2024_09_15_21_01_00)===================
+Params (2024_09_15_21_01_00): []
+Output (2024_09_16_01_01_00): [{"SysValue":0,"SysMessage":"CategoryID param is missing"}]
+
+
+========dropdownlist=======Called (2024_09_15_21_01_04)===================
+Params (2024_09_15_21_01_04): {"CategoryID":""}
+Output (2024_09_16_01_01_04): [{"SysValue":0,"SysMessage":"CategoryID param is missing"}]
+
+
+========dropdownlist=======Called (2024_09_15_21_01_08)===================
+Params (2024_09_15_21_01_08): {"CategoryID":"1"}
+Output (2024_09_16_01_01_08): Success
+
+
+========dropdownlist=======Called (2024_09_15_21_12_19)===================
+Params (2024_09_15_21_12_19): {"CategoryID":"1"}
+Output (2024_09_16_01_12_19): Success
+
+
+========dropdownlist=======Called (2024_09_15_21_20_48)===================
+Params (2024_09_15_21_20_48): {"CategoryID":"1"}
+Output (2024_09_16_01_20_48): Success
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_20_53)===================
+Params (2024_09_15_21_20_53): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========dropdownlist=======Called (2024_09_15_21_21_21)===================
+Params (2024_09_15_21_21_21): {"CategoryID":"8"}
+Output (2024_09_16_01_21_21): Success
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_22_36)===================
+Params (2024_09_15_21_22_36): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_23_57)===================
+Params (2024_09_15_21_23_57): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_24_12)===================
+Params (2024_09_15_21_24_12): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_24_47)===================
+Params (2024_09_15_21_24_47): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_25_00)===================
+Params (2024_09_15_21_25_00): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_25_27)===================
+Params (2024_09_15_21_25_27): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_39_07)===================
+Params (2024_09_15_21_39_07): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":21},{"VisitActionID":22},{"VisitActionID":37}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+Output (2024_09_16_01_39_07): [{"SysValue":0,"SysMessage":["23000",1452,"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction_dropdown`, CONSTRAINT `FK_t_transaction_dropdown_t_dropdownlist` FOREIGN KEY (`DropDownListID`) REFERENCES `t_dropdownlist` (`DropDownListID`))"]}]
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_39_30)===================
+Params (2024_09_15_21_39_30): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+Output (2024_09_16_01_39_30): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_39_47)===================
+Params (2024_09_15_21_39_47): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+Output (2024_09_16_01_39_47): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_40_44)===================
+Params (2024_09_15_21_40_44): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4},{"MachinePartsId":7},{"MachinePartsId":20}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+Output (2024_09_16_01_40_45): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_41_23)===================
+Params (2024_09_15_21_41_23): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4},{"MachinePartsId":7},{"MachinePartsId":21}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+Output (2024_09_16_01_41_23): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_41_45)===================
+Params (2024_09_15_21_41_45): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4},{"MachinePartsId":7},{"MachinePartsId":21}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+Output (2024_09_16_01_41_46): [{"SysValue":0,"SysMessage":["42S02",1146,"Table 'dysin_db.t_transaction_machinepartss' doesn't exist"]}]
+
+
+========savevisitselffeedback=======Called (2024_09_15_21_41_59)===================
+Params (2024_09_15_21_41_59): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4},{"MachinePartsId":7},{"MachinePartsId":21}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+Output (2024_09_16_01_41_59): {"SysValue":1,"SysMessage":"Data has been saved successfully"}
+
+
+========machinelist=======Called (2024_09_16_07_30_27)===================
+Params (2024_09_16_07_30_27): []
+Output (2024_09_16_11_30_27): Success
+
+
+========machinelist=======Called (2024_09_16_07_53_53)===================
+Params (2024_09_16_07_53_53): []
+Output (2024_09_16_11_53_53): Success
+
+
+========machinelist=======Called (2024_09_16_07_56_02)===================
+Params (2024_09_16_07_56_02): []
+Output (2024_09_16_11_56_02): Success
+
+
+========machinelist=======Called (2024_09_16_07_56_20)===================
+Params (2024_09_16_07_56_20): []
+Output (2024_09_16_11_56_20): Success
+
+
+========machinelist=======Called (2024_09_16_07_56_41)===================
+Params (2024_09_16_07_56_41): []
+Output (2024_09_16_11_56_41): Success
+
+
+========machinelist=======Called (2024_09_16_07_59_30)===================
+Params (2024_09_16_07_59_30): []
+Output (2024_09_16_11_59_30): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_08_09_04)===================
+Params (2024_09_16_08_09_04): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_12_09_04): Success
+
+
+========machinelist=======Called (2024_09_16_08_55_44)===================
+Params (2024_09_16_08_55_44): []
+Output (2024_09_16_12_55_44): Success
+
+
+========machinelist=======Called (2024_09_16_08_56_44)===================
+Params (2024_09_16_08_56_44): []
+Output (2024_09_16_12_56_44): Success
+
+
+========machinelist=======Called (2024_09_16_08_56_55)===================
+Params (2024_09_16_08_56_55): []
+Output (2024_09_16_12_56_55): Success
+
+
+========machinelist=======Called (2024_09_16_08_57_02)===================
+Params (2024_09_16_08_57_02): []
+Output (2024_09_16_12_57_02): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_09_15_31)===================
+Params (2024_09_16_09_15_31): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_13_15_31): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_09_34_40)===================
+Params (2024_09_16_09_34_40): {"SalesForceCustomerVisitID":"16"}
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_09_34_53)===================
+Params (2024_09_16_09_34_53): {"SalesForceCustomerVisitID":"16"}
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_09_35_56)===================
+Params (2024_09_16_09_35_56): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_13_35_56): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_09_41_31)===================
+Params (2024_09_16_09_41_31): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_13_41_31): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_09_43_28)===================
+Params (2024_09_16_09_43_28): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_13_43_28): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_09_49_34)===================
+Params (2024_09_16_09_49_34): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_13_49_34): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_09_50_16)===================
+Params (2024_09_16_09_50_16): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_13_50_16): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_10_01_37)===================
+Params (2024_09_16_10_01_37): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_14_01_38): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_10_02_21)===================
+Params (2024_09_16_10_02_21): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_14_02_21): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_16_10_03_34)===================
+Params (2024_09_16_10_03_34): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_14_03_34): Success
+
+
+========customervisitlist=======Called (2024_09_16_10_11_36)===================
+Params (2024_09_16_10_11_36): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_16_14_11_36): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_16_10_36_48)===================
+Params (2024_09_16_10_36_48): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_16_14_36_48): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_16_10_38_25)===================
+Params (2024_09_16_10_38_25): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_16_14_38_25): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_16_10_39_09)===================
+Params (2024_09_16_10_39_09): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_16_14_39_09): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_16_10_55_09)===================
+Params (2024_09_16_10_55_09): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_16_14_55_09): [{"SysValue":0,"SysMessage":"Unknown column 'g.MachinePartsName' in 'field list'"}]
+
+
+========visitlmfeedbacklist=======Called (2024_09_16_10_55_21)===================
+Params (2024_09_16_10_55_21): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_16_14_55_21): Success
+
+
+========savevisitlmfeedback=======Called (2024_09_16_11_07_16)===================
+Params (2024_09_16_11_07_16): {"SalesForceCustomerVisitID":16,"ApprovedRefreshmentAmount":100,"ApprovedConveyanceAmount":200,"LMAdvice":"good","LMFollowUpDate":"17-Aug-2024"}
+Output (2024_09_16_15_07_17): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savevisitlmfeedback=======Called (2024_09_16_11_07_46)===================
+Params (2024_09_16_11_07_46): {"SalesForceCustomerVisitID":16,"ApprovedRefreshmentAmount":100,"ApprovedConveyanceAmount":200,"LMAdvice":"","LMFollowUpDate":"17-Aug-2024"}
+Output (2024_09_16_15_07_46): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savevisitlmfeedback=======Called (2024_09_16_11_08_08)===================
+Params (2024_09_16_11_08_08): {"SalesForceCustomerVisitID":16,"ApprovedRefreshmentAmount":100,"ApprovedConveyanceAmount":"","LMAdvice":"good","LMFollowUpDate":"17-Aug-2024"}
+Output (2024_09_16_15_08_08): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========visitdetailsbyid=======Called (2024_09_16_11_10_10)===================
+Params (2024_09_16_11_10_10): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_16_15_10_10): Success
+
+
+========customervisitlmapprovedlist=======Called (2024_09_16_11_19_04)===================
+Params (2024_09_16_11_19_04): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2024"}
+Output (2024_09_16_15_19_04): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========customervisitlmapprovedlist=======Called (2024_09_16_11_19_16)===================
+Params (2024_09_16_11_19_16): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2024"}
+Output (2024_09_16_15_19_16): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========customervisitlmapprovedlist=======Called (2024_09_16_11_19_37)===================
+Params (2024_09_16_11_19_37): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_16_15_19_37): Success
+
+
+========customervisitlmapprovedlist=======Called (2024_09_16_11_19_46)===================
+Params (2024_09_16_11_19_46): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_16_15_19_46): Success
+
+
+========customervisitlmapprovedlist=======Called (2024_09_16_11_20_50)===================
+Params (2024_09_16_11_20_50): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_16_15_20_50): Success
+
+
+========login=======Called (2024_09_18_17_19_05)===================
+Params (2024_09_18_17_19_05): {"LoginID":"Kangkan","Password":"Kangkan","TerminalID":"mi","IPAddress":"192"}
+Output (2024_09_18_21_19_05): Success
+
+
+========login=======Called (2024_09_18_17_20_12)===================
+Params (2024_09_18_17_20_12): {"LoginID":"Kangkan","Password":"Kangkan","TerminalID":"mi","IPAddress":"192"}
+Output (2024_09_18_21_20_12): Success
+
+
+========login=======Called (2024_09_18_17_21_57)===================
+Params (2024_09_18_17_21_57): {"LoginID":"Kangkan","Password":"Kangkan","TerminalID":"mi","IPAddress":"192"}
+Output (2024_09_18_21_21_57): Success
+
+
+========savecustomervisit=======Called (2024_09_18_17_22_11)===================
+Params (2024_09_18_17_22_11): {"SalesForceCustomerVisitID":"","UserInfoID":3,"PunchLocation":"Dhaka, Bangladesh","Longitude":89.9015442,"Latitude":24.2416041,"DropDownListIDForPurpose":1,"CustomerID":2,"DropDownListIDForTransportation":6,"ConveyanceAmount":10,"RefreshmentAmount":500,"PublicTransportDesc":"bus 02","DummyCustomerDesc":"","MachineId":"","MachineModelId":"","MachineSerial":"","MachineComplain":""}
+Output (2024_09_18_21_22_11): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savevisitselffeedback=======Called (2024_09_18_17_22_16)===================
+Params (2024_09_18_17_22_16): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4},{"MachinePartsId":7},{"MachinePartsId":21}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+Output (2024_09_18_21_22_16): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savevisitlmfeedback=======Called (2024_09_18_17_22_21)===================
+Params (2024_09_18_17_22_21): {"SalesForceCustomerVisitID":16,"ApprovedRefreshmentAmount":100,"ApprovedConveyanceAmount":"","LMAdvice":"good","LMFollowUpDate":"17-Aug-2024"}
+Output (2024_09_18_21_22_21): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========employeelist=======Called (2024_09_18_17_22_27)===================
+Params (2024_09_18_17_22_27): {"Search":"admin"}
+Output (2024_09_18_21_22_27): Success
+
+
+========employeelist=======Called (2024_09_18_17_24_05)===================
+Params (2024_09_18_17_24_05): {"Search":"admin"}
+Output (2024_09_18_21_24_05): Success
+
+
+========employeelist=======Called (2024_09_18_17_24_27)===================
+Params (2024_09_18_17_24_27): {"Search":"admin"}
+Output (2024_09_18_21_24_27): Success
+
+
+========machinelist=======Called (2024_09_18_17_24_36)===================
+Params (2024_09_18_17_24_36): []
+Output (2024_09_18_21_24_36): Success
+
+
+========customervisitlist=======Called (2024_09_18_17_24_44)===================
+Params (2024_09_18_17_24_44): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_18_21_24_44): Success
+
+
+========customervisitlist=======Called (2024_09_18_17_32_26)===================
+Params (2024_09_18_17_32_26): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_18_21_32_26): Success
+
+
+========customervisitlmapprovedlist=======Called (2024_09_18_17_33_33)===================
+Params (2024_09_18_17_33_33): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_18_21_33_33): Success
+
+
+========customervisitlmapprovedlist=======Called (2024_09_18_17_38_19)===================
+Params (2024_09_18_17_38_19): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_18_21_38_20): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_18_17_38_47)===================
+Params (2024_09_18_17_38_47): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_18_21_38_47): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_18_17_44_11)===================
+Params (2024_09_18_17_44_11): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_18_21_44_11): Success
+
+
+========dropdownlist=======Called (2024_09_18_17_45_52)===================
+Params (2024_09_18_17_45_52): {"CategoryID":"8"}
+Output (2024_09_18_21_45_52): Success
+
+
+========machinemodellist=======Called (2024_09_18_17_46_03)===================
+Params (2024_09_18_17_46_03): {"MachineId":"1"}
+Output (2024_09_18_21_46_03): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_18_17_46_10)===================
+Params (2024_09_18_17_46_10): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_18_21_46_10): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_18_17_48_03)===================
+Params (2024_09_18_17_48_03): {"SalesForceCustomerVisitID":"16"}
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_18_17_51_18)===================
+Params (2024_09_18_17_51_18): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_18_21_51_18): Success
+
+
+========visitdetailsbyid=======Called (2024_09_18_17_51_39)===================
+Params (2024_09_18_17_51_39): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_18_21_51_39): Success
+
+
+========visitdetailsbyid=======Called (2024_09_18_17_55_19)===================
+Params (2024_09_18_17_55_19): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_18_21_55_19): Success
+
+
+========machinepartslist=======Called (2024_09_18_17_55_30)===================
+Params (2024_09_18_17_55_30): {"MachineId":"1"}
+Output (2024_09_18_21_55_30): Success
+
+
+========customerlist=======Called (2024_09_18_17_55_38)===================
+Params (2024_09_18_17_55_38): {"Search":""}
+Output (2024_09_18_21_55_38): Success
+
+
+========customerlist=======Called (2024_09_18_17_56_59)===================
+Params (2024_09_18_17_56_59): {"Search":""}
+Output (2024_09_18_21_56_59): Success
+
+
+========appmenu=======Called (2024_09_18_17_57_08)===================
+Params (2024_09_18_17_57_08): {"CategoryName":"Dashboard","UserInfoID":"1"}
+Output (2024_09_18_21_57_08): Success
+
+
+========appinfo=======Called (2024_09_18_17_57_15)===================
+Params (2024_09_18_17_57_15): {"CompanyCode":"NG-SSL"}
+Output (2024_09_18_21_57_15): Success
+
+
+========loginidvalidation=======Called (2024_09_18_17_57_24)===================
+Params (2024_09_18_17_57_24): {"UserInfoID":"3"}
+Output (2024_09_18_21_57_24): Success
+
+
+========appinfo=======Called (2024_09_18_17_58_44)===================
+Params (2024_09_18_17_58_44): {"CompanyCode":"NG-SSL"}
+Output (2024_09_18_21_58_44): Success
+
+
+========loginidvalidation=======Called (2024_09_18_17_59_46)===================
+Params (2024_09_18_17_59_46): {"UserInfoID":"3"}
+Output (2024_09_18_21_59_46): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_18_18_58_25)===================
+Params (2024_09_18_18_58_25): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_18_22_58_25): Success
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_09_18_18_59_21)===================
+Params (2024_09_18_18_59_21): {"SalesForceCustomerVisitID":"16"}
+Output (2024_09_18_22_59_21): Success
+
+
+========customervisitlmapprovedlist=======Called (2024_09_18_19_02_12)===================
+Params (2024_09_18_19_02_12): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_18_23_02_12): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_18_19_02_37)===================
+Params (2024_09_18_19_02_37): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_18_23_02_37): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_18_19_05_28)===================
+Params (2024_09_18_19_05_28): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_18_23_05_28): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_20_19_55_46)===================
+Params (2024_09_20_19_55_46): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_20_23_55_46): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_20_19_57_44)===================
+Params (2024_09_20_19_57_44): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_20_23_57_44): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========visitlmfeedbacklist=======Called (2024_09_20_19_58_49)===================
+Params (2024_09_20_19_58_49): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_20_23_58_49): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========visitlmfeedbacklist=======Called (2024_09_20_19_59_24)===================
+Params (2024_09_20_19_59_24): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_20_23_59_24): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========visitlmfeedbacklist=======Called (2024_09_20_19_59_40)===================
+Params (2024_09_20_19_59_40): {"UserInfoID":"3","Search":"Y"}
+Output (2024_09_20_23_59_40): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========visitlmfeedbacklist=======Called (2024_09_20_20_00_25)===================
+Params (2024_09_20_20_00_25): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_21_00_00_25): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_20_20_00_50)===================
+Params (2024_09_20_20_00_50): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_21_00_00_50): Success
+
+
+========visitlmfeedbacklist=======Called (2024_09_20_20_00_57)===================
+Params (2024_09_20_20_00_57): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_21_00_00_57): Success
+
+
+========login=======Called (2024_09_25_17_11_20)===================
+Params (2024_09_25_17_11_20): {"LoginID":"Kangkan","Password":"Kangkan","TerminalID":"mi","IPAddress":"192"}
+Output (2024_09_25_21_11_21): Success
+
+
+========customervisitlist=======Called (2024_09_25_17_16_45)===================
+Params (2024_09_25_17_16_45): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_25_21_16_46): Success
+
+
+========appmenu=======Called (2024_09_25_18_46_07)===================
+Params (2024_09_25_18_46_07): {"CategoryName":"Dashboard","UserInfoID":"1"}
+Output (2024_09_25_22_46_07): Success
+
+
+========appmenu=======Called (2024_09_25_18_46_37)===================
+Params (2024_09_25_18_46_37): {"CategoryName":"Report","UserInfoID":"1"}
+Output (2024_09_25_22_46_37): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========appmenu=======Called (2024_09_25_18_47_32)===================
+Params (2024_09_25_18_47_32): {"CategoryName":"Dashboard","UserInfoID":"1"}
+Output (2024_09_25_22_47_32): Success
+
+
+========appmenu=======Called (2024_09_25_18_48_02)===================
+Params (2024_09_25_18_48_02): {"CategoryName":"ReportsActivity","UserInfoID":"1"}
+Output (2024_09_25_22_48_02): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========appmenu=======Called (2024_09_25_18_48_14)===================
+Params (2024_09_25_18_48_14): {"CategoryName":"ReportsActivity","UserInfoID":"1"}
+Output (2024_09_25_22_48_14): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========appmenu=======Called (2024_09_25_18_48_21)===================
+Params (2024_09_25_18_48_21): {"CategoryName":"ReportsActivity","UserInfoID":"1"}
+Output (2024_09_25_22_48_21): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========appmenu=======Called (2024_09_25_18_49_10)===================
+Params (2024_09_25_18_49_10): {"CategoryName":"ReportsActivity","UserInfoID":"1"}
+Output (2024_09_25_22_49_10): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========appmenu=======Called (2024_09_25_18_50_48)===================
+Params (2024_09_25_18_50_48): {"CategoryName":"ReportsActivity","UserInfoID":"1"}
+Output (2024_09_25_22_50_48): Success
+
+
+========savecustomer=======Called (2024_09_25_20_19_32)===================
+Params (2024_09_25_20_19_32): {"CustomerCode":"","CustomerName":"Rubel","Designation":"Manager","ContactNumber":"01538198763","CompanyName":"ACI Group Ltd","NatureOfBusiness":"Multiple type business","CompanyEmail":"","CompanyAddress":"","UserInfoID":3,"TerminalID":"","IPAddress":""}
+Output (2024_09_26_00_19_33): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savecustomer=======Called (2024_09_25_20_20_48)===================
+Params (2024_09_25_20_20_48): {"CustomerCode":"","CustomerName":"Rubel","Designation":"Manager","ContactNumber":"01538198763","CompanyName":"ACI Group Ltd","NatureOfBusiness":"Multiple type business","CompanyEmail":"","CompanyAddress":"","UserInfoID":3,"TerminalID":"","IPAddress":""}
+Output (2024_09_26_00_20_48): [{"SysValue":0,"SysMessage":"Duplicate entry '1-Rubel' for key 'UK_t_customer_Client_CustomerName'"}]
+
+
+========savecustomer=======Called (2024_09_25_20_21_23)===================
+Params (2024_09_25_20_21_23): {"CustomerCode":"","CustomerName":"Rubel mea","Designation":"Manager","ContactNumber":"01538198763","CompanyName":"ACI Group Ltd","NatureOfBusiness":"Multiple type business","CompanyEmail":"","CompanyAddress":"","UserInfoID":3,"TerminalID":"","IPAddress":""}
+Output (2024_09_26_00_21_23): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savecustomer=======Called (2024_09_25_20_24_18)===================
+Params (2024_09_25_20_24_18): {"CustomerCode":"","CustomerName":"Md Rubel mea","Designation":"Manager","ContactNumber":"01538198763","CompanyName":"ACI Group Ltd","NatureOfBusiness":"Multiple type business","CompanyEmail":"","CompanyAddress":"","UserInfoID":3,"TerminalID":"","IPAddress":""}
+Output (2024_09_26_00_24_18): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savecustomer=======Called (2024_09_25_20_24_46)===================
+Params (2024_09_25_20_24_46): {"CustomerCode":"12","CustomerName":"Md Rubel mea","Designation":"Manager","ContactNumber":"01538198763","CompanyName":"ACI Group Ltd","NatureOfBusiness":"Multiple type business","CompanyEmail":"","CompanyAddress":"","UserInfoID":3,"TerminalID":"","IPAddress":""}
+Output (2024_09_26_00_24_46): [{"SysValue":0,"SysMessage":"Duplicate entry '1-Md Rubel mea' for key 'UK_t_customer_Client_CustomerName'"}]
+
+
+========savecustomer=======Called (2024_09_25_20_24_50)===================
+Params (2024_09_25_20_24_50): {"CustomerCode":"12","CustomerName":"Md Rubel mead","Designation":"Manager","ContactNumber":"01538198763","CompanyName":"ACI Group Ltd","NatureOfBusiness":"Multiple type business","CompanyEmail":"","CompanyAddress":"","UserInfoID":3,"TerminalID":"","IPAddress":""}
+Output (2024_09_26_00_24_50): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savecustomer=======Called (2024_09_25_20_25_54)===================
+Params (2024_09_25_20_25_54): {"CustomerCode":"","CustomerName":"Md Rubel mead","Designation":"Manager","ContactNumber":"01538198763","CompanyName":"ACI Group Ltd","NatureOfBusiness":"Multiple type business","CompanyEmail":"","CompanyAddress":"","UserInfoID":3,"TerminalID":"","IPAddress":""}
+Output (2024_09_26_00_25_54): [{"SysValue":0,"SysMessage":"Duplicate entry '1-Md Rubel mead' for key 'UK_t_customer_Client_CustomerName'"}]
+
+
+========savecustomer=======Called (2024_09_25_20_25_58)===================
+Params (2024_09_25_20_25_58): {"CustomerCode":"","CustomerName":"Md Rubel mean","Designation":"Manager","ContactNumber":"01538198763","CompanyName":"ACI Group Ltd","NatureOfBusiness":"Multiple type business","CompanyEmail":"","CompanyAddress":"","UserInfoID":3,"TerminalID":"","IPAddress":""}
+Output (2024_09_26_00_25_58): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savecustomer=======Called (2024_09_25_20_26_14)===================
+Params (2024_09_25_20_26_14): {"CustomerCode":"dsf5435","CustomerName":"Md Rubel meanf","Designation":"Manager","ContactNumber":"01538198763","CompanyName":"ACI Group Ltd","NatureOfBusiness":"Multiple type business","CompanyEmail":"","CompanyAddress":"","UserInfoID":3,"TerminalID":"","IPAddress":""}
+Output (2024_09_26_00_26_14): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savecustomer=======Called (2024_09_26_13_13_17)===================
+Params (2024_09_26_13_13_17): {"CustomerCode":"","CustomerName":"Md Rubel mean","Designation":"Manager","ContactNumber":"01538198763","CompanyName":"ACI Group Ltd","NatureOfBusiness":"Multiple type business","CompanyEmail":"","CompanyAddress":"","UserInfoID":3,"TerminalID":"","IPAddress":""}
+Output (2024_09_26_17_13_17): [{"SysValue":0,"SysMessage":"Table 'dysin_db.t_customer' doesn't exist in engine"}]
+
+
+========customervisitlist=======Called (2024_09_26_13_17_02)===================
+Params (2024_09_26_13_17_02): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_26_17_17_02): [{"SysValue":0,"SysMessage":"Table 'dysin_db.t_customer' doesn't exist in engine"}]
+
+
+========customervisitlist=======Called (2024_09_26_13_19_35)===================
+Params (2024_09_26_13_19_35): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_26_17_19_35): Success
+
+
+========getvisitplanlist=======Called (2024_09_26_13_26_35)===================
+Params (2024_09_26_13_26_35): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_26_17_26_35): Success
+
+
+========savevisitplan=======Called (2024_09_26_13_48_55)===================
+Params (2024_09_26_13_48_55): {"SalesForceCustomerVisitID":"","UserInfoID":3,"NextVisitDateTime":"21-Aug-2024 5:15 AM","CustomerID":2,"VisitPurpose":""}
+
+
+========savevisitplan=======Called (2024_09_26_13_56_19)===================
+Params (2024_09_26_13_56_19): {"SalesForceCustomerVisitID":"","UserInfoID":3,"NextVisitDateTime":"21-Aug-2024 5:15 AM","CustomerID":2,"VisitPurpose":""}
+Output (2024_09_26_17_56_19): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savevisitplan=======Called (2024_09_26_13_57_38)===================
+Params (2024_09_26_13_57_38): {"SalesForceCustomerVisitID":"","UserInfoID":3,"NextVisitDateTime":"30-Dec-2024 2:25 PM","CustomerID":2,"VisitPurpose":"I will visi to aci group"}
+Output (2024_09_26_17_57_38): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========getvisitplanlist=======Called (2024_09_26_13_57_46)===================
+Params (2024_09_26_13_57_46): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_26_17_57_46): Success
+
+
+========customervisitlist=======Called (2024_09_26_13_58_01)===================
+Params (2024_09_26_13_58_01): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_26_17_58_01): Success
+
+
+========customervisitlist=======Called (2024_09_27_10_18_37)===================
+Params (2024_09_27_10_18_37): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_27_14_18_37): Success
+
+
+========conveyancedata=======Called (2024_09_27_10_25_25)===================
+Params (2024_09_27_10_25_25): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_27_14_25_25): Success
+
+
+========conveyancedata=======Called (2024_09_27_10_34_12)===================
+Params (2024_09_27_10_34_12): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_27_14_34_12): Success
+
+
+========conveyancedata=======Called (2024_09_27_10_35_16)===================
+Params (2024_09_27_10_35_16): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_27_14_35_16): [{"SysValue":0,"SysMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM t_transaction a \n\tinner join t_users g on a.UserId=g.UserId \n\tinner join...' at line 12"}]
+
+
+========conveyancedata=======Called (2024_09_27_10_35_43)===================
+Params (2024_09_27_10_35_43): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_27_14_35_43): Success
+
+
+========appmenu=======Called (2024_09_27_17_31_15)===================
+Params (2024_09_27_17_31_15): {"CategoryName":"ReportsActivity","UserInfoID":"1"}
+Output (2024_09_27_21_31_15): Success
+
+
+========appmenu=======Called (2024_09_27_17_32_50)===================
+Params (2024_09_27_17_32_50): {"CategoryName":"Dashboard","UserInfoID":"1"}
+Output (2024_09_27_21_32_50): Success
+
+
+========appmenu=======Called (2024_09_27_17_33_23)===================
+Params (2024_09_27_17_33_23): {"CategoryName":"MyTaskActivity","UserInfoID":"1"}
+Output (2024_09_27_21_33_23): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========appmenu=======Called (2024_09_27_17_41_29)===================
+Params (2024_09_27_17_41_29): {"CategoryName":"MyTaskActivity","UserInfoID":"1"}
+Output (2024_09_27_21_41_29): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========department=======Called (2024_09_27_19_33_57)===================
+Params (2024_09_27_19_33_57): []
+Output (2024_09_27_23_33_57): Success
+
+
+========department=======Called (2024_09_27_19_39_33)===================
+Params (2024_09_27_19_39_33): []
+Output (2024_09_27_23_39_33): Success
+
+
+========employeelist=======Called (2024_09_27_19_40_28)===================
+Params (2024_09_27_19_40_28): {"Search":"admin"}
+Output (2024_09_27_23_40_28): Success
+
+
+========departmentwisesf=======Called (2024_09_27_19_42_06)===================
+Params (2024_09_27_19_42_06): {"DepartmentId":"0"}
+Output (2024_09_27_23_42_06): Success
+
+
+========departmentwisesf=======Called (2024_09_27_19_44_46)===================
+Params (2024_09_27_19_44_46): {"DepartmentId":"0"}
+Output (2024_09_27_23_44_46): Success
+
+
+========departmentwisesf=======Called (2024_09_27_19_45_03)===================
+Params (2024_09_27_19_45_03): {"DepartmentId":"1"}
+Output (2024_09_27_23_45_03): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========departmentwisesf=======Called (2024_09_27_19_45_25)===================
+Params (2024_09_27_19_45_25): {"DepartmentId":"3"}
+Output (2024_09_27_23_45_25): Success
+
+
+========departmentwisesf=======Called (2024_09_27_19_45_37)===================
+Params (2024_09_27_19_45_37): {"DepartmentId":"2"}
+Output (2024_09_27_23_45_37): Success
+
+
+========departmentwisesf=======Called (2024_09_27_19_47_33)===================
+Params (2024_09_27_19_47_33): {"DepartmentId":"2"}
+Output (2024_09_27_23_47_33): Success
+
+
+========machineservicevisitlist=======Called (2024_09_27_19_57_59)===================
+Params (2024_09_27_19_57_59): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_27_23_57_59): [{"SysValue":0,"SysMessage":"Unknown column 'b.CustomerName' in 'field list'"}]
+
+
+========machineservicevisitlist=======Called (2024_09_27_19_58_09)===================
+Params (2024_09_27_19_58_09): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_27_23_58_09): Success
+
+
+========machineservicevisitlist=======Called (2024_09_27_20_00_21)===================
+Params (2024_09_27_20_00_21): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_28_00_00_21): Success
+
+
+========machineservicevisitlist=======Called (2024_09_27_20_01_23)===================
+Params (2024_09_27_20_01_23): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_28_00_01_23): Success
+
+
+========machineservicevisitlist=======Called (2024_09_27_20_03_51)===================
+Params (2024_09_27_20_03_51): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_28_00_03_51): Success
+
+
+========machineservicevisitlist=======Called (2024_09_27_20_05_51)===================
+Params (2024_09_27_20_05_51): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_28_00_05_51): Success
+
+
+========machineryservicereport=======Called (2024_09_27_20_07_40)===================
+Params (2024_09_27_20_07_40): {"SalesForceCustomerVisitID":"40"}
+Output (2024_09_28_00_07_40): [{"SysValue":0,"SysMessage":"FromDate or ToDate param are missing"}]
+
+
+========machineryservicereport=======Called (2024_09_27_20_19_31)===================
+Params (2024_09_27_20_19_31): {"SalesForceCustomerVisitID":"40"}
+Output (2024_09_28_00_19_31): Success
+
+
+========machineryservicereport=======Called (2024_09_27_20_23_11)===================
+Params (2024_09_27_20_23_11): {"SalesForceCustomerVisitID":"40"}
+Output (2024_09_28_00_23_11): Success
+
+
+========machineryservicereport=======Called (2024_09_27_20_23_45)===================
+Params (2024_09_27_20_23_45): {"SalesForceCustomerVisitID":"40"}
+Output (2024_09_28_00_23_45): Success
+
+
+========machineryservicereport=======Called (2024_09_27_20_23_58)===================
+Params (2024_09_27_20_23_58): {"SalesForceCustomerVisitID":"18"}
+Output (2024_09_28_00_23_58): Success
+
+
+========customervisitpunch=======Called (2024_09_27_20_25_38)===================
+Params (2024_09_27_20_25_38): {"SalesForceCustomerVisitID":"18"}
+Output (2024_09_28_00_25_38): Success
+
+
+========departmentwisesf=======Called (2024_09_27_20_27_03)===================
+Params (2024_09_27_20_27_03): {"DepartmentId":"2"}
+Output (2024_09_28_00_27_03): Success
+
+
+========departmentwisesf=======Called (2024_09_27_20_45_46)===================
+Params (2024_09_27_20_45_46): {"DepartmentId":"2"}
+Output (2024_09_28_00_45_46): Success
+
+
+========customervisitpunch=======Called (2024_09_27_20_46_07)===================
+Params (2024_09_27_20_46_07): {"SalesForceCustomerVisitID":"18"}
+Output (2024_09_28_00_46_07): [{"SysValue":0,"SysMessage":"FromDate or ToDate or DepartmentId or UserInfoID param are missing"}]
+
+
+========customervisitpunch=======Called (2024_09_27_20_47_16)===================
+Params (2024_09_27_20_47_16): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"0","UserInfoID":"0"}
+Output (2024_09_28_00_47_16): [{"SysValue":0,"SysMessage":"FromDate or ToDate or DepartmentId or UserInfoID param are missing"}]
+
+
+========customervisitpunch=======Called (2024_09_27_20_48_04)===================
+Params (2024_09_27_20_48_04): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"0","UserInfoID":"0"}
+Output (2024_09_28_00_48_04): [{"SysValue":0,"SysMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'or =0) \n\tand (b.UserId =  or =0) \n\tORDER BY a.TransactionDate DESC' at line 32"}]
+
+
+========customervisitpunch=======Called (2024_09_27_20_48_47)===================
+Params (2024_09_27_20_48_47): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"0","UserInfoID":"0"}
+Output (2024_09_28_00_48_47): [{"SysValue":0,"SysMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'or =0) \n\tand (b.UserId =  or =0) \n\tORDER BY a.TransactionDate DESC' at line 28"}]
+
+
+========customervisitpunch=======Called (2024_09_27_20_50_18)===================
+Params (2024_09_27_20_50_18): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"0","UserInfoID":"0"}
+Output (2024_09_28_00_50_18): [{"SysValue":0,"SysMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'or =0) \n\tand (b.UserId =  or =0) \n\tORDER BY a.TransactionDate DESC' at line 28"}]
+
+
+========customervisitpunch=======Called (2024_09_27_20_51_00)===================
+Params (2024_09_27_20_51_00): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"0","UserInfoID":"0"}
+Output (2024_09_28_00_51_00): Success
+
+
+========customervisitpunch=======Called (2024_09_27_20_51_12)===================
+Params (2024_09_27_20_51_12): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"0"}
+Output (2024_09_28_00_51_12): Success
+
+
+========customervisitpunch=======Called (2024_09_27_20_51_15)===================
+Params (2024_09_27_20_51_15): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"21","UserInfoID":"0"}
+Output (2024_09_28_00_51_15): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========customervisitpunch=======Called (2024_09_27_20_51_19)===================
+Params (2024_09_27_20_51_19): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"0"}
+Output (2024_09_28_00_51_19): Success
+
+
+========customervisitpunch=======Called (2024_09_27_20_51_30)===================
+Params (2024_09_27_20_51_30): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"3"}
+Output (2024_09_28_00_51_30): Success
+
+
+========customervisitpunch=======Called (2024_09_27_20_51_35)===================
+Params (2024_09_27_20_51_35): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"33"}
+Output (2024_09_28_00_51_35): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========customervisitpunch=======Called (2024_09_27_20_51_38)===================
+Params (2024_09_27_20_51_38): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"3"}
+Output (2024_09_28_00_51_38): Success
+
+
+========machineservicevisitlist=======Called (2024_09_29_19_23_32)===================
+Params (2024_09_29_19_23_32): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_09_29_23_23_32): Success
+
+
+========customervisitpunch=======Called (2024_09_29_19_28_30)===================
+Params (2024_09_29_19_28_30): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"3"}
+Output (2024_09_29_23_28_30): Success
+
+
+========dropdownlist=======Called (2024_09_30_17_34_34)===================
+Params (2024_09_30_17_34_34): {"CategoryID":"8"}
+Output (2024_09_30_21_34_34): Success
+
+
+========dropdownlist=======Called (2024_09_30_17_34_51)===================
+Params (2024_09_30_17_34_51): {"CategoryID":"5"}
+Output (2024_09_30_21_34_51): Success
+
+
+========dropdownlist=======Called (2024_09_30_17_35_41)===================
+Params (2024_09_30_17_35_41): {"CategoryID":"7"}
+Output (2024_09_30_21_35_41): Success
+
+
+========dropdownlist=======Called (2024_09_30_18_04_15)===================
+Params (2024_09_30_18_04_15): {"CategoryID":"9"}
+Output (2024_09_30_22_04_15): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========dropdownlist=======Called (2024_09_30_18_06_59)===================
+Params (2024_09_30_18_06_59): {"CategoryID":"9"}
+Output (2024_09_30_22_06_59): Success
+
+
+========saveordersales=======Called (2024_09_30_18_26_57)===================
+Params (2024_09_30_18_26_57): {"UserInfoID":124,"DropDownListIDForPurpose":8,"CustomerID":4074,"ContactPersonName":"kk","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","ProductDetails":"kk","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12}
+Output (2024_09_30_22_26_57): [{"SysValue":0,"SysMessage":null}]
+
+
+========saveordersales=======Called (2024_09_30_19_10_25)===================
+Params (2024_09_30_19_10_25): {"UserInfoID":124,"DropDownListIDForPurpose":8,"CustomerID":4074,"ContactPersonName":"kk","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","ProductDetails":"kk","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12}
+Output (2024_09_30_23_10_25): [{"SysValue":0,"SysMessage":null}]
+
+
+========saveordersales=======Called (2024_09_30_19_12_01)===================
+Params (2024_09_30_19_12_01): {"UserInfoID":124,"DropDownListIDForPurpose":8,"CustomerID":4074,"ContactPersonName":"kk","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","ProductDetails":"kk","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12}
+Output (2024_09_30_23_12_01): [{"SysValue":0,"SysMessage":null}]
+
+
+========saveordersales=======Called (2024_09_30_19_13_06)===================
+Params (2024_09_30_19_13_06): {"UserInfoID":124,"DropDownListIDForPurpose":8,"CustomerID":4074,"ContactPersonName":"kk","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","ProductDetails":"kk","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12}
+Output (2024_09_30_23_13_06): [{"SysValue":0,"SysMessage":null}]
+
+
+========saveordersales=======Called (2024_09_30_19_14_19)===================
+Params (2024_09_30_19_14_19): {"UserInfoID":124,"DropDownListIDForPurpose":8,"CustomerID":4074,"ContactPersonName":"kk","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","ProductDetails":"kk","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12}
+Output (2024_09_30_23_14_19): [{"SysValue":0,"SysMessage":null}]
+
+
+========saveordersales=======Called (2024_09_30_19_14_54)===================
+Params (2024_09_30_19_14_54): {"UserInfoID":124,"DropDownListIDForPurpose":8,"CustomerID":4074,"ContactPersonName":"kk","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","ProductDetails":"kk","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12}
+Output (2024_09_30_23_14_54): [{"SysValue":0,"SysMessage":null}]
+
+
+========saveordersales=======Called (2024_09_30_19_16_42)===================
+Params (2024_09_30_19_16_42): {"UserInfoID":124,"DropDownListIDForPurpose":8,"CustomerID":4074,"ContactPersonName":"kk 254","ContactPersonDesignation":"dev 01","ContactPersonMobileNumber":"01921232956","ProductDetails":"kk 025633","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12}
+Output (2024_09_30_23_16_42): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_customer` FOREIGN KEY (`CustomerId`) REFERENCES `t_customer` (`CustomerId`))"}]
+
+
+========saveordersales=======Called (2024_09_30_19_17_15)===================
+Params (2024_09_30_19_17_15): {"UserInfoID":124,"DropDownListIDForPurpose":8,"CustomerID":1,"ContactPersonName":"kk 254","ContactPersonDesignation":"dev 01","ContactPersonMobileNumber":"01921232956","ProductDetails":"kk 025633","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12}
+Output (2024_09_30_23_17_15): [{"SysValue":0,"SysMessage":"Cannot add or update a child row: a foreign key constraint fails (`dysin_db`.`t_transaction`, CONSTRAINT `FK_t_transaction_t_users` FOREIGN KEY (`UserId`) REFERENCES `t_users` (`UserId`))"}]
+
+
+========saveordersales=======Called (2024_09_30_19_17_27)===================
+Params (2024_09_30_19_17_27): {"UserInfoID":3,"DropDownListIDForPurpose":8,"CustomerID":1,"ContactPersonName":"kk 254","ContactPersonDesignation":"dev 01","ContactPersonMobileNumber":"01921232956","ProductDetails":"kk 025633","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12}
+Output (2024_09_30_23_17_27): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========saveordersales=======Called (2024_09_30_19_17_52)===================
+Params (2024_09_30_19_17_52): {"UserInfoID":3,"DropDownListIDForPurpose":8,"CustomerID":1,"ContactPersonName":"kk 254","ContactPersonDesignation":"dev 01","ContactPersonMobileNumber":"01921232956","ProductDetails":"kk 025633","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12}
+Output (2024_09_30_23_17_52): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========customervisitlist=======Called (2024_09_30_19_18_33)===================
+Params (2024_09_30_19_18_33): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_30_23_18_33): Success
+
+
+========ordersaleslist=======Called (2024_09_30_19_21_22)===================
+Params (2024_09_30_19_21_22): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_30_23_21_22): Success
+
+
+========ordersaleslist=======Called (2024_09_30_19_25_56)===================
+Params (2024_09_30_19_25_56): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_30_23_25_56): Success
+
+
+========ordersaleslist=======Called (2024_09_30_19_26_10)===================
+Params (2024_09_30_19_26_10): {"UserInfoID":"3","Search":"ddd"}
+Output (2024_09_30_23_26_10): Success
+
+
+========ordersaleslist=======Called (2024_09_30_19_26_50)===================
+Params (2024_09_30_19_26_50): {"UserInfoID":"3","Search":"ddd"}
+Output (2024_09_30_23_26_50): Success
+
+
+========ordersaleslist=======Called (2024_09_30_19_27_24)===================
+Params (2024_09_30_19_27_24): {"UserInfoID":"3","Search":"ddd"}
+Output (2024_09_30_23_27_24): Success
+
+
+========ordersaleslist=======Called (2024_09_30_19_27_40)===================
+Params (2024_09_30_19_27_40): {"UserInfoID":"3","Search":"ddd"}
+Output (2024_09_30_23_27_40): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========ordersaleslist=======Called (2024_09_30_19_28_00)===================
+Params (2024_09_30_19_28_00): {"UserInfoID":"3","Search":"ddd"}
+Output (2024_09_30_23_28_01): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========ordersaleslist=======Called (2024_09_30_19_28_21)===================
+Params (2024_09_30_19_28_21): {"UserInfoID":"3","Search":"ddd"}
+Output (2024_09_30_23_28_21): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========ordersaleslist=======Called (2024_09_30_19_28_28)===================
+Params (2024_09_30_19_28_28): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_30_23_28_28): Success
+
+
+========ordersaleslist=======Called (2024_09_30_19_28_38)===================
+Params (2024_09_30_19_28_38): {"UserInfoID":"3","Search":"Other"}
+Output (2024_09_30_23_28_38): Success
+
+
+========ordersaleslist=======Called (2024_09_30_19_28_51)===================
+Params (2024_09_30_19_28_51): {"UserInfoID":"3","Search":"Lab"}
+Output (2024_09_30_23_28_51): Success
+
+
+========ordersaleslist=======Called (2024_09_30_19_28_53)===================
+Params (2024_09_30_19_28_53): {"UserInfoID":"3","Search":"Labs"}
+Output (2024_09_30_23_28_53): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========ordersaleslist=======Called (2024_09_30_19_29_01)===================
+Params (2024_09_30_19_29_01): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_30_23_29_01): Success
+
+
+========savesampleactivity=======Called (2024_09_30_19_34_45)===================
+Params (2024_09_30_19_34_45): {"UserInfoID":3,"DropDownListIDForPurpose":8,"CustomerID":1,"ContactPersonName":"kk 254","ContactPersonDesignation":"dev 01","ContactPersonMobileNumber":"01921232956","ProductDetails":"kk 025633","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12,"DropDownListIDForResult":12}
+Output (2024_09_30_23_34_45): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savesampleactivity=======Called (2024_09_30_19_34_58)===================
+Params (2024_09_30_19_34_58): {"UserInfoID":3,"DropDownListIDForPurpose":8,"CustomerID":1,"ContactPersonName":"kk 254","ContactPersonDesignation":"dev 01","ContactPersonMobileNumber":"01921232956","ProductDetails":"kk 025633","TargetPrice":128,"SalesOrderVolume":1281,"DropDownListIDForAction":12,"DropDownListIDForResult":12}
+Output (2024_09_30_23_34_58): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========sampleactivitylist=======Called (2024_09_30_19_36_12)===================
+Params (2024_09_30_19_36_12): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_30_23_36_12): Success
+
+
+========sampleactivitylist=======Called (2024_09_30_19_41_01)===================
+Params (2024_09_30_19_41_01): {"UserInfoID":"3","Search":"0"}
+Output (2024_09_30_23_41_01): Success
+
+
+========savesalesfunnel=======Called (2024_09_30_19_55_25)===================
+Params (2024_09_30_19_55_25): []
+Output (2024_09_30_23_55_25): [{"SysValue":0,"SysMessage":"Column 'UserId' cannot be null"}]
+
+
+========savesalesfunnel=======Called (2024_09_30_19_56_00)===================
+Params (2024_09_30_19_56_00): []
+Output (2024_09_30_23_56_00): [{"SysValue":0,"SysMessage":"Column 'UserId' cannot be null"}]
+
+
+========savesalesfunnel=======Called (2024_09_30_19_56_39)===================
+Params (2024_09_30_19_56_39): {"UserInfoID":3,"CustomerID":1,"ContactPersonName":"kk 254","ContactPersonDesignation":"dev 01","ContactPersonMobileNumber":"01921232956","ExpectedPrice":"1000","FinalPrice":"2000","FunnelStatusID":"5","NegotiablePrice":"1500","OfferQuantity":"5","ProductName":"lin45 ef","RequiredQuantity":"4"}
+Output (2024_09_30_23_56_39): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========savesalesfunnel=======Called (2024_09_30_19_56_55)===================
+Params (2024_09_30_19_56_55): {"UserInfoID":3,"CustomerID":1,"ContactPersonName":"kk 254","ContactPersonDesignation":"dev 05","ContactPersonMobileNumber":"01921232956","ExpectedPrice":"1000","FinalPrice":"2000","FunnelStatusID":"5","NegotiablePrice":"1500","OfferQuantity":"5","ProductName":"lin45 ef","RequiredQuantity":"4"}
+Output (2024_09_30_23_56_55): [{"SysValue":1,"SysMessage":"Data has been saved successfully"}]
+
+
+========salesfunnellist=======Called (2024_09_30_20_03_29)===================
+Params (2024_09_30_20_03_29): {"UserInfoID":"3","Search":"0"}
+Output (2024_10_01_00_03_29): Success
+
+
+========salesfunnellist=======Called (2024_09_30_20_03_46)===================
+Params (2024_09_30_20_03_46): {"UserInfoID":"33","Search":"0"}
+Output (2024_10_01_00_03_46): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========salesfunnellist=======Called (2024_09_30_20_03_49)===================
+Params (2024_09_30_20_03_49): {"UserInfoID":"3","Search":"0"}
+Output (2024_10_01_00_03_49): Success
+
+
+========employeelist=======Called (2024_10_04_15_17_09)===================
+Params (2024_10_04_15_17_09): {"Search":"admin"}
+Output (2024_10_04_19_17_09): Success
+
+
+========customervisitpunch=======Called (2024_10_04_15_21_00)===================
+Params (2024_10_04_15_21_00): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"3"}
+Output (2024_10_04_19_21_00): Success
+
+
+========salesfunnellist=======Called (2024_10_04_15_21_32)===================
+Params (2024_10_04_15_21_32): {"UserInfoID":"3","Search":"0"}
+Output (2024_10_04_19_21_32): Success
+
+
+========salesfunnellist=======Called (2024_10_04_15_24_06)===================
+Params (2024_10_04_15_24_06): {"UserInfoID":"3","Search":"0"}
+Output (2024_10_04_19_24_06): Success
+
+
+========salesfunnellist=======Called (2024_10_04_15_24_18)===================
+Params (2024_10_04_15_24_18): {"UserInfoID":"3","Search":"51"}
+Output (2024_10_04_19_24_18): Success
+
+
+========customervisitpunch=======Called (2024_10_04_15_30_12)===================
+Params (2024_10_04_15_30_12): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"3"}
+Output (2024_10_04_19_30_12): Success
+
+
+========sfcustomervisitmovement=======Called (2024_10_04_15_39_16)===================
+Params (2024_10_04_15_39_16): {"UserInfoID":"3","FromDate":"20-Aug-2023","ToDate":"20-Aug-2025"}
+Output (2024_10_04_19_39_16): Success
+
+
+========sfcustomervisitmovement=======Called (2024_10_04_15_44_21)===================
+Params (2024_10_04_15_44_21): {"UserInfoID":"3","SalesForceID":"1","VisitDate":"20-Aug-2025"}
+Output (2024_10_04_19_44_21): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========sfcustomervisitmovement=======Called (2024_10_04_15_45_43)===================
+Params (2024_10_04_15_45_43): {"UserInfoID":"3","SalesForceID":"3","VisitDate":"30-Sep-2024"}
+Output (2024_10_04_19_45_43): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========sfcustomervisitmovement=======Called (2024_10_04_15_45_58)===================
+Params (2024_10_04_15_45_58): {"UserInfoID":"3","SalesForceID":"3","VisitDate":"30-Sep-2024"}
+Output (2024_10_04_19_45_58): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========sfcustomervisitmovement=======Called (2024_10_04_15_46_06)===================
+Params (2024_10_04_15_46_06): {"UserInfoID":"3","SalesForceID":"3","VisitDate":"30-Sep-2024"}
+Output (2024_10_04_19_46_06): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========sfcustomervisitmovement=======Called (2024_10_04_15_46_59)===================
+Params (2024_10_04_15_46_59): {"UserInfoID":"3","SalesForceID":"3","VisitDate":"13-Sep-2024"}
+Output (2024_10_04_19_46_59): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========sfcustomervisitmovement=======Called (2024_10_04_15_48_09)===================
+Params (2024_10_04_15_48_09): {"UserInfoID":"3","SalesForceID":"3","VisitDate":"13-Sep-2024"}
+Output (2024_10_04_19_48_09): Success
