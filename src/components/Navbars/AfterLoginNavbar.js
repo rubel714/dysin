@@ -115,48 +115,6 @@ function AfterLoginNavbar(props) {
                       </li>
                     )}
 
-                    {menuShowPermision("machine") === 1 && (
-                      <li>
-                        <a
-                          href="javascript:void(0)"
-                          onClick={() => props.history.push("machine")}
-                        >
-                          Machine
-                        </a>
-                      </li>
-                    )}
-                    {menuShowPermision("machineparts") === 1 && (
-                      <li>
-                        <a
-                          href="javascript:void(0)"
-                          onClick={() => props.history.push("machineparts")}
-                        >
-                          Machine Parts
-                        </a>
-                      </li>
-                    )}
-
-                    {menuShowPermision("machinemodel") === 1 && (
-                      <li>
-                        <a
-                          href="javascript:void(0)"
-                          onClick={() => props.history.push("machinemodel")}
-                        >
-                          Machine Model
-                        </a>
-                      </li>
-                    )}
-
-                    {menuShowPermision("machineserial") === 1 && (
-                      <li>
-                        <a
-                          href="javascript:void(0)"
-                          onClick={() => props.history.push("machineserial")}
-                        >
-                          Machine Serial
-                        </a>
-                      </li>
-                    )}
 
                     {menuShowPermision("customerweb") === 1 && (
                       <li>
@@ -262,6 +220,61 @@ function AfterLoginNavbar(props) {
                 </li>
               )}
  
+ 
+ {menuShowPermision("machinerysetup") === 1 && (
+                <li class="dropdownMenu">
+                  {" "}
+                  Machinery Setup
+                  <ul class="dropdownList">
+
+
+
+                    {menuShowPermision("machine") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() => props.history.push("machine")}
+                        >
+                          Machine
+                        </a>
+                      </li>
+                    )}
+                    {menuShowPermision("machineparts") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() => props.history.push("machineparts")}
+                        >
+                          Machine Parts
+                        </a>
+                      </li>
+                    )}
+
+                    {menuShowPermision("machinemodel") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() => props.history.push("machinemodel")}
+                        >
+                          Machine Model
+                        </a>
+                      </li>
+                    )}
+
+                    {menuShowPermision("machineserial") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() => props.history.push("machineserial")}
+                        >
+                          Machine Serial
+                        </a>
+                      </li>
+                    )}
+ 
+                  </ul>
+                </li>
+              )}
 
               {menuShowPermision("reports") === 1 && (
                 <li class="dropdownMenu">

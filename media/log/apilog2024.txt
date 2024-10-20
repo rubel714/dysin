@@ -1,0 +1,43 @@
+
+
+========customerlist=======Called (2024_10_19_15_07_10)===================
+Params (2024_10_19_15_07_10): {"Search":""}
+
+
+========customerlist=======Called (2024_10_19_15_07_17)===================
+Params (2024_10_19_15_07_17): {"Search":""}
+
+
+========appmenu=======Called (2024_10_19_15_18_04)===================
+Params (2024_10_19_15_18_04): {"CategoryName":"ReportsActivity","UserInfoID":"1"}
+Output (2024_10_19_19_18_04): Success
+
+
+========appmenu=======Called (2024_10_19_15_18_37)===================
+Params (2024_10_19_15_18_37): {"CategoryName":"Dashboard","UserInfoID":"1"}
+Output (2024_10_19_19_18_37): Success
+
+
+========appmenu=======Called (2024_10_19_15_19_18)===================
+Params (2024_10_19_15_19_18): {"CategoryName":"SalesForceTrailActivity","UserInfoID":"1"}
+Output (2024_10_19_19_19_18): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========appmenu=======Called (2024_10_19_15_19_36)===================
+Params (2024_10_19_15_19_36): {"CategoryName":"My Task","UserInfoID":"1"}
+Output (2024_10_19_19_19_36): Success
+
+
+========appmenu=======Called (2024_10_19_15_19_54)===================
+Params (2024_10_19_15_19_54): {"CategoryName":"MyTaskActivity","UserInfoID":"1"}
+Output (2024_10_19_19_19_54): Success
+
+
+========appmenu=======Called (2024_10_19_15_22_13)===================
+Params (2024_10_19_15_22_13): {"CategoryName":"Dashboard","UserInfoID":"1"}
+Output (2024_10_19_19_22_13): Success
+
+
+========customerlist=======Called (2024_10_20_18_23_08)===================
+Params (2024_10_20_18_23_08): {"Search":""}
+Output (2024_10_20_22_23_08): Success

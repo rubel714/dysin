@@ -61,7 +61,7 @@ const Customer = (props) => {
     {
       field: "CustomerName",
       label: "Customer Name",
-      width: "9%",
+      // width: "9%",
       align: "left",
       visible: true,
       sort: true,
@@ -77,24 +77,6 @@ const Customer = (props) => {
       width: "7%",
     },
 
-    {
-      field: "Address",
-      label: "Address",
-      align: "left",
-      visible: true,
-      sort: true,
-      filter: true,
-      width: "12%",
-    },
-    {
-      field: "Email",
-      label: "Email",
-      width: "10%",
-      align: "left",
-      visible: true,
-      sort: true,
-      filter: true,
-    },
     {
       field: "ContactPhone",
       label: "Phone No.",
@@ -213,8 +195,6 @@ const Customer = (props) => {
       CustomerCode: "",
       CustomerName: "",
       Designation: "",
-      Address: "",
-      Email: "",
       ContactPhone: "",
       CompanyName: "",
       NatureOfBusiness: "",

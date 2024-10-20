@@ -34,7 +34,7 @@ function getDataList($data){
 		$dbh = new Db();
 
 		$query = "SELECT a.CustomerId AS id, a.CustomerCode,a.CustomerName, 
-		a.Designation, a.Address, a.Email, a.ContactPhone, a.CompanyName, a.NatureOfBusiness,
+		a.Designation,  a.ContactPhone, a.CompanyName, a.NatureOfBusiness,
 		a.CompanyEmail,a.CompanyAddress,a.IsActive,a.UserId
 		, case when a.IsActive=1 then 'Active' else 'In Active' end IsActiveName
 		FROM t_customer a
@@ -78,8 +78,6 @@ function dataAddEdit($data) {
 
 		$CustomerName = $data->rowData->CustomerName;
 		$Designation = isset($data->rowData->Designation) && ($data->rowData->Designation !== "") ? $data->rowData->Designation : NULL;
-		$Address = isset($data->rowData->Address) && ($data->rowData->Address !== "") ? $data->rowData->Address : NULL;
-		$Email = isset($data->rowData->Email) && ($data->rowData->Email !== "")? $data->rowData->Email : NULL;
 		$ContactPhone = isset($data->rowData->ContactPhone) && ($data->rowData->ContactPhone !== "")? $data->rowData->ContactPhone : NULL;
 		$CompanyName = isset($data->rowData->CompanyName) && ($data->rowData->CompanyName !== "")? $data->rowData->CompanyName : NULL;
 		$NatureOfBusiness = isset($data->rowData->NatureOfBusiness) && ($data->rowData->NatureOfBusiness !== "")? $data->rowData->NatureOfBusiness : NULL;
@@ -95,8 +93,8 @@ function dataAddEdit($data) {
 			if($CustomerId == ""){
 				$q = new insertq();
 				$q->table = 't_customer';
-				$q->columns = ['ClientId','CustomerCode','CustomerName','Designation','Address','Email','ContactPhone','CompanyName','NatureOfBusiness','CompanyEmail','CompanyAddress','IsActive','UserId'];
-				$q->values = [$ClientId,$CustomerCode,$CustomerName,$Designation,$Address,$Email,$ContactPhone,$CompanyName,$NatureOfBusiness,$CompanyEmail,$CompanyAddress,$IsActive,$UserId];
+				$q->columns = ['ClientId','CustomerCode','CustomerName','Designation','ContactPhone','CompanyName','NatureOfBusiness','CompanyEmail','CompanyAddress','IsActive','UserId'];
+				$q->values = [$ClientId,$CustomerCode,$CustomerName,$Designation,$ContactPhone,$CompanyName,$NatureOfBusiness,$CompanyEmail,$CompanyAddress,$IsActive,$UserId];
 				$q->pks = ['CustomerId'];
 				$q->bUseInsetId = false;
 				$q->build_query();
@@ -105,8 +103,8 @@ function dataAddEdit($data) {
 			}else{
 				$u = new updateq();
 				$u->table = 't_customer';
-				$u->columns = ['CustomerCode','CustomerName','Designation','Address','Email','ContactPhone','CompanyName','NatureOfBusiness','CompanyEmail','CompanyAddress'];
-				$u->values = [$CustomerCode,$CustomerName,$Designation,$Address,$Email,$ContactPhone,$CompanyName,$NatureOfBusiness,$CompanyEmail,$CompanyAddress];
+				$u->columns = ['CustomerCode','CustomerName','Designation','ContactPhone','CompanyName','NatureOfBusiness','CompanyEmail','CompanyAddress'];
+				$u->values = [$CustomerCode,$CustomerName,$Designation,$ContactPhone,$CompanyName,$NatureOfBusiness,$CompanyEmail,$CompanyAddress];
 				$u->pks = ['CustomerId'];
 				$u->pk_values = [$CustomerId];
 				$u->build_query();

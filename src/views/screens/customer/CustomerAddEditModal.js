@@ -152,26 +152,6 @@ const CustomerAddEditModal = (props) => {
               onChange={(e) => handleChange(e)}
             />
 
-            <label>Address</label>
-            <textarea
-              id="Address"
-              name="Address"
-              value={currentRow.Address}
-              onChange={(e) => handleChange(e)}
-            ></textarea>
-          </div>
-          <div class="contactmodalBody pt-10">
-            <label>Email</label>
-            <input
-              type="text"
-              id="Email"
-              name="Email"
-              // class={errorObject.Email}
-              placeholder="Enter email"
-              value={currentRow.Email}
-              onChange={(e) => handleChange(e)}
-            />
-
             <label>Phone No</label>
             <input
               type="text"
@@ -183,6 +163,7 @@ const CustomerAddEditModal = (props) => {
               onChange={(e) => handleChange(e)}
             />
           </div>
+
           <div class="contactmodalBody pt-10">
             <label>Company Name</label>
             <input
@@ -230,8 +211,6 @@ const CustomerAddEditModal = (props) => {
               onChange={(e) => handleChange(e)}
             />
           </div>
-
-
 
           {/* <div class="contactmodalBody pt-10">
             <label>Is Active?</label>

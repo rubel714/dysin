@@ -68,6 +68,15 @@ const UserEntry = (props) => {
       filter: true,
     },
     {
+      field: "PhoneNo",
+      label: "Phone No",
+      align: "left",
+      visible: true,
+      // width: "10%",
+      sort: true,
+      filter: true,
+    },
+    {
       field: "RoleName",
       label: "Role Name",
       align: "left",
@@ -207,6 +216,7 @@ const UserEntry = (props) => {
             // DistrictId: "",
             RoleId: "",
             Email: "",
+            PhoneNo: "",
             DesignationId: "",
             confirmPassword: "",
             DepartmentId: "",

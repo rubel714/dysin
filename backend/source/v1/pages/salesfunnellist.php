@@ -47,7 +47,8 @@ try{
 	
  	$query = "SELECT 1 AS SysValue,'Successful' AS SysMessage, 
 	a.TransactionId AS SalesForceCustomerVisitID,
-		ifnull(a.DropDownListIDForFunnelStatus,'') AS DropDownListIDForFunnelStatus, ifnull(b.DisplayName,'') AS FunnelStatus,
+		ifnull(a.DropDownListIDForFunnelStatus,'') AS DropDownListIDForFunnelStatus, 
+		ifnull(b.DisplayName,'') AS FunnelStatus,
 		ifnull(a.CustomerId,'') AS CustomerID, ifnull(c.CustomerName,'') AS CustomerName,
 	ifnull(a.ContactPersonName,'') AS ContactPersonName, ifnull(a.ContactPersonDesignation,'') AS ContactPersonDesignation, 
 	ifnull(a.ContactPersonMobileNumber,'') AS ContactPersonMobileNumber,

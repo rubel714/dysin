@@ -33,7 +33,7 @@ function getDataList($data){
 		$dbh = new Db();
 
 		$query = "SELECT a.UserId AS id,a.ClientId ,a.BranchId, a.`UserName`, a.Password,a.LoginName,
-		 a.`Email`,a.`IsActive`, CASE WHEN a.IsActive=1 THEN 'Yes' ELSE 'No' END IsActiveName, 
+		 a.`Email`,a.PhoneNo,a.`IsActive`, CASE WHEN a.IsActive=1 THEN 'Yes' ELSE 'No' END IsActiveName, 
 		a.DesignationId, b.DesignationName, c.RoleId, d.RoleName,a.PhotoUrl,a.DepartmentId,e.DepartmentName,
 		a.TeamId,f.TeamName,a.`LinemanUserId`,g.`UserName` as LinemanUserName,a.Address,a.BusinessLineId,h.BusinessLineName
 	   FROM `t_users` a
@@ -88,6 +88,7 @@ function dataAddEdit($data) {
 		// $DistrictId = $data->rowData->DistrictId? $data->rowData->DistrictId : null;
 		// $UpazilaId = $data->rowData->UpazilaId? $data->rowData->UpazilaId : null;
 		$Email = $data->rowData->Email;
+		$PhoneNo = $data->rowData->PhoneNo? $data->rowData->PhoneNo : null;
 		$DesignationId = $data->rowData->DesignationId;
 		$RoleId = $data->rowData->RoleId;
 		$DepartmentId = $data->rowData->DepartmentId;
@@ -108,8 +109,8 @@ function dataAddEdit($data) {
 			if($id == ""){
 				$q = new insertq();
 				$q->table = 't_users';
-				$q->columns = ['ClientId','BranchId','UserName','LoginName','Password','Email','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
-				$q->values = [$ClientId,$BranchId,$UserName,$LoginName,$Password,$Email,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
+				$q->columns = ['ClientId','BranchId','UserName','LoginName','Password','Email','PhoneNo','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
+				$q->values = [$ClientId,$BranchId,$UserName,$LoginName,$Password,$Email,$PhoneNo,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
 				$q->pks = ['UserId'];
 				$q->bUseInsetId = true;
 				$q->build_query();
@@ -129,12 +130,12 @@ function dataAddEdit($data) {
 				$u->table = 't_users';
 
 					if($Cpassword != ''){
-						$u->columns = ['ClientId','BranchId','UserName','LoginName','Password','Email','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
-						$u->values = [$ClientId,$BranchId,$UserName,$LoginName,$Password,$Email,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
+						$u->columns = ['ClientId','BranchId','UserName','LoginName','Password','Email','PhoneNo','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
+						$u->values = [$ClientId,$BranchId,$UserName,$LoginName,$Password,$Email,$PhoneNo,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
 						
 					}else{
-						$u->columns = ['ClientId','BranchId','UserName','LoginName','Email','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
-						$u->values = [$ClientId,$BranchId, $UserName,$LoginName,$Email,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
+						$u->columns = ['ClientId','BranchId','UserName','LoginName','Email','PhoneNo','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
+						$u->values = [$ClientId,$BranchId, $UserName,$LoginName,$Email,$PhoneNo,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
 				
 					}
 

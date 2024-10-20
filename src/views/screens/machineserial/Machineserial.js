@@ -206,7 +206,7 @@ const Machineserial = (props) => {
         {/* <!-- ######-----TOP HEADER-----####### --> */}
         <div class="topHeader">
           <h4>
-            <a href="#">Home</a> ❯ Basic Setup ❯ Machine Serial
+            <a href="#">Home</a> ❯ Machinery Setup ❯ Machine Serial
           </h4>
         </div>
 

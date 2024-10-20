@@ -198,7 +198,7 @@ const Machinemodel = (props) => {
         {/* <!-- ######-----TOP HEADER-----####### --> */}
         <div class="topHeader">
           <h4>
-            <a href="#">Home</a> ❯ Basic Setup ❯ Machine Model
+            <a href="#">Home</a> ❯ Machinery Setup ❯ Machine Model
           </h4>
         </div>
 

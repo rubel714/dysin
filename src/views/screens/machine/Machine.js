@@ -209,7 +209,7 @@ const Machine = (props) => {
         {/* <!-- ######-----TOP HEADER-----####### --> */}
         <div class="topHeader">
           <h4>
-            <a href="#">Home</a> ❯ Basic Setup ❯ Machine
+            <a href="#">Home</a> ❯ Machinery Setup ❯ Machine
           </h4>
         </div>
 

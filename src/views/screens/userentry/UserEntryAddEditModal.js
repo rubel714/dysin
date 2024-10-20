@@ -446,7 +446,23 @@ const UserEntryAddEditModal = (props) => {
               onChange={(e) => handleChange(e)}
             ></input>
 
-            <label>Role Name *</label>
+            <label>Phone No</label>
+            <input
+              type="text"
+              id="PhoneNo"
+              name="PhoneNo"
+              placeholder="Enter Phone No"
+              // class={errorObject.PhoneNo}
+              value={currentRow.PhoneNo}
+              onChange={(e) => handleChange(e)}
+            ></input>
+
+
+          </div>
+
+          <div class="contactmodalBody pt-10">
+            
+          <label>Role Name *</label>
             <select
               id="RoleId"
               name="RoleId"
@@ -459,9 +475,6 @@ const UserEntryAddEditModal = (props) => {
                   return <option value={item.id}>{item.name}</option>;
                 })}
             </select>
-          </div>
-
-          <div class="contactmodalBody pt-10">
             <label>Designation *</label>
             <select
               id="DesignationId"
@@ -476,19 +489,6 @@ const UserEntryAddEditModal = (props) => {
                 })}
             </select>
 
-            <label>Department *</label>
-            <select
-              id="DepartmentId"
-              name="DepartmentId"
-              class={errorObject.DepartmentId}
-              value={currDepartmentId}
-              onChange={(e) => handleChange(e)}
-            >
-              {DepartmentList &&
-                DepartmentList.map((item, index) => {
-                  return <option value={item.id}>{item.name}</option>;
-                })}
-            </select>
           </div>
 
           <div class="contactmodalBody pt-10">
@@ -504,6 +504,20 @@ const UserEntryAddEditModal = (props) => {
                   return <option value={item.id}>{item.name}</option>;
                 })}
             </select>*/}
+            
+            <label>Department *</label>
+            <select
+              id="DepartmentId"
+              name="DepartmentId"
+              class={errorObject.DepartmentId}
+              value={currDepartmentId}
+              onChange={(e) => handleChange(e)}
+            >
+              {DepartmentList &&
+                DepartmentList.map((item, index) => {
+                  return <option value={item.id}>{item.name}</option>;
+                })}
+            </select>
 
             <label>Business Line *</label>
             <select
@@ -519,7 +533,12 @@ const UserEntryAddEditModal = (props) => {
                 })}
             </select>
 
-            <label>Lineman (N+1)</label>
+
+          </div>
+
+          <div class="contactmodalBody pt-10">
+           
+          <label>Lineman (N+1)</label>
             <select
               id="LinemanUserId"
               name="LinemanUserId"
@@ -533,10 +552,6 @@ const UserEntryAddEditModal = (props) => {
                 })}
             </select>
 
-          </div>
-
-          <div class="contactmodalBody pt-10">
-           
           <label>Address</label>
             <input
               type="text"
@@ -548,7 +563,11 @@ const UserEntryAddEditModal = (props) => {
               onChange={(e) => handleChange(e)}
             />
 
-            <label> Is Active?</label>
+          </div>
+
+          <div class="contactmodalBody pt-10">
+
+          <label> Is Active?</label>
             <input
               id="IsActive"
               name="IsActive"
@@ -557,8 +576,11 @@ const UserEntryAddEditModal = (props) => {
               onChange={handleChangeCheck}
             />
           </div>
+            
+
 
           <div className="contactmodalBody pt-10">
+            
             <label>Photo</label>
             <input
               type="file"
