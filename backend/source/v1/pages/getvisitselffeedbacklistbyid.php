@@ -13,7 +13,13 @@ try{
 
 	DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS VisitDate,
 	ifnull(a.ContactPersonName,'') AS ContactPersonName,
-	ifnull(a.ContactPersonDesignation,'') AS ContactPersonDesignation,ifnull(a.ContactPersonMobileNumber,'') AS ContactPersonMobileNumber,
+	ifnull(a.ContactPersonDesignation,'') AS ContactPersonDesignation,
+	ifnull(a.ContactPersonMobileNumber,'') AS ContactPersonMobileNumber,
+
+	ifnull(c.Designation,'') AS CustomerContactPersonDesignation, 
+	ifnull(c.ContactPhone,'') AS CustomerContactPersonMobileNumber,
+
+
 	ifnull(a.SelfDiscussion,'') AS SelfDiscussion,'' AS SelfFBVisitActions,'' AS SelfFBVisitMachineParts,
 	case when a.SelfFollowUpDate is null then '' else DATE_FORMAT(a.SelfFollowUpDate, '%d-%b-%Y') end AS SelfFollowUpDate,
 	ifnull(a.CustomerId,'') AS CustomerID,ifnull(c.CustomerName,'') AS CustomerName,

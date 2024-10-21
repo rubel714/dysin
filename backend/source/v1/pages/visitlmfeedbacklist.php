@@ -53,6 +53,7 @@ try{
 	left join t_machinemodel f on a.MachineModelId=f.MachineModelId
 	where g.LinemanUserId=$UserId
 	and a.TransactionTypeId=1
+	and a.IsVisitorFeedback='Y'
 	$sWhere
 	ORDER BY a.TransactionDate DESC;";		
 

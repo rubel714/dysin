@@ -530,13 +530,14 @@ $spreadsheet->getActiveSheet()->getStyle('G'.$rn.':G'.$rn)->applyFromArray($styl
 
 $sql = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
 			c.DisplayName,d.CustomerName,a.PublicTransportDesc,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
-            ,a.UserId,b.UserName,bb.DepartmentName,bbb.DesignationName
+            ,a.UserId,b.UserName,bb.DepartmentName,bbb.DesignationName,e.BusinessLineName
 		   FROM t_transaction a
 		   inner join t_users b on a.UserId=b.UserId
 		   inner join t_department bb on b.DepartmentId=bb.DepartmentId
 		   inner join t_designation bbb on b.DesignationId=bbb.DesignationId
 		   inner join t_dropdownlist c on a.DropDownListIDForPurpose=c.DropDownListID
 		   inner join t_customer d on a.CustomerId =d.CustomerId
+		   left join t_businessline e on b.BusinessLineId =e.BusinessLineId
 		   where a.TransactionTypeId=1
 			AND /*(b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 		   AND*/ (a.UserId=$VisitorId)
@@ -554,6 +555,7 @@ $UserId="";
 $UserName="";
 $DepartmentName="";
 $DesignationName="";
+$BusinessLineName="";
 
 $TotalApprovedConveyanceAmount = 0;
 $TotalApprovedRefreshmentAmount = 0;
@@ -565,6 +567,7 @@ foreach ($result as $row) {
         $UserName=$row['UserName'];
         $DepartmentName=$row['DepartmentName'];
         $DesignationName=$row['DesignationName'];
+        $BusinessLineName=$row['BusinessLineName'];
     }
 
     //Wrap Text
@@ -640,6 +643,7 @@ $k = 3;
     /* Value Set for Cells */
     $spreadsheet->getActiveSheet()
             ->SetCellValue('B' . $k, 'NAME OF THE ENTITY:')
+            ->SetCellValue('C' . $k, $BusinessLineName)
             ->SetCellValue('F' . $k, 'DATE:')
             ->SetCellValue('G' . $k, date('d-M-Y'))
 			;

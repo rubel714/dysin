@@ -293,6 +293,98 @@ function AfterLoginNavbar(props) {
                         </a>
                       </li>
                     )}
+
+
+{menuShowPermision("customervisitpunchledger") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("customervisitpunchledger")
+                          }
+                        >
+                          Customer Visit Punch Ledger
+                        </a>
+                      </li>
+                    )}
+
+{menuShowPermision("customervisitpunchsummary") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("customervisitpunchsummary")
+                          }
+                        >
+                          Customer Visit Punch Summary
+                        </a>
+                      </li>
+                    )}
+
+{menuShowPermision("visitplan") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("visitplan")
+                          }
+                        >
+                          Visit Plan
+                        </a>
+                      </li>
+                    )}
+
+{menuShowPermision("conveyancereport") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("conveyancereport")
+                          }
+                        >
+                         Conveyance Report
+                        </a>
+                      </li>
+                    )}
+
+{menuShowPermision("localconveyance") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("localconveyance")
+                          }
+                        >
+                          Local Conveyance
+                        </a>
+                      </li>
+                    )}
+
+{menuShowPermision("visitsummaryreport") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("visitsummaryreport")
+                          }
+                        >
+                         Visit Summary Report
+                        </a>
+                      </li>
+                    )}
+
+{menuShowPermision("machineryservicereport") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("machineryservicereport")
+                          }
+                        >
+                         Machinery Service Report
+                        </a>
+                      </li>
+                    )}
             
                   </ul>
                 </li>

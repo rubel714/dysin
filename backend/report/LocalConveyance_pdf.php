@@ -387,13 +387,14 @@ class MYPDF extends TCPDF
 
 $sqlf = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
 			c.DisplayName,d.CustomerName,a.PublicTransportDesc,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
-            ,a.UserId,b.UserName,bb.DepartmentName,bbb.DesignationName
+            ,a.UserId,b.UserName,bb.DepartmentName,bbb.DesignationName,e.BusinessLineName
 		   FROM t_transaction a
 		   inner join t_users b on a.UserId=b.UserId
 		   inner join t_department bb on b.DepartmentId=bb.DepartmentId
 		   inner join t_designation bbb on b.DesignationId=bbb.DesignationId
 		   inner join t_dropdownlist c on a.DropDownListIDForPurpose=c.DropDownListID
 		   inner join t_customer d on a.CustomerId =d.CustomerId
+		   left join t_businessline e on b.BusinessLineId =e.BusinessLineId
 		   where a.TransactionTypeId=1
 			AND /*(b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 		   AND*/ (a.UserId=$VisitorId)
@@ -410,6 +411,7 @@ $UserId="";
 $UserName="";
 $DepartmentName="";
 $DesignationName="";
+$BusinessLineName="";
 
 $TotalApprovedConveyanceAmount=0;
 $TotalApprovedRefreshmentAmount=0;
@@ -421,6 +423,7 @@ foreach ($sqlLoop1result as $result) {
         $UserName=$result['UserName'];
         $DepartmentName=$result['DepartmentName'];
         $DesignationName=$result['DesignationName'];
+        $BusinessLineName=$result['BusinessLineName'];
     }
 
     $dataList.= '<tr style="font-size: 11px;">
@@ -577,7 +580,7 @@ $tblHeader0 = '<!DOCTYPE html>
 
                     <tr >
                         <td style="width:70%;">
-                             <b> <span>' . 'NAME OF THE ENTITY:' . '</span></b>&nbsp; ' . $TransactionDate . '
+                             <b> <span>' . 'Business Line:' . '</span></b>&nbsp; ' . $BusinessLineName . '
                         </td>
                         <td style="width:20%;" >
                          <span><b>' . 'DATE:' . '</b></span> &nbsp; &nbsp; ' . date('d-M-Y') . ' 

@@ -34,6 +34,13 @@ import RoleToMenuPermission from "views/screens/roletomenupermission/index.js";
 import AuditLog from "views/screens/auditlog/index.js";
 import ErrorLog from "views/screens/errorlog/index.js";
 import TransactionReport from "views/screens/transactionreport/index.js";
+import CustomerVisitPunchLedger from "views/screens/customervisitpunchledger/index.js";
+import CustomerVisitPunchSummary from "views/screens/customervisitpunchsummary/index.js";
+import VisitPlan from "views/screens/visitplan/index.js";
+import ConveyanceReport from "views/screens/conveyancereport/index.js";
+import LocalConveyance from "views/screens/localconveyance/index.js";
+import VisitSummaryReport from "views/screens/visitsummaryreport/index.js";
+import MachineryServiceReport from "views/screens/machineryservicereport/index.js";
 import UserContextProvider from './context/user-info-context';
 
 // import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
@@ -88,6 +95,13 @@ ReactDOM.render(
             <Route path="/auditlog" render={(props) => <AuditLog {...props} />} />
             <Route path="/errorlog" render={(props) => <ErrorLog {...props} />} />
             <Route path="/transactionreport" render={(props) => <TransactionReport {...props} />} />
+            <Route path="/customervisitpunchledger" render={(props) => <CustomerVisitPunchLedger {...props} />} />
+            <Route path="/customervisitpunchsummary" render={(props) => <CustomerVisitPunchSummary {...props} />} />
+            <Route path="/visitplan" render={(props) => <VisitPlan {...props} />} />
+            <Route path="/conveyancereport" render={(props) => <ConveyanceReport {...props} />} />
+            <Route path="/localconveyance" render={(props) => <LocalConveyance {...props} />} />
+            <Route path="/visitsummaryreport" render={(props) => <VisitSummaryReport {...props} />} />
+            <Route path="/machineryservicereport" render={(props) => <MachineryServiceReport {...props} />} />
             <Route path="/" render={(props) => <Index {...props} />} />
 
           </Switch>
