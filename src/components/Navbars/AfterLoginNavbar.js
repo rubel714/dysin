@@ -287,7 +287,7 @@ function AfterLoginNavbar(props) {
                       </li>
                     )}
 
-                    {/* {menuShowPermision("customervisitpunchledger") === 1 && (
+                    {menuShowPermision("customervisitpunchledger") === 1 && (
                       <li>
                         <a
                           href="javascript:void(0)"
@@ -370,7 +370,7 @@ function AfterLoginNavbar(props) {
                           Machinery Service Report
                         </a>
                       </li>
-                    )} */}
+                    )}
                   </ul>
                 </li>
               )}
