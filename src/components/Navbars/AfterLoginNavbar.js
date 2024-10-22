@@ -82,7 +82,6 @@ function AfterLoginNavbar(props) {
                   {" "}
                   Basic Setup
                   <ul class="dropdownList">
-
                     {/* {menuShowPermision("team") === 1 && (
                       <li>
                         <a
@@ -114,7 +113,6 @@ function AfterLoginNavbar(props) {
                         </a>
                       </li>
                     )}
-
 
                     {menuShowPermision("customerweb") === 1 && (
                       <li>
@@ -219,16 +217,12 @@ function AfterLoginNavbar(props) {
                   </ul>
                 </li>
               )}
- 
- 
- {menuShowPermision("machinerysetup") === 1 && (
+
+              {menuShowPermision("machinerysetup") === 1 && (
                 <li class="dropdownMenu">
                   {" "}
                   Machinery Setup
                   <ul class="dropdownList">
-
-
-
                     {menuShowPermision("machine") === 1 && (
                       <li>
                         <a
@@ -271,7 +265,6 @@ function AfterLoginNavbar(props) {
                         </a>
                       </li>
                     )}
- 
                   </ul>
                 </li>
               )}
@@ -294,8 +287,7 @@ function AfterLoginNavbar(props) {
                       </li>
                     )}
 
-
-{menuShowPermision("customervisitpunchledger") === 1 && (
+                    {/* {menuShowPermision("customervisitpunchledger") === 1 && (
                       <li>
                         <a
                           href="javascript:void(0)"
@@ -308,7 +300,7 @@ function AfterLoginNavbar(props) {
                       </li>
                     )}
 
-{menuShowPermision("customervisitpunchsummary") === 1 && (
+                    {menuShowPermision("customervisitpunchsummary") === 1 && (
                       <li>
                         <a
                           href="javascript:void(0)"
@@ -321,46 +313,40 @@ function AfterLoginNavbar(props) {
                       </li>
                     )}
 
-{menuShowPermision("visitplan") === 1 && (
+                    {menuShowPermision("visitplan") === 1 && (
                       <li>
                         <a
                           href="javascript:void(0)"
-                          onClick={() =>
-                            props.history.push("visitplan")
-                          }
+                          onClick={() => props.history.push("visitplan")}
                         >
                           Visit Plan
                         </a>
                       </li>
                     )}
 
-{menuShowPermision("conveyancereport") === 1 && (
+                    {menuShowPermision("conveyancereport") === 1 && (
                       <li>
                         <a
                           href="javascript:void(0)"
-                          onClick={() =>
-                            props.history.push("conveyancereport")
-                          }
+                          onClick={() => props.history.push("conveyancereport")}
                         >
-                         Conveyance Report
+                          Conveyance Report
                         </a>
                       </li>
                     )}
 
-{menuShowPermision("localconveyance") === 1 && (
+                    {menuShowPermision("localconveyance") === 1 && (
                       <li>
                         <a
                           href="javascript:void(0)"
-                          onClick={() =>
-                            props.history.push("localconveyance")
-                          }
+                          onClick={() => props.history.push("localconveyance")}
                         >
                           Local Conveyance
                         </a>
                       </li>
                     )}
 
-{menuShowPermision("visitsummaryreport") === 1 && (
+                    {menuShowPermision("visitsummaryreport") === 1 && (
                       <li>
                         <a
                           href="javascript:void(0)"
@@ -368,12 +354,12 @@ function AfterLoginNavbar(props) {
                             props.history.push("visitsummaryreport")
                           }
                         >
-                         Visit Summary Report
+                          Visit Summary Report
                         </a>
                       </li>
                     )}
 
-{menuShowPermision("machineryservicereport") === 1 && (
+                    {menuShowPermision("machineryservicereport") === 1 && (
                       <li>
                         <a
                           href="javascript:void(0)"
@@ -381,11 +367,10 @@ function AfterLoginNavbar(props) {
                             props.history.push("machineryservicereport")
                           }
                         >
-                         Machinery Service Report
+                          Machinery Service Report
                         </a>
                       </li>
-                    )}
-            
+                    )} */}
                   </ul>
                 </li>
               )}
@@ -403,7 +388,7 @@ function AfterLoginNavbar(props) {
             <a href="#">
               <img src={require("assets/ico/sales.png")} alt="Sales" />
             </a>
-           
+
             {/* <span class="demotext">This is DEMO site</span> */}
           </div>
         </div>
