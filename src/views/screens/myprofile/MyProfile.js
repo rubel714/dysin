@@ -246,7 +246,7 @@ const MyProfile = (props) => {
           <Button label={"ADD"} class={"btnAdd"} onClick={addData} />
         </div> */}
 
-        <div class="subContainertwo">
+        <div class="usersProfile">
           <div className="App">
 
 

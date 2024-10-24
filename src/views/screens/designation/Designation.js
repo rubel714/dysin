@@ -223,7 +223,7 @@ const Designation = (props) => {
 
         {/* <!-- ####---THIS CLASS IS USE FOR TABLE GRID PRODUCT INFORMATION---####s --> */}
         <div class="subContainer">
-          <div className="App">
+          <div className="App tableHeight">
             <CustomTable
               columns={columnList}
               rows={dataList ? dataList : {}}

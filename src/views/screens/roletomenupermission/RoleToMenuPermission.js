@@ -369,10 +369,13 @@ const RoleToMenuPermission = (props) => {
               >
                 ADD
               </button> */}
+               <div>
+              <label>Role:</label>
+              </div>
 
               <div class="formControl-filter">
                
-                  <label>Role:</label>
+                  {/* <label>Role:</label> */}
               
                 {/* <div class="plusGroup"> */}
                 <div class="">
@@ -405,6 +408,7 @@ const RoleToMenuPermission = (props) => {
                   />
                 </div>
               </div>
+             
 
               {/* <Button label={"ADD"} class={"btnAdd"} onClick={addData} /> */}
           <Button label={"Export"} class={"btnPrint"} onClick={PrintPDFExcelExportFunction} />
@@ -413,7 +417,7 @@ const RoleToMenuPermission = (props) => {
 
 
             {/* <!-- ####---Master invoice list---####s --> */}
-             <div class="subContainer">
+             <div class="subContainer tableHeight">
               <div className="App">
                 <CustomTable
                   columns={masterColumnList}

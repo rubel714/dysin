@@ -4,7 +4,7 @@
     position: fixed;
     z-index: 99;
     /* Sit on top */
-    padding-top: 100px;
+    padding-top: 124px;
     /* Location of the box */
     left: 0;
     top: 0;
@@ -25,7 +25,7 @@
 .modal select {
     height: 25px;
     width: 100%;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 .modal textarea {
@@ -34,7 +34,7 @@
     border: var(--input-border);
     border-radius: 4px;
     padding: 4px 4px;
-    font-size: 1rem;
+    font-size: .9rem;
     font-family: sans-serif, 'Lucida Grande', 'Lucida Sans', Arial;
 }
 
@@ -47,20 +47,24 @@
 
 /* Modal Content */
 .modal-content {
-    background-color: var(--modalbg-color);
+    background-color: var(--secondary-color);
     margin: auto;
-    padding: 16px;
+    /* padding: 4px; */
     border: 1px solid black;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     width: 60%;
     word-wrap: break-word;
 }
+
+.modal-content span{
+    padding-left: 16px;
+}
 /* Modal Content Small */
 .modal-content-small {
-    background-color: var(--modalbg-color);
+    background-color: var(--secondary-color);
     margin: auto;
-    padding: 16px;
+    padding: 4px;
     border: 1px solid black;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
     border-radius: 8px;
@@ -78,7 +82,7 @@
     padding-left: 8px;
     /* margin-bottom: 50px; */
     background-color: var(--primary-color);
-    border-radius: 8px;
+    border-radius: 8px 8px 0px 0px;
     color: var(--headerFont-color);
 }
 
@@ -86,8 +90,8 @@
 .modalItem {
     display: flex;
     align-items: center;
-    margin: 16px 0px 0px 0px;
-    justify-content: end;
+    padding: 16px;
+    justify-content: end !important;
 }
 
 
@@ -112,18 +116,22 @@
     width: 50%;
 }
 .modal .modalItem input[type=number] {
+    width: 50%;
+}
+.modal .modalItem input[type=file] {
     width: 100px;
+    height: 40px;
 }
-
 .modal .modalItem select {
-    width: calc(60% - (33px));
+   
+    width: 50%;
+ 
 }
-
 
 /* MANUFACTURER MODAL EXTENSION */
 .contactmodalBody {
     display: grid;
-    grid-template-columns: 18% 35% 17% 30%;
+    grid-template-columns: 18% 30% 20% 30%;
     row-gap: 8px;
 }
 

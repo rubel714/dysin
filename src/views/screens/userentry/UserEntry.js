@@ -339,7 +339,7 @@ const UserEntry = (props) => {
         </div>
 
         {/* <!-- ####---THIS CLASS IS USE FOR TABLE GRID PRODUCT INFORMATION---####s --> */}
-        <div class="subContainer">
+        <div class="subContainer tableHeight">
           <div className="App">
             <CustomTable
               columns={columnList}
