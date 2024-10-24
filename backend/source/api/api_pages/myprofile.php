@@ -26,8 +26,8 @@ switch($task){
 
 function getDataList($data){
 
-	$ClientId = trim($data->ClientId); 
-	$BranchId = trim($data->BranchId); 
+	// $ClientId = trim($data->ClientId); 
+	// $BranchId = trim($data->BranchId); 
 	$UserId = trim($data->UserId); 
 
 	try{
@@ -36,14 +36,17 @@ function getDataList($data){
 
 		$query = "SELECT a.UserId AS id,a.ClientId ,a.BranchId, a.`UserName`, a.Password,a.LoginName,
 		 a.`Email`,a.`IsActive`, CASE WHEN a.IsActive=1 THEN 'Yes' ELSE 'No' END IsActiveName, 
-		a.DesignationId, b.DesignationName, c.RoleId, d.RoleName
+		a.DesignationId, b.DesignationName, c.RoleId, d.RoleName,a.PhoneNo,e.DepartmentName,f.BusinessLineName
+		,g.`UserName` AS LinemanUserName,a.Address
 	   FROM `t_users` a
 	   INNER JOIN `t_designation` b ON a.`DesignationId` = b.`DesignationId`
 	   INNER JOIN `t_user_role_map` c ON a.`UserId` = c.`UserId`
 	   INNER JOIN `t_roles` d ON c.`RoleId` = d.`RoleId`
-	   where a.ClientId=$ClientId
-	   and a.BranchId=$BranchId
-	   and a.UserId=$UserId;";
+	   INNER JOIN `t_department` e ON a.`DepartmentId` = e.`DepartmentId`
+	   INNER JOIN `t_businessline` f ON a.`BusinessLineId` = f.`BusinessLineId`
+	   LEFT JOIN `t_users` g ON a.`LinemanUserId` = g.`UserId`
+
+	   where a.UserId=$UserId;";
 		
 		$resultdata = $dbh->query($query);
 		
@@ -93,7 +96,7 @@ function dataAddEdit($data) {
 			$dbh = new Db();
 			$aQuerys = array();
 
-			
+
 			$u = new updateq();
 			$u->table = 't_users';
 

@@ -274,7 +274,7 @@ function AfterLoginNavbar(props) {
                   {" "}
                   Reports
                   <ul class="dropdownList">
-                    {menuShowPermision("transactionreport") === 1 && (
+                    {/* {menuShowPermision("transactionreport") === 1 && (
                       <li>
                         <a
                           href="javascript:void(0)"
@@ -285,7 +285,7 @@ function AfterLoginNavbar(props) {
                           Transaction Report
                         </a>
                       </li>
-                    )}
+                    )} */}
 
                     {menuShowPermision("customervisitpunchledger") === 1 && (
                       <li>
@@ -378,19 +378,7 @@ function AfterLoginNavbar(props) {
           </div>
 
           {/* <!-- ICON BAR --> */}
-          <div class="menuIconBar">
-            <a href="#">
-              <img src={require("assets/ico/customer.png")} alt="Customer" />
-            </a>
-            <a href="#">
-              <img src={require("assets/ico/receive.png")} alt="Receive" />
-            </a>
-            <a href="#">
-              <img src={require("assets/ico/sales.png")} alt="Sales" />
-            </a>
-
-            {/* <span class="demotext">This is DEMO site</span> */}
-          </div>
+        
         </div>
 
         {/* <!-- USER PANEL --> */}

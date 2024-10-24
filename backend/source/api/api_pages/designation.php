@@ -74,6 +74,23 @@ function dataAddEdit($data) {
 			$dbh = new Db();
 			$aQuerys = array();
 
+
+			// $query = "SELECT UserId,LoginName FROM `t_users` where UserId>8;";
+ 
+			// $resultdata = $dbh->query($query);
+			// foreach($resultdata as $row){
+			// 	$UserId = $row["UserId"];
+			// 	$LoginName = $row["LoginName"];
+			// 	$Password = password_hash($LoginName, PASSWORD_DEFAULT);
+		
+			// 	$query1 = "update `t_users` set Password='$Password' where UserId=$UserId;";
+			// 	$dbh->query($query1);
+			 
+		
+			// }
+
+
+
 			if($DesignationId == ""){
 				$q = new insertq();
 				$q->table = 't_designation';

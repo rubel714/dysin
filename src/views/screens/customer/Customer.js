@@ -51,7 +51,7 @@ const Customer = (props) => {
     // { field: 'SL', label: 'SL',width:'10%',align:'center',visible:true,sort:false,filter:false },
     {
       field: "CustomerCode",
-      label: "Customer Code",
+      label: "Code",
       width: "7%",
       align: "left",
       visible: true,
@@ -107,7 +107,7 @@ const Customer = (props) => {
     },
     {
       field: "CompanyEmail",
-      label: "Company Email",
+      label: "Email",
       width: "7%",
       align: "left",
       visible: true,
@@ -116,7 +116,7 @@ const Customer = (props) => {
     },
     {
       field: "CompanyAddress",
-      label: "Company Address",
+      label: "Address",
       width: "12%",
       align: "left",
       visible: true,

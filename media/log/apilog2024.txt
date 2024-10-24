@@ -41,3 +41,56 @@ Output (2024_10_19_19_22_13): Success
 ========customerlist=======Called (2024_10_20_18_23_08)===================
 Params (2024_10_20_18_23_08): {"Search":""}
 Output (2024_10_20_22_23_08): Success
+
+
+========savevisitselffeedback=======Called (2024_10_24_17_12_50)===================
+Params (2024_10_24_17_12_50): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4,"PartsQuantity":100},{"MachinePartsId":7,"PartsQuantity":100},{"MachinePartsId":21,"PartsQuantity":100}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_10_24_17_13_31)===================
+Params (2024_10_24_17_13_31): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4,"PartsQuantity":100},{"MachinePartsId":7,"PartsQuantity":100},{"MachinePartsId":21,"PartsQuantity":100}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_10_24_17_14_11)===================
+Params (2024_10_24_17_14_11): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4,"PartsQuantity":100},{"MachinePartsId":7,"PartsQuantity":100},{"MachinePartsId":21,"PartsQuantity":100}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_10_24_17_14_52)===================
+Params (2024_10_24_17_14_52): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4,"PartsQuantity":100},{"MachinePartsId":7,"PartsQuantity":100},{"MachinePartsId":21,"PartsQuantity":100}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_10_24_17_15_58)===================
+Params (2024_10_24_17_15_58): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4,"PartsQuantity":100},{"MachinePartsId":7,"PartsQuantity":100},{"MachinePartsId":21,"PartsQuantity":100}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_10_24_17_17_39)===================
+Params (2024_10_24_17_17_39): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4,"PartsQuantity":100},{"MachinePartsId":7,"PartsQuantity":100},{"MachinePartsId":21,"PartsQuantity":100}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_10_24_17_21_44)===================
+Params (2024_10_24_17_21_44): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4,"PartsQuantity":100},{"MachinePartsId":7,"PartsQuantity":100},{"MachinePartsId":21,"PartsQuantity":100}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_10_24_17_23_00)===================
+Params (2024_10_24_17_23_00): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4,"PartsQuantity":100},{"MachinePartsId":7,"PartsQuantity":100},{"MachinePartsId":21,"PartsQuantity":100}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========savevisitselffeedback=======Called (2024_10_24_17_25_39)===================
+Params (2024_10_24_17_25_39): {"SalesForceCustomerVisitID":"16","ContactPersonName":"kangkan","ContactPersonDesignation":"dev","ContactPersonMobileNumber":"019","SelfDiscussion":"test9","SelfFBVisitActions":[{"VisitActionID":28},{"VisitActionID":29},{"VisitActionID":30}],"SelfFBVisitMachineParts":[{"MachinePartsId":4,"PartsQuantity":100},{"MachinePartsId":7,"PartsQuantity":100},{"MachinePartsId":21,"PartsQuantity":100}],"SelfFollowUpDate":"20-Jan-2024","UserInfoID":"3"}
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_10_24_17_32_12)===================
+Params (2024_10_24_17_32_12): {"SalesForceCustomerVisitID":"16"}
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_10_24_17_32_31)===================
+Params (2024_10_24_17_32_31): {"SalesForceCustomerVisitID":"52"}
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_10_24_17_32_49)===================
+Params (2024_10_24_17_32_49): {"SalesForceCustomerVisitID":"66"}
+
+
+========getvisitselffeedbacklistbyid=======Called (2024_10_24_17_33_13)===================
+Params (2024_10_24_17_33_13): {"SalesForceCustomerVisitID":"66"}
+Output (2024_10_24_21_33_13): Success

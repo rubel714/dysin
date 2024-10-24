@@ -1,10 +1,15 @@
 import React, { forwardRef, useRef } from "react";
 import swal from "sweetalert";
 import { DeleteOutline, Edit } from "@material-ui/icons";
-import {Button}  from "../../../components/CustomControl/Button";
+import { Button } from "../../../components/CustomControl/Button";
 
 import CustomTable from "components/CustomTable/CustomTable";
-import { apiCall, apiOption , LoginUserInfo, language} from "../../../actions/api";
+import {
+  apiCall,
+  apiOption,
+  LoginUserInfo,
+  language,
+} from "../../../actions/api";
 import ExecuteQueryHook from "../../../components/hooks/ExecuteQueryHook";
 
 // import UserEntryAddEditModal from "./UserEntryAddEditModal";
@@ -29,25 +34,21 @@ const MyProfile = (props) => {
   });
   const [errorObject, setErrorObject] = useState({});
   const UserInfo = LoginUserInfo();
- 
 
   const [DesignationList, setDesignationList] = useState(null);
   const [currDesignationId, setCurrDesignationId] = useState(null);
-  const {isLoading, data: dataList, error, ExecuteQuery} = ExecuteQueryHook(); //Fetch data
+  const { isLoading, data: dataList, error, ExecuteQuery } = ExecuteQueryHook(); //Fetch data
   // const UserInfo = LoginUserInfo();
 
   /* =====Start of Excel Export Code==== */
   const EXCEL_EXPORT_URL = process.env.REACT_APP_API_URL;
 
-  
   React.useEffect(() => {
     getDesignation();
-
   }, []);
 
-  
   React.useEffect(() => {
-    if(dataList.length>0){
+    if (dataList.length > 0) {
       setCurrentRow(dataList[0]);
       setCurrDesignationId(dataList[0].DesignationId);
     }
@@ -69,7 +70,6 @@ const MyProfile = (props) => {
     });
   }
 
- 
   const handleChange = (e) => {
     const { name, value } = e.target;
     let data = { ...currentRow };
@@ -197,16 +197,13 @@ const MyProfile = (props) => {
         });
 
         // console.log('props modal: ', props);
-       // if (res.data.success === 1) {
-//          props.modalCallback("addedit");
-      //  }
+        // if (res.data.success === 1) {
+        //          props.modalCallback("addedit");
+        //  }
       });
     }
   }
 
-
- 
-  
   if (bFirst) {
     /**First time call for datalist */
     getDataList();
@@ -215,9 +212,7 @@ const MyProfile = (props) => {
   }
 
   /**Get data for table list */
-  function getDataList(){
-
-   
+  function getDataList() {
     let params = {
       action: "getDataList",
       lan: language(),
@@ -235,9 +230,7 @@ const MyProfile = (props) => {
       <div class="bodyContainer">
         {/* <!-- ######-----TOP HEADER-----####### --> */}
         <div class="topHeader">
-          <h4>
-            Home ❯ My Profile
-          </h4>
+          <h4>Home ❯ My Profile</h4>
         </div>
 
         {/* <!-- TABLE SEARCH AND GROUP ADD --> */}
@@ -248,81 +241,95 @@ const MyProfile = (props) => {
 
         <div class="usersProfile">
           <div className="App">
+            <div class="contactmodalBody pt-10">
+              <label>User Name</label>
+              <input
+                type="text"
+                id="UserName"
+                name="UserName"
+                disabled={true}
+                class={errorObject.UserName}
+                placeholder="Enter User Name"
+                value={currentRow.UserName}
+                onChange={(e) => handleChange(e)}
+              />
 
+              <label>Login Name</label>
+              <input
+                type="text"
+                id="LoginName"
+                name="LoginName"
+                disabled={true}
+                class={errorObject.LoginName}
+                placeholder="Enter Login Name"
+                value={currentRow.LoginName}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
 
-          <div class="contactmodalBody pt-10">
-            <label>User Name *</label>
-            <input
-              type="text"
-              id="UserName"
-              name="UserName"
-              class={errorObject.UserName}
-              placeholder="Enter User Name"
-              value={currentRow.UserName}
-              onChange={(e) => handleChange(e)}
-            />
+            <div class="contactmodalBody pt-10">
+              <label>Password</label>
+              <input
+                id="Password"
+                name="Password"
+                type="Password"
+                class={errorObject.Password}
+                placeholder="Enter Password"
+                value={currentRow.Password}
+                onChange={(e) => handleChange(e)}
+              />
 
-            <label>Login Name *</label>
-            <input
-              type="text"
-              id="LoginName"
-              name="LoginName"
-              class={errorObject.LoginName}
-              placeholder="Enter Login Name"
-              value={currentRow.LoginName}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
+              <label>Confirm Password</label>
+              <input
+                id="confirmChangePassword"
+                name="confirmChangePassword"
+                type="Password"
+                class={errorObject.confirmChangePassword}
+                placeholder="Enter Confirm Password"
+                value={currentRow.confirmChangePassword}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
 
-          <div class="contactmodalBody pt-10">
-            <label>Password *</label>
-            <input
-              id="Password"
-              name="Password"
-              type="Password"
-              class={errorObject.Password}
-              placeholder="Enter Password"
-              value={currentRow.Password}
-              onChange={(e) => handleChange(e)}
-            />
+            <div class="contactmodalBody pt-10">
+              <label>Email</label>
+              <input
+                type="text"
+                id="Email"
+                name="Email"
+                disabled={true}
+                placeholder="Enter Email"
+                class={errorObject.Email}
+                value={currentRow.Email}
+                onChange={(e) => handleChange(e)}
+              ></input>
 
-            <label>Confirm Password</label>
-            <input
-              id="confirmChangePassword"
-              name="confirmChangePassword"
-              type="Password"
-              class={errorObject.confirmChangePassword}
-              placeholder="Enter Confirm Password"
-              value={currentRow.confirmChangePassword}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
+              <label>Phone No</label>
+              <input
+                type="text"
+                id="PhoneNo"
+                name="PhoneNo"
+                disabled={true}
+                placeholder="Enter PhoneNo"
+                // class={errorObject.PhoneNo}
+                value={currentRow.PhoneNo}
+                onChange={(e) => handleChange(e)}
+              ></input>
+            </div>
 
-          <div class="contactmodalBody pt-10">
-
-          <label>Email *</label>
-            <input
-              type="text"
-              id="Email"
-              name="Email"
-              placeholder="Enter Email"
-              class={errorObject.Email}
-              value={currentRow.Email}
-              onChange={(e) => handleChange(e)}
-            ></input>
-
-            <label>Role Name *</label>
-            <input
-              type="text"
-              id="RoleName"
-              name="RoleName"
-              disabled={true}
-              // placeholder="Enter Email"
-              // class={errorObject.RoleName}
-              value={currentRow.RoleName}
-              // onChange={(e) => handleChange(e)}
-            ></input>
-            {/* <select
+            <div class="contactmodalBody pt-10">
+              <label>Role Name</label>
+              <input
+                type="text"
+                id="RoleName"
+                name="RoleName"
+                disabled={true}
+                // placeholder="Enter Email"
+                // class={errorObject.RoleName}
+                value={currentRow.RoleName}
+                // onChange={(e) => handleChange(e)}
+              ></input>
+              {/* <select
               id="RoleId"
               name="RoleId"
               class={errorObject.RoleId}
@@ -335,29 +342,48 @@ const MyProfile = (props) => {
                 })}
             </select> */}
 
-  
+              <label>Designation</label>
+              <select
+                id="DesignationId"
+                name="DesignationId"
+                disabled={true}
+                class={errorObject.DesignationId}
+                value={currDesignationId}
+                onChange={(e) => handleChange(e)}
+              >
+                {DesignationList &&
+                  DesignationList.map((item, index) => {
+                    return <option value={item.id}>{item.name}</option>;
+                  })}
+              </select>
+            </div>
 
-          </div>
+            <div class="contactmodalBody pt-10">
+              <label>Department</label>
+              <input
+                type="text"
+                id="DepartmentName"
+                name="DepartmentName"
+                disabled={true}
+                placeholder="Enter DepartmentName"
+                // class={errorObject.DepartmentName}
+                value={currentRow.DepartmentName}
+                onChange={(e) => handleChange(e)}
+              ></input>
 
-          <div class="contactmodalBody pt-10">
+              <label>Business Line</label>
+              <input
+                type="text"
+                id="BusinessLineName"
+                name="BusinessLineName"
+                disabled={true}
+                placeholder="Enter BusinessLineName"
+                // class={errorObject.BusinessLineName}
+                value={currentRow.BusinessLineName}
+                onChange={(e) => handleChange(e)}
+              ></input>
 
-          <label>Designation *</label>
-            <select
-              id="DesignationId"
-              name="DesignationId"
-              disabled={true}
-              class={errorObject.DesignationId}
-              value={currDesignationId}
-              onChange={(e) => handleChange(e)}
-            >
-              {DesignationList &&
-                DesignationList.map((item, index) => {
-                  return <option value={item.id}>{item.name}</option>;
-                })}
-            </select>
-
-
-            {/* <label> Is Active?</label>
+              {/* <label> Is Active?</label>
             <input
               id="IsActive"
               name="IsActive"
@@ -365,16 +391,42 @@ const MyProfile = (props) => {
               checked={currentRow.IsActive}
               onChange={handleChangeCheck}
             /> */}
-          </div>
+            </div>
 
-          <div class="modalItem">
-            {/* {props.currentRow.id && ( */}
+            <div class="contactmodalBody pt-10">
+              <label>Lineman (N+1)</label>
+              <input
+                type="text"
+                id="LinemanUserName"
+                name="LinemanUserName"
+                disabled={true}
+                placeholder="Enter LinemanUserName"
+                // class={errorObject.LinemanUserName}
+                value={currentRow.LinemanUserName}
+                onChange={(e) => handleChange(e)}
+              ></input>
+
+              <label>Address</label>
+              <input
+                type="text"
+                id="Address"
+                name="Address"
+                disabled={true}
+                placeholder="Enter Address"
+                // class={errorObject.Address}
+                value={currentRow.Address}
+                onChange={(e) => handleChange(e)}
+              ></input>
+            </div>
+
+            <div class="modalItem">
+              {/* {props.currentRow.id && ( */}
               <Button
                 label={"Update"}
                 class={"btnUpdate"}
                 onClick={addEditAPICall}
               />
-            {/* // )}
+              {/* // )}
             // {!props.currentRow.id && (
             //   <Button
             //     label={"Save"}
@@ -382,9 +434,7 @@ const MyProfile = (props) => {
             //     onClick={addEditAPICall}
             //   />
             // )} */}
-          </div>
-
-
+            </div>
 
             {/* <CustomTable
               columns={columnList}
@@ -396,10 +446,7 @@ const MyProfile = (props) => {
       </div>
       {/* <!-- BODY CONTAINER END --> */}
 
-
       {/* {showModal && (<UserEntryAddEditModal masterProps={props} currentRow={currentRow} modalCallback={modalCallback}/>)} */}
-
-
     </>
   );
 };

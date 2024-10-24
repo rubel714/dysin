@@ -117,12 +117,12 @@ function getDataList($data)
 			$query = "SELECT a.TransactionId id,
 			DATE_FORMAT(a.TransactionDate, '%d-%b-%Y') AS TransactionDate,
 			DATE_FORMAT(a.TransactionDate, '%h:%i:%s %p') AS TimeIn,
-			'' AS TimeOut,a.UserId,b.UserName,d.CustomerCode,d.CustomerName,d.Address,g.MachineName,h.MachineModelName
+			'' AS TimeOut,a.UserId,b.UserName,d.CustomerCode,d.CustomerName,d.CompanyAddress as Address,g.MachineName,h.MachineModelName
 			,a.MachineSerial,a.MachineComplain
 			,(SELECT GROUP_CONCAT(n.MachinePartsName) FROM `t_transaction_machineparts` m 
 				inner join t_machineparts n on m.MachinePartsId=n.MachinePartsId 
 				where m.TransactionId=a.TransactionId) as MachineParts
-			,a.SelfDiscussion,''  as SuggestionToCustomer,''  as SuggestionFromCustomer
+			,a.SelfDiscussion,a.customerToSuggestion as SuggestionToCustomer,a.customerBySuggestion as SuggestionFromCustomer
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			inner join t_customer d on a.CustomerId =d.CustomerId

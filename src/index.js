@@ -33,7 +33,7 @@ import RoleToMenuPermission from "views/screens/roletomenupermission/index.js";
 // import Branch from "views/screens/branch/index.js";
 import AuditLog from "views/screens/auditlog/index.js";
 import ErrorLog from "views/screens/errorlog/index.js";
-import TransactionReport from "views/screens/transactionreport/index.js";
+// import TransactionReport from "views/screens/transactionreport/index.js";
 import CustomerVisitPunchLedger from "views/screens/customervisitpunchledger/index.js";
 import CustomerVisitPunchSummary from "views/screens/customervisitpunchsummary/index.js";
 import VisitPlan from "views/screens/visitplan/index.js";
@@ -94,7 +94,7 @@ ReactDOM.render(
             <Route path="/branch" render={(props) => <Branch {...props} />} /> */}
             <Route path="/auditlog" render={(props) => <AuditLog {...props} />} />
             <Route path="/errorlog" render={(props) => <ErrorLog {...props} />} />
-            <Route path="/transactionreport" render={(props) => <TransactionReport {...props} />} />
+            {/* <Route path="/transactionreport" render={(props) => <TransactionReport {...props} />} /> */}
             <Route path="/customervisitpunchledger" render={(props) => <CustomerVisitPunchLedger {...props} />} />
             <Route path="/customervisitpunchsummary" render={(props) => <CustomerVisitPunchSummary {...props} />} />
             <Route path="/visitplan" render={(props) => <VisitPlan {...props} />} />

@@ -36,6 +36,10 @@ try{
 	ifnull(a.MachineId,'') AS MachineId,
 	ifnull(e.MachineName,'') AS MachineName,ifnull(f.MachineModelName,'') AS MachineModelName,
 	ifnull(a.MachineSerial,'') AS MachineSerial,ifnull(a.MachineComplain,'') AS MachineComplain
+	,ifnull(a.customerBySuggestion,'') AS customerBySuggestion
+	,(case when a.customerSignature is null then '' else concat('https://dysin.ng-ssl.com/image/transaction/',a.customerSignature) end) AS customerSignature
+	,ifnull(a.customerToSuggestion,'') AS customerToSuggestion
+
 
 	FROM t_transaction a
 	left join t_dropdownlist b on a.DropDownListIDForPurpose=b.DropDownListID
