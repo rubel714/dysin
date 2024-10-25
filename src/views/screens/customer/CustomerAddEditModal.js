@@ -118,13 +118,13 @@ const CustomerAddEditModal = (props) => {
           </div>
 
           <div class="contactmodalBody pt-10">
-            <label>Customer Code</label>
+            <label>Code</label>
             <input
               type="text"
               id="CustomerCode"
               name="CustomerCode"
               // class={errorObject.CustomerCode}
-              placeholder="Enter customer code"
+              placeholder="Enter code"
               value={currentRow.CustomerCode}
               onChange={(e) => handleChange(e)}
             />
@@ -140,8 +140,47 @@ const CustomerAddEditModal = (props) => {
               onChange={(e) => handleChange(e)}
             />
           </div>
+
+
           <div class="contactmodalBody pt-10">
-            <label>Designation</label>
+          <label>Address</label>
+            <input
+              type="text"
+              id="CompanyAddress"
+              name="CompanyAddress"
+              // class={errorObject.CompanyAddress}
+              placeholder="Enter company address"
+              value={currentRow.CompanyAddress}
+              onChange={(e) => handleChange(e)}
+            />
+  <label>Type</label>
+            <input
+              type="text"
+              id="NatureOfBusiness"
+              name="NatureOfBusiness"
+              // class={errorObject.NatureOfBusiness}
+              placeholder="Enter type"
+              value={currentRow.NatureOfBusiness}
+              onChange={(e) => handleChange(e)}
+            />
+
+
+           
+          </div>
+
+          <div class="contactmodalBody pt-10">
+            <label>Contact Person</label>
+            <input
+              type="text"
+              id="CompanyName"
+              name="CompanyName"
+              // class={errorObject.ContactPhone}
+              placeholder="Enter contact person"
+              value={currentRow.CompanyName}
+              onChange={(e) => handleChange(e)}
+            />
+
+ <label>Designation</label>
             <input
               type="text"
               id="Designation"
@@ -152,44 +191,22 @@ const CustomerAddEditModal = (props) => {
               onChange={(e) => handleChange(e)}
             />
 
-            <label>Phone No</label>
+          </div>
+
+          <div class="contactmodalBody pt-10">
+            
+          <label>Phone</label>
             <input
               type="text"
               id="ContactPhone"
               name="ContactPhone"
               // class={errorObject.ContactPhone}
-              placeholder="Enter phone no"
+              placeholder="Enter phone"
               value={currentRow.ContactPhone}
               onChange={(e) => handleChange(e)}
             />
-          </div>
-
-          <div class="contactmodalBody pt-10">
-            <label>Company Name</label>
-            <input
-              type="text"
-              id="CompanyName"
-              name="CompanyName"
-              // class={errorObject.ContactPhone}
-              placeholder="Enter company name"
-              value={currentRow.CompanyName}
-              onChange={(e) => handleChange(e)}
-            />
-
-            <label>Nature Of Business</label>
-            <input
-              type="text"
-              id="NatureOfBusiness"
-              name="NatureOfBusiness"
-              // class={errorObject.ContactPhone}
-              placeholder="Enter nature of business"
-              value={currentRow.NatureOfBusiness}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-
-          <div class="contactmodalBody pt-10">
-            <label>Company Email</label>
+          
+            <label>Email</label>
             <input
               type="text"
               id="CompanyEmail"
@@ -200,16 +217,7 @@ const CustomerAddEditModal = (props) => {
               onChange={(e) => handleChange(e)}
             />
 
-            <label>Company Address</label>
-            <input
-              type="text"
-              id="CompanyAddress"
-              name="CompanyAddress"
-              // class={errorObject.ContactPhone}
-              placeholder="Enter company address"
-              value={currentRow.CompanyAddress}
-              onChange={(e) => handleChange(e)}
-            />
+           
           </div>
 
           {/* <div class="contactmodalBody pt-10">

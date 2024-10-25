@@ -409,18 +409,16 @@ function CustomerExport()
 	global $sql, $tableProperties, $TEXT, $siteTitle;
 
 	$ClientId = $_REQUEST['ClientId'];
-	$sql = "SELECT a.CustomerCode,a.CustomerName, a.Designation,  a.ContactPhone,
-	 a.CompanyName, a.NatureOfBusiness,	a.CompanyEmail,a.CompanyAddress
+	$sql = "SELECT a.CustomerCode,a.CustomerName,a.CompanyAddress, a.NatureOfBusiness, a.CompanyName, 
+	a.Designation,  a.ContactPhone,	a.CompanyEmail
 		FROM t_customer a
-		ORDER BY a.CustomerCode ASC,a.CustomerName ASC;";
+		ORDER BY a.CustomerName ASC;";
 
-	$tableProperties["query_field"] = array("CustomerCode","CustomerName", "Designation",  "ContactPhone"
-	, "CompanyName", "NatureOfBusiness", "CompanyEmail", "CompanyAddress");
-	$tableProperties["table_header"] = array('Customer Code','Customer Name', 'Designation', 'Phone No.'
-,'Company Name','Nature Of Business','Company Email','Company Address');
+	$tableProperties["query_field"] = array("CustomerCode","CustomerName", "CompanyAddress", "NatureOfBusiness", "CompanyName","Designation",  "ContactPhone", "CompanyEmail");
+	$tableProperties["table_header"] = array('Code','Customer Name','Address','Type','Contact Person', 'Designation', 'Phone','Email');
 	$tableProperties["align"] = array("left", "left", "left", "left", "left","left", "left", "left");
 	$tableProperties["width_print_pdf"] = array("10%", "10%", "10%", "10%",  "10%", "10%", "10%", "10%"); //when exist serial then here total 95% and 5% use for serial
-	$tableProperties["width_excel"] = array("18", "30", "20", "30",  "20", "20", "20", "20");
+	$tableProperties["width_excel"] = array("18", "30", "30", "20",  "20", "20", "20", "20");
 	$tableProperties["precision"] = array("string", "string", "string","string", "string", "string", "string", "string"); //string,date,datetime,0,1,2,3,4
 	$tableProperties["total"] = array(0, 0, 0, 0, 0,0, 0, 0); //not total=0, total=1
 	$tableProperties["color_code"] = array(0, 0, 0, 0, 0, 0, 0, 0); //colorcode field = 1 not color code field = 0

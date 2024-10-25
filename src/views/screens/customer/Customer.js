@@ -68,6 +68,39 @@ const Customer = (props) => {
       filter: true,
     },
     {
+      field: "CompanyAddress",
+      label: "Address",
+      width: "12%",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+    },
+    {
+      field: "NatureOfBusiness",
+      label: "Type",
+      width: "6%",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+    },
+
+
+
+    {
+      field: "CompanyName",
+      label: "Contact Person",
+      width: "10%",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+    },
+
+
+
+    {
       field: "Designation",
       label: "Designation",
       align: "left",
@@ -79,32 +112,15 @@ const Customer = (props) => {
 
     {
       field: "ContactPhone",
-      label: "Phone No.",
+      label: "Phone",
       width: "6%",
-      align: "left",
-      visible: true,
-      sort: true,
-      filter: true,
-    },
-    {
-      field: "CompanyName",
-      label: "Company Name",
-      width: "10%",
       align: "left",
       visible: true,
       sort: true,
       filter: true,
     },
 
-    {
-      field: "NatureOfBusiness",
-      label: "Nature Of Business.",
-      width: "6%",
-      align: "left",
-      visible: true,
-      sort: true,
-      filter: true,
-    },
+
     {
       field: "CompanyEmail",
       label: "Email",
@@ -114,15 +130,10 @@ const Customer = (props) => {
       sort: true,
       filter: true,
     },
-    {
-      field: "CompanyAddress",
-      label: "Address",
-      width: "12%",
-      align: "left",
-      visible: true,
-      sort: true,
-      filter: true,
-    },
+
+
+
+
     // {
     //   field: "IsActiveName",
     //   label: "Status",

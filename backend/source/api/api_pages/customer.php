@@ -38,7 +38,7 @@ function getDataList($data){
 		a.CompanyEmail,a.CompanyAddress,a.IsActive,a.UserId
 		, case when a.IsActive=1 then 'Active' else 'In Active' end IsActiveName
 		FROM t_customer a
-		ORDER BY a.CustomerCode ASC,a.CustomerName ASC;";		
+		ORDER BY a.CustomerName ASC;";		
 
 		$resultdata = $dbh->query($query);
 		
