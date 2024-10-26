@@ -347,7 +347,7 @@ $spreadsheet = new Spreadsheet();
 
 	
 	// $reporttitlelist[] =  $siteTitle;
-    $reporttitlelist[] = "LOCAL CONVEYANCE/MEAL REIMBURSEMENT FORM";
+    $reporttitlelist[] = "Self Conveyance Report";
 	// $reporttitlelist[] = "Start Date: ".$StartDate.", End Date: " . $_REQUEST['EndDate'];
 	for($p = 0; $p < count($reporttitlelist); $p++){
 		
@@ -799,7 +799,7 @@ $spreadsheet->getActiveSheet()
 
 $exportTime = date("Y-m-d-His", time());
 $writer = new Xlsx($spreadsheet);
-$file = 'LocalConveyance-' . $exportTime . '.xlsx'; //Save file name
+$file = 'SelfConveyance-' . $exportTime . '.xlsx'; //Save file name
 $writer->save('media/' . $file);
 header('Location:media/' . $file); //File open location
 

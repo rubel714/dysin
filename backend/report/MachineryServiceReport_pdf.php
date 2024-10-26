@@ -101,6 +101,8 @@ $sqlf = "SELECT a.TransactionId id,
 				inner join t_machineparts n on m.MachinePartsId=n.MachinePartsId 
 				where m.TransactionId=a.TransactionId) as MachineParts
 			,a.SelfDiscussion,a.customerToSuggestion as SuggestionToCustomer,a.customerBySuggestion as SuggestionFromCustomer
+            ,a.ContactPersonName,a.ContactPersonDesignation,a.ContactPersonMobileNumber,a.customerSignature
+
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			inner join t_customer d on a.CustomerId =d.CustomerId
@@ -115,14 +117,6 @@ $dataList = '';
 
 $sl = 1;
 
-// DATE_FORMAT(a.TransactionDate, '%d-%b-%Y') AS TransactionDate,
-// DATE_FORMAT(a.TransactionDate, '%h:%i:%s %p') AS TimeIn,
-// '' AS TimeOut,a.UserId,b.UserName,d.CustomerCode,d.CustomerName,d.Address,g.MachineName,h.MachineModelName
-// ,a.MachineSerial,a.MachineComplain
-// ,(SELECT GROUP_CONCAT(n.MachinePartsName) FROM `t_transaction_machineparts` m 
-// inner join t_machineparts n on m.MachinePartsId=n.MachinePartsId 
-// where m.TransactionId=a.TransactionId) as MachineParts
-// ,a.SelfDiscussion,''  as SuggestionToCustomer,''  as SuggestionFromCustomer
 $TransactionDate = "";
 $TimeIn = "";
 $TimeOut = "";
@@ -137,6 +131,10 @@ $MachineParts = "";
 $SelfDiscussion = "";
 $SuggestionToCustomer = "";
 $SuggestionFromCustomer = "";
+$ContactPersonName = "";
+$ContactPersonDesignation = "";
+$ContactPersonMobileNumber = "";
+$customerSignature = "";
 
 foreach ($sqlLoop1result as $result) {
     $TransactionDate = $result['TransactionDate'];
@@ -153,6 +151,10 @@ foreach ($sqlLoop1result as $result) {
     $SelfDiscussion = $result['SelfDiscussion'];
     $SuggestionToCustomer = $result['SuggestionToCustomer'];
     $SuggestionFromCustomer = $result['SuggestionFromCustomer'];
+    $ContactPersonName = $result['ContactPersonName'];
+    $ContactPersonDesignation = $result['ContactPersonDesignation'];
+    $ContactPersonMobileNumber = $result['ContactPersonMobileNumber'];
+    $customerSignature = $result['customerSignature'];
 }
 
 
@@ -207,6 +209,9 @@ $pdf->setFooterMargin(PDF_MARGIN_FOOTER);
 // set image scale factor
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
 // set some language-dependent strings (optional)
 if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
     require_once(dirname(__FILE__) . '/lang/eng.php');
@@ -230,7 +235,10 @@ $pdf->setMargins(5, 0, 8);
 //=================------Start Office Copy-----==========================
 
 
-$tblHeader0 = '<!DOCTYPE html>
+// Image example with resizing
+$pdf->Image('../../image/appmenu/logo.png', 7, 2, 105, 22, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
+
+$tblHeader0 = '<br/><br/><br/><!DOCTYPE html>
             <html>
                 <head>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
@@ -297,11 +305,13 @@ $tblHeader0 = '<!DOCTYPE html>
                         </style>  
                 </head>
                         
-                    <h2 class="center-aln" style="font-size: 15px; ">Machinery Service Report</h2>
+                    <h2 class="right-aln" style="font-size: 15px; ">Machinery Service Report</h2>
 
                     <table style="padding-left:0px; margin-left:0px; font-size: 11px; solid #403c3c;" class="table display" width="100%" cellspacing="0">
                     <tbody >
- 
+                    <tr>
+                        <td style="width:10%;">&nbsp;</td>
+                    </tr>
             
                     <tr >
                         <td style="width:20%;">
@@ -426,6 +436,13 @@ $tblHeader0 = '<!DOCTYPE html>
                        <td style="width:20%;"><b>Designation</b></td>
                        <td style="width:30%;"><b>Signature</b></td>
                     </tr>
+                    <tr >
+                       <td style="width:20%;"></td>
+                       <td style="width:30%;">'.$ContactPersonName.'</td>
+                       <td style="width:20%;">'.$ContactPersonDesignation.'</td>
+                       <td style="width:30%;"><img src="../../image/transaction/'.$customerSignature.'" alt="" width="100" height="40"></td>
+                    </tr>
+
                      <tr>
                         <td style="width:100%;">&nbsp;</td>
                     </tr>
@@ -460,6 +477,7 @@ $tblHeader0 = '<!DOCTYPE html>
 //output the HTML content
 $pdf->writeHTML($tblHeader0, true, false, true, false, '');
 
+ 
 
 $pdf->SetY(252);
 
@@ -526,54 +544,8 @@ $file = 'MachineryServiceReport-' . $exportTime . '.pdf'; //Save file name
 $pdf->Output(dirname(__FILE__) . '/../../media/files/' . $file, 'F');
 
 $pdfFileNameArray = "../../media/files/" . $file;
-// $m++;
-//$pdf->pdfFileNameArray[] = $file;
-//$stringFilse .= "'../../media/files/".$pdfFileNameArray[$ij]."',";
-//$stringFilse .= '"../../media/files/'.$pdfFileNameArray[$ij].'",';
 
-
-
-
-// require_once("merge-pdf-files-master/MergePdf.class.php");
-
-
-// if ($m > 1){
-
-//     MergePdf::merge(
-//         $pdfFileNameArray,
-//         MergePdf::DESTINATION__DISK_INLINE
-//     );
-
-
-//     /*  MergePdf::merge(
-//         Array(
-//             '../../media/files/'.$pdfFileNameArray[0],
-//             '../../media/files/'.$pdfFileNameArray[1],
-//             '../../media/files/'.$pdfFileNameArray[2],
-//             '../../media/files/'.$pdfFileNameArray[3],
-//             '../../media/files/'.$pdfFileNameArray[4],
-//         ),
-//         MergePdf::DESTINATION__DISK_INLINE
-
-//     ); */
-//     echo 1111;
-//     echo $pdfFileNameArray[0];
-//     exit;
-// }else{
-
-/* MergePdf::merge(
-        Array(
-            'media/'.$pdfFileNameArray[0],
-        ),
-        MergePdf::DESTINATION__DISK_INLINE,
-    ); */
-// echo 2222;
-// echo $pdfFileNameArray[0];
-// exit;
-//$pdf->Output('media/'.$pdfFileNameArray[0], 'I');
 $pdf->Output(dirname(__FILE__) . '/../../media/files/' . $pdfFileNameArray, 'I');
-
-// }
 
 
 //============================================================+

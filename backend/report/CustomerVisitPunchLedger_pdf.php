@@ -358,7 +358,7 @@ $pdf->setTextColor(0, 63, 127);
 //$pdf->lastPage();
 
 $exportTime = date("Y-m-d-His", time());
-$file = 'CustomerVisitPunchSummary-' . $exportTime . '.pdf'; //Save file name
+$file = 'CustomerVisitPunchLedger-' . $exportTime . '.pdf'; //Save file name
 //$pdf->Output(dirname(__FILE__).'/media/'.$file, 'F');
 $pdf->Output(dirname(__FILE__) . '/../../media/files/' . $file, 'F');
 

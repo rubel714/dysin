@@ -456,7 +456,7 @@ $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 // set document information
 $pdf->setCreator(PDF_CREATOR);
 $pdf->setAuthor('DYSIN');
-$pdf->setTitle('LOCAL CONVEYANCE/MEAL REIMBURSEMENT FORM');
+$pdf->setTitle('Self Conveyance Report');
 
 // set header and footer fonts
 $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -572,7 +572,7 @@ $tblHeader0 = '<!DOCTYPE html>
                         </style>  
                 </head>
                         
-                    <h2 class="center-aln" style="font-size: 15px; ">LOCAL CONVEYANCE/MEAL REIMBURSEMENT FORM</h2>
+                    <h2 class="center-aln" style="font-size: 15px; ">Self Conveyance Report</h2>
                   
                     
                     <table style="padding-left:0px; margin-left:0px; font-size: 11px; solid #403c3c;" class="table display" width="100%" cellspacing="0">
@@ -824,7 +824,7 @@ $pdf->setTextColor(0, 63, 127);
 //$pdf->lastPage();
 
 $exportTime = date("Y-m-d-His", time());
-$file = 'VisitSummaryReport-' . $exportTime . '.pdf'; //Save file name
+$file = 'SelfConveyanceReport-' . $exportTime . '.pdf'; //Save file name
 //$pdf->Output(dirname(__FILE__).'/media/'.$file, 'F');
 $pdf->Output(dirname(__FILE__) . '/../../media/files/' . $file, 'F');
 

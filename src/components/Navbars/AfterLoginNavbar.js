@@ -341,7 +341,7 @@ function AfterLoginNavbar(props) {
                           href="javascript:void(0)"
                           onClick={() => props.history.push("localconveyance")}
                         >
-                          Local Conveyance
+                          Self Conveyance Report {/* Local Conveyance */}
                         </a>
                       </li>
                     )}
