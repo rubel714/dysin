@@ -44,12 +44,12 @@ try{
 	$query = "SELECT 1 AS SysValue,'Successful' AS SysMessage, 
 	DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS VisitDate,
 	b.UserName AS VisitorName,
-	ifnull(c.CustomerName,'') AS CustomerName,c.Address,
+	ifnull(c.CustomerName,'') AS CustomerName,c.CompanyAddress AS Address,
 	ifnull(e.MachineName,'') AS MachineName, ifnull(f.MachineModelName,'') AS MachineModelName, 
 	ifnull(a.MachineSerial,'') AS MachineSerial,
 	ifnull(a.MachineComplain,'') AS MachineComplain,
 	ifnull(a.SelfDiscussion,'') AS SelfDiscussion,
-	(SELECT ifnull(group_concat( q.MachinePartsName),'')
+	(SELECT ifnull(group_concat(concat(q.MachinePartsName,' (',round(p.Qty),')')),'')
 	FROM `t_transaction_machineparts` p
 	inner join t_machineparts q on p.MachinePartsId=q.MachinePartsId
 	WHERE p.TransactionId=$TransactionId) AS MachinePartsName

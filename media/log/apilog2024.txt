@@ -94,3 +94,18 @@ Params (2024_10_24_17_32_49): {"SalesForceCustomerVisitID":"66"}
 ========getvisitselffeedbacklistbyid=======Called (2024_10_24_17_33_13)===================
 Params (2024_10_24_17_33_13): {"SalesForceCustomerVisitID":"66"}
 Output (2024_10_24_21_33_13): Success
+
+
+========machineryservicereport=======Called (2024_10_27_18_01_24)===================
+Params (2024_10_27_18_01_24): {"SalesForceCustomerVisitID":"18"}
+Output (2024_10_27_23_01_24): [{"SysValue":0,"SysMessage":"Unknown column 'c.Address' in 'field list'"}]
+
+
+========machineryservicereport=======Called (2024_10_27_18_04_47)===================
+Params (2024_10_27_18_04_47): {"SalesForceCustomerVisitID":"18"}
+Output (2024_10_27_23_04_47): [{"SysValue":0,"SysMessage":"No record found"}]
+
+
+========machineryservicereport=======Called (2024_10_27_18_04_53)===================
+Params (2024_10_27_18_04_53): {"SalesForceCustomerVisitID":"72"}
+Output (2024_10_27_23_04_53): Success

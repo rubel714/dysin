@@ -119,7 +119,7 @@ function getDataList($data)
 			DATE_FORMAT(a.TransactionDate, '%h:%i:%s %p') AS TimeIn,
 			'' AS TimeOut,a.UserId,b.UserName,d.CustomerCode,d.CustomerName,d.CompanyAddress as Address,g.MachineName,h.MachineModelName
 			,a.MachineSerial,a.MachineComplain
-			,(SELECT GROUP_CONCAT(n.MachinePartsName) FROM `t_transaction_machineparts` m 
+			,(SELECT GROUP_CONCAT(concat(n.MachinePartsName,' (',round(m.Qty),')')) FROM `t_transaction_machineparts` m 
 				inner join t_machineparts n on m.MachinePartsId=n.MachinePartsId 
 				where m.TransactionId=a.TransactionId) as MachineParts
 			,a.SelfDiscussion,a.customerToSuggestion as SuggestionToCustomer,a.customerBySuggestion as SuggestionFromCustomer
