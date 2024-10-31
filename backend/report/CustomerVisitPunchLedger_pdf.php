@@ -88,7 +88,7 @@ class MYPDF extends TCPDF
 }
 
 $sqlf = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
-			a.UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
+			b.UserCode AS UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
 			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
 			,b.LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice
 			FROM t_transaction a
@@ -363,55 +363,8 @@ $file = 'CustomerVisitPunchLedger-' . $exportTime . '.pdf'; //Save file name
 $pdf->Output(dirname(__FILE__) . '/../../media/files/' . $file, 'F');
 
 $pdfFileNameArray = "../../media/files/" . $file;
-// $m++;
-//$pdf->pdfFileNameArray[] = $file;
-//$stringFilse .= "'../../media/files/".$pdfFileNameArray[$ij]."',";
-//$stringFilse .= '"../../media/files/'.$pdfFileNameArray[$ij].'",';
 
-
-
-
-// require_once("merge-pdf-files-master/MergePdf.class.php");
-
-
-// if ($m > 1){
-
-//     MergePdf::merge(
-//         $pdfFileNameArray,
-//         MergePdf::DESTINATION__DISK_INLINE
-//     );
-
-
-//     /*  MergePdf::merge(
-//         Array(
-//             '../../media/files/'.$pdfFileNameArray[0],
-//             '../../media/files/'.$pdfFileNameArray[1],
-//             '../../media/files/'.$pdfFileNameArray[2],
-//             '../../media/files/'.$pdfFileNameArray[3],
-//             '../../media/files/'.$pdfFileNameArray[4],
-//         ),
-//         MergePdf::DESTINATION__DISK_INLINE
-
-//     ); */
-//     echo 1111;
-//     echo $pdfFileNameArray[0];
-//     exit;
-// }else{
-
-/* MergePdf::merge(
-        Array(
-            'media/'.$pdfFileNameArray[0],
-        ),
-        MergePdf::DESTINATION__DISK_INLINE,
-    ); */
-// echo 2222;
-// echo $pdfFileNameArray[0];
-// exit;
-//$pdf->Output('media/'.$pdfFileNameArray[0], 'I');
 $pdf->Output(dirname(__FILE__) . '/../../media/files/' . $pdfFileNameArray, 'I');
-
-// }
-
 
 //============================================================+
 // END OF FILE

@@ -34,7 +34,7 @@ function getDataList($data)
 
 		if ($ReportTypeId == "CustomerVisitPunchLedger") {
 			$query = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
-			a.UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
+			b.UserCode AS UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
 			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
 			,b.LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice
 			FROM t_transaction a
@@ -51,7 +51,7 @@ function getDataList($data)
 			ORDER BY a.TransactionDate DESC;";
 
 		} else if ($ReportTypeId == "CustomerVisitPunchSummary") {
-			$query = "SELECT a.TransactionId id, a.UserId,b.UserName,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+			$query = "SELECT a.TransactionId id, b.UserCode AS UserId,b.UserName,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
 			,b.LinemanUserId,c.UserName as LinemanUserName
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
@@ -64,7 +64,7 @@ function getDataList($data)
 		} else if ($ReportTypeId == "VisitPlan") {
 
 			$query = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
-			 a.UserId,b.UserName,d.CustomerCode,d.CustomerName,b.LinemanUserId,c.UserName as LinemanUserName
+			 b.UserCode AS UserId,b.UserName,d.CustomerCode,d.CustomerName,c.UserCode AS LinemanUserId,c.UserName as LinemanUserName
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			inner join t_users c on b.LinemanUserId =c.UserId
@@ -117,7 +117,7 @@ function getDataList($data)
 			$query = "SELECT a.TransactionId id,
 			DATE_FORMAT(a.TransactionDate, '%d-%b-%Y') AS TransactionDate,
 			DATE_FORMAT(a.TransactionDate, '%h:%i:%s %p') AS TimeIn,
-			'' AS TimeOut,a.UserId,b.UserName,d.CustomerCode,d.CustomerName,d.CompanyAddress as Address,g.MachineName,h.MachineModelName
+			'' AS TimeOut,b.UserCode AS UserId,b.UserName,d.CustomerCode,d.CustomerName,d.CompanyAddress as Address,g.MachineName,h.MachineModelName
 			,a.MachineSerial,a.MachineComplain
 			,(SELECT GROUP_CONCAT(concat(n.MachinePartsName,' (',round(m.Qty),')')) FROM `t_transaction_machineparts` m 
 				inner join t_machineparts n on m.MachinePartsId=n.MachinePartsId 

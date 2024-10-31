@@ -301,7 +301,7 @@ $spreadsheet->getActiveSheet()->getStyle('R'.$rn.':R'.$rn)->applyFromArray($styl
 
  
 $sql = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
-			a.UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
+			b.UserCode AS UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
 			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
 			,b.LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice
 			FROM t_transaction a

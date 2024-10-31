@@ -232,7 +232,7 @@ $spreadsheet->getActiveSheet()->getStyle('F'.$rn.':F'.$rn)->applyFromArray($styl
 $spreadsheet->getActiveSheet()->getStyle('G'.$rn.':G'.$rn)->applyFromArray($styleThinBlackBorderOutline);
 
  
-$sql = "SELECT a.TransactionId id, a.UserId,b.UserName,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+$sql = "SELECT a.TransactionId id, b.UserCode AS UserId,b.UserName,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
 			,b.LinemanUserId,c.UserName as LinemanUserName
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId

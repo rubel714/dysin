@@ -239,7 +239,7 @@ $spreadsheet->getActiveSheet()->getStyle('H'.$rn.':H'.$rn)->applyFromArray($styl
  
 
 $sql = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
-a.UserId,b.UserName,d.CustomerCode,d.CustomerName,b.LinemanUserId,c.UserName as LinemanUserName
+b.UserCode AS UserId,b.UserName,d.CustomerCode,d.CustomerName,c.UserCode AS LinemanUserId,c.UserName as LinemanUserName
 FROM t_transaction a
 inner join t_users b on a.UserId=b.UserId
 inner join t_users c on b.LinemanUserId =c.UserId

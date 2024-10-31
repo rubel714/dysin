@@ -36,6 +36,7 @@ function getDataList($data){
 		 a.`Email`,a.PhoneNo,a.`IsActive`, CASE WHEN a.IsActive=1 THEN 'Yes' ELSE 'No' END IsActiveName, 
 		a.DesignationId, b.DesignationName, c.RoleId, d.RoleName,a.PhotoUrl,a.DepartmentId,e.DepartmentName,
 		a.TeamId,f.TeamName,a.`LinemanUserId`,g.`UserName` as LinemanUserName,a.Address,a.BusinessLineId,h.BusinessLineName
+		,a.UserCode
 	   FROM `t_users` a
 	   INNER JOIN `t_designation` b ON a.`DesignationId` = b.`DesignationId`
 	   INNER JOIN `t_user_role_map` c ON a.`UserId` = c.`UserId`
@@ -80,6 +81,7 @@ function dataAddEdit($data) {
 		$BranchId = trim($data->BranchId); 
 
 		$id = $data->rowData->id;
+		$UserCode = $data->rowData->UserCode;
 		$UserName = $data->rowData->UserName;
 		$pass_word = $data->rowData->Password;
 		$Password = password_hash($pass_word, PASSWORD_DEFAULT);
@@ -109,8 +111,8 @@ function dataAddEdit($data) {
 			if($id == ""){
 				$q = new insertq();
 				$q->table = 't_users';
-				$q->columns = ['ClientId','BranchId','UserName','LoginName','Password','Email','PhoneNo','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
-				$q->values = [$ClientId,$BranchId,$UserName,$LoginName,$Password,$Email,$PhoneNo,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
+				$q->columns = ['ClientId','BranchId','UserCode','UserName','LoginName','Password','Email','PhoneNo','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
+				$q->values = [$ClientId,$BranchId,$UserCode,$UserName,$LoginName,$Password,$Email,$PhoneNo,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
 				$q->pks = ['UserId'];
 				$q->bUseInsetId = true;
 				$q->build_query();
@@ -130,12 +132,12 @@ function dataAddEdit($data) {
 				$u->table = 't_users';
 
 					if($Cpassword != ''){
-						$u->columns = ['ClientId','BranchId','UserName','LoginName','Password','Email','PhoneNo','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
-						$u->values = [$ClientId,$BranchId,$UserName,$LoginName,$Password,$Email,$PhoneNo,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
+						$u->columns = ['ClientId','BranchId','UserCode','UserName','LoginName','Password','Email','PhoneNo','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
+						$u->values = [$ClientId,$BranchId,$UserCode,$UserName,$LoginName,$Password,$Email,$PhoneNo,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
 						
 					}else{
-						$u->columns = ['ClientId','BranchId','UserName','LoginName','Email','PhoneNo','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
-						$u->values = [$ClientId,$BranchId, $UserName,$LoginName,$Email,$PhoneNo,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
+						$u->columns = ['ClientId','BranchId','UserCode','UserName','LoginName','Email','PhoneNo','IsActive','DesignationId','PhotoUrl','DepartmentId','TeamId','LinemanUserId','Address','BusinessLineId'];
+						$u->values = [$ClientId,$BranchId,$UserCode, $UserName,$LoginName,$Email,$PhoneNo,$IsActive,$DesignationId,$PhotoUrl,$DepartmentId,$TeamId,$LinemanUserId,$Address,$BusinessLineId];
 				
 					}
 

@@ -88,7 +88,7 @@ class MYPDF extends TCPDF
 }
 
 
-$sqlf = "SELECT a.TransactionId id, a.UserId,b.UserName,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+$sqlf = "SELECT a.TransactionId id, b.UserCode AS UserId,b.UserName,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
 			,b.LinemanUserId,c.UserName as LinemanUserName
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId

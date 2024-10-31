@@ -349,13 +349,13 @@ $tblHeader0 = '<br/><br/><br/><!DOCTYPE html>
                     </tr>
 
                     <tr >
-                        <td style="width:30%;">
+                        <td style="width:40%;">
                              <b> <span>' . 'Machine Name:' . '</b></span>&nbsp;: ' . $MachineName . '
                         </td>
-                        <td style="width:20%;">
+                        <td style="width:40%;">
                              <b> <span>' . 'Model No:' . '</b></span>&nbsp;: ' . $MachineModelName . '
                         </td>
-                        <td style="width:50%;">
+                        <td style="width:20%;">
                              <b> <span>' . 'Serial No:' . '</b></span>&nbsp;: ' . $MachineSerial . '
                         </td>
                     </tr>

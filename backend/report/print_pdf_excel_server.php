@@ -47,12 +47,12 @@ switch ($task) {
 	case "MachineserialExport":
 		MachineserialExport();
 		break;
-	
 
 
-		
 
-		
+
+
+
 	case "CustomerExport":
 		CustomerExport();
 		break;
@@ -71,7 +71,7 @@ switch ($task) {
 		RoleToMenuPermissionExport();
 		break;
 
-		
+
 	case "ClientExport":
 		ClientExport();
 		break;
@@ -80,7 +80,7 @@ switch ($task) {
 		BranchExport();
 		break;
 
- 
+
 	default:
 		echo "{failure:true}";
 		break;
@@ -94,7 +94,7 @@ function UserExport()
 
 	$ClientId = $_REQUEST['ClientId'];
 	$BranchId = $_REQUEST['BranchId'];
-	$sql = "SELECT a.`UserName`,a.LoginName,a.Email,a.PhoneNo,c.RoleName,d.DesignationName,
+	$sql = "SELECT a.UserCode,a.`UserName`,a.LoginName,a.Email,a.PhoneNo,c.RoleName,d.DesignationName,
 	e.DepartmentName,h.BusinessLineName,g.`UserName` as LinemanUserName,a.Address,
 	case when a.IsActive=1 then 'Yes' else 'No' end Status
 
@@ -109,14 +109,14 @@ function UserExport()
 	and a.BranchId=$BranchId 
 	ORDER BY a.UserName;";
 
-	$tableProperties["query_field"] = array("UserName", "LoginName", "Email","PhoneNo", "RoleName", "DesignationName","DepartmentName","BusinessLineName","LinemanUserName","Address", "Status");
-	$tableProperties["table_header"] = array('User Name', 'Login Name', 'Email','Phone No', 'Role Name', 'Designation',"Department","Business Line","Lineman (N+1)","Address", 'Is Active');
-	$tableProperties["align"] = array("left", "left", "left", "left", "left", "left", "left","left", "left", "left", "left");
-	$tableProperties["width_print_pdf"] = array("30%", "20%", "20%", "10%", "10%", "10%", "10%","10%", "10%", "10%", "10%"); //when exist serial then here total 95% and 5% use for serial
-	$tableProperties["width_excel"] = array("30", "20", "20", "20", "20", "15", "15",  "15", "15","15", "10");
-	$tableProperties["precision"] = array("string", "string", "string", "string", "string", "string", "string", "string", "string", "string", "string"); //string,date,datetime,0,1,2,3,4
-	$tableProperties["total"] = array(0, 0, 0, 0, 0, 0,0,0,0,0,0); //not total=0, total=1
-	$tableProperties["color_code"] = array(0, 0, 0, 0, 0, 0,0,0,0,0,0); //colorcode field = 1 not color code field = 0
+	$tableProperties["query_field"] = array("UserCode", "UserName", "LoginName", "Email", "PhoneNo", "RoleName", "DesignationName", "DepartmentName", "BusinessLineName", "LinemanUserName", "Address", "Status");
+	$tableProperties["table_header"] = array('User Id', 'User Name', 'Login Name', 'Email', 'Phone No', 'Role Name', 'Designation', "Department", "Business Line", "Lineman (N+1)", "Address", 'Active');
+	$tableProperties["align"] = array("left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left");
+	$tableProperties["width_print_pdf"] = array("15%", "30%",  "20%", "20%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%"); //when exist serial then here total 95% and 5% use for serial
+	$tableProperties["width_excel"] = array("15", "30", "20", "20", "20", "20", "15", "15",  "15", "15", "15", "10");
+	$tableProperties["precision"] = array("string", "string", "string", "string", "string", "string", "string", "string", "string", "string", "string", "string"); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0); //not total=0, total=1
+	$tableProperties["color_code"] = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0); //colorcode field = 1 not color code field = 0
 	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
 	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
 	// exit;
@@ -294,14 +294,14 @@ function MachinepartsExport()
 		INNER JOIN t_machine b on a.MachineId=b.MachineId
 		ORDER BY b.MachineName ASC, a.MachinePartsName ASC;";
 
-	$tableProperties["query_field"] = array("MachineName","MachinePartsName");
-	$tableProperties["table_header"] = array('Machine Name','Machine Parts Name');
-	$tableProperties["align"] = array("left","left");
-	$tableProperties["width_print_pdf"] = array("20%","80%"); //when exist serial then here total 95% and 5% use for serial
-	$tableProperties["width_excel"] = array("25","80");
-	$tableProperties["precision"] = array("string","string"); //string,date,datetime,0,1,2,3,4
-	$tableProperties["total"] = array(0,0); //not total=0, total=1
-	$tableProperties["color_code"] = array(0,0); //colorcode field = 1 not color code field = 0
+	$tableProperties["query_field"] = array("MachineName", "MachinePartsName");
+	$tableProperties["table_header"] = array('Machine Name', 'Machine Parts Name');
+	$tableProperties["align"] = array("left", "left");
+	$tableProperties["width_print_pdf"] = array("20%", "80%"); //when exist serial then here total 95% and 5% use for serial
+	$tableProperties["width_excel"] = array("25", "80");
+	$tableProperties["precision"] = array("string", "string"); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0, 0); //not total=0, total=1
+	$tableProperties["color_code"] = array(0, 0); //colorcode field = 1 not color code field = 0
 	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
 	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
 
@@ -327,14 +327,14 @@ function MachinemodelExport()
 		INNER JOIN t_machine b on a.MachineId=b.MachineId
 		ORDER BY b.MachineName ASC, a.MachineModelName ASC;";
 
-	$tableProperties["query_field"] = array("MachineName","MachineModelName");
-	$tableProperties["table_header"] = array('Machine Name','Machine Model Name');
-	$tableProperties["align"] = array("left","left");
-	$tableProperties["width_print_pdf"] = array("20%","80%"); //when exist serial then here total 95% and 5% use for serial
-	$tableProperties["width_excel"] = array("25","80");
-	$tableProperties["precision"] = array("string","string"); //string,date,datetime,0,1,2,3,4
-	$tableProperties["total"] = array(0,0); //not total=0, total=1
-	$tableProperties["color_code"] = array(0,0); //colorcode field = 1 not color code field = 0
+	$tableProperties["query_field"] = array("MachineName", "MachineModelName");
+	$tableProperties["table_header"] = array('Machine Name', 'Machine Model Name');
+	$tableProperties["align"] = array("left", "left");
+	$tableProperties["width_print_pdf"] = array("20%", "80%"); //when exist serial then here total 95% and 5% use for serial
+	$tableProperties["width_excel"] = array("25", "80");
+	$tableProperties["precision"] = array("string", "string"); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0, 0); //not total=0, total=1
+	$tableProperties["color_code"] = array(0, 0); //colorcode field = 1 not color code field = 0
 	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
 	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
 
@@ -360,14 +360,14 @@ function MachineserialExport()
 		INNER JOIN t_machinemodel c on a.MachineModelId=c.MachineModelId
 		ORDER BY b.MachineName ASC, c.MachineModelName ASC, a.MachineSerial ASC;";
 
-	$tableProperties["query_field"] = array("MachineName","MachineModelName","MachineSerial");
-	$tableProperties["table_header"] = array('Machine Name','Machine Model Name','Machine Serial');
-	$tableProperties["align"] = array("left","left","left");
-	$tableProperties["width_print_pdf"] = array("20%","80%","80%"); //when exist serial then here total 95% and 5% use for serial
-	$tableProperties["width_excel"] = array("20","40","40");
-	$tableProperties["precision"] = array("string","string","string"); //string,date,datetime,0,1,2,3,4
-	$tableProperties["total"] = array(0,0,0); //not total=0, total=1
-	$tableProperties["color_code"] = array(0,0,0); //colorcode field = 1 not color code field = 0
+	$tableProperties["query_field"] = array("MachineName", "MachineModelName", "MachineSerial");
+	$tableProperties["table_header"] = array('Machine Name', 'Machine Model Name', 'Machine Serial');
+	$tableProperties["align"] = array("left", "left", "left");
+	$tableProperties["width_print_pdf"] = array("20%", "80%", "80%"); //when exist serial then here total 95% and 5% use for serial
+	$tableProperties["width_excel"] = array("20", "40", "40");
+	$tableProperties["precision"] = array("string", "string", "string"); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0, 0, 0); //not total=0, total=1
+	$tableProperties["color_code"] = array(0, 0, 0); //colorcode field = 1 not color code field = 0
 	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
 	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
 
@@ -414,13 +414,13 @@ function CustomerExport()
 		FROM t_customer a
 		ORDER BY a.CustomerName ASC;";
 
-	$tableProperties["query_field"] = array("CustomerCode","CustomerName", "CompanyAddress", "NatureOfBusiness", "CompanyName","Designation",  "ContactPhone", "CompanyEmail");
-	$tableProperties["table_header"] = array('Code','Customer Name','Address','Type','Contact Person', 'Designation', 'Phone','Email');
-	$tableProperties["align"] = array("left", "left", "left", "left", "left","left", "left", "left");
+	$tableProperties["query_field"] = array("CustomerCode", "CustomerName", "CompanyAddress", "NatureOfBusiness", "CompanyName", "Designation",  "ContactPhone", "CompanyEmail");
+	$tableProperties["table_header"] = array('Code', 'Customer Name', 'Address', 'Type', 'Contact Person', 'Designation', 'Phone', 'Email');
+	$tableProperties["align"] = array("left", "left", "left", "left", "left", "left", "left", "left");
 	$tableProperties["width_print_pdf"] = array("10%", "10%", "10%", "10%",  "10%", "10%", "10%", "10%"); //when exist serial then here total 95% and 5% use for serial
 	$tableProperties["width_excel"] = array("18", "30", "30", "20",  "20", "20", "20", "20");
-	$tableProperties["precision"] = array("string", "string", "string","string", "string", "string", "string", "string"); //string,date,datetime,0,1,2,3,4
-	$tableProperties["total"] = array(0, 0, 0, 0, 0,0, 0, 0); //not total=0, total=1
+	$tableProperties["precision"] = array("string", "string", "string", "string", "string", "string", "string", "string"); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0, 0, 0, 0, 0, 0, 0, 0); //not total=0, total=1
 	$tableProperties["color_code"] = array(0, 0, 0, 0, 0, 0, 0, 0); //colorcode field = 1 not color code field = 0
 	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
 	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
@@ -522,14 +522,14 @@ function RoleToMenuPermissionExport()
 				and b.RoleId = $RoleId
 		ORDER BY MenuType DESC, SortOrder ASC;";
 
-	$tableProperties["query_field"] = array("PermissionType","menuname","MenuType");
-	$tableProperties["table_header"] = array('Access','Menu Name','Menu For');
+	$tableProperties["query_field"] = array("PermissionType", "menuname", "MenuType");
+	$tableProperties["table_header"] = array('Access', 'Menu Name', 'Menu For');
 	$tableProperties["align"] = array("left", "left");
-	$tableProperties["width_print_pdf"] = array("20%","50%", "20%"); //when exist serial then here total 95% and 5% use for serial
-	$tableProperties["width_excel"] = array("20","50", "20");
-	$tableProperties["precision"] = array("string","string", "string"); //string,date,datetime,0,1,2,3,4
-	$tableProperties["total"] = array(0, 0,0); //not total=0, total=1
-	$tableProperties["color_code"] = array(0, 0,0); //colorcode field = 1 not color code field = 0
+	$tableProperties["width_print_pdf"] = array("20%", "50%", "20%"); //when exist serial then here total 95% and 5% use for serial
+	$tableProperties["width_excel"] = array("20", "50", "20");
+	$tableProperties["precision"] = array("string", "string", "string"); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0, 0, 0); //not total=0, total=1
+	$tableProperties["color_code"] = array(0, 0, 0); //colorcode field = 1 not color code field = 0
 	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
 	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
 	// exit;
@@ -546,7 +546,7 @@ function RoleToMenuPermissionExport()
 
 
 
- 
+
 function ClientExport()
 {
 
@@ -612,7 +612,7 @@ function BranchExport()
 	$tableProperties["report_save_name"] = 'Branch_List';
 }
 
- 
+
 
 
 

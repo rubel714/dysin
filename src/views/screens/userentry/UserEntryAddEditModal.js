@@ -216,6 +216,7 @@ const UserEntryAddEditModal = (props) => {
     let validateFields = [];
     if (currentRow["id"]) {
       validateFields = [
+        "UserCode",
         "UserName",
         "LoginName",
         "Email",
@@ -226,6 +227,7 @@ const UserEntryAddEditModal = (props) => {
       ];
     } else {
       validateFields = [
+        "UserCode",
         "UserName",
         "LoginName",
         "Password",
@@ -385,8 +387,22 @@ const UserEntryAddEditModal = (props) => {
           <div class="modalHeader">
             <h4>Add/Edit User</h4>
           </div>
+          <div class="contactmodalBody pt-10">
+          <label>User Id *</label>
+            <input
+              type="text"
+              id="UserCode"
+              name="UserCode"
+              class={errorObject.UserCode}
+              placeholder="Enter User Id"
+              value={currentRow.UserCode}
+              onChange={(e) => handleChange(e)}
+            />
+            
+          </div>
 
           <div class="contactmodalBody pt-10">
+         
             <label>User Name *</label>
             <input
               type="text"
@@ -398,7 +414,7 @@ const UserEntryAddEditModal = (props) => {
               onChange={(e) => handleChange(e)}
             />
 
-            <label>Login Name *</label>
+<label>Login Name *</label>
             <input
               type="text"
               id="LoginName"
@@ -411,6 +427,7 @@ const UserEntryAddEditModal = (props) => {
           </div>
 
           <div class="contactmodalBody pt-10">
+
             <label>Password *</label>
             <input
               id="Password"

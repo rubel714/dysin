@@ -40,8 +40,17 @@ const UserEntry = (props) => {
 
 
   const columnList = [
-    { field: "rownumber", label: "SL", align: "center", width: "5%" },
+    { field: "rownumber", label: "SL", align: "center", width: "3%" },
     // { field: 'SL', label: 'SL',width:'10%',align:'center',visible:true,sort:false,filter:false },
+    {
+      field: "UserCode",
+      label: "User Id",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+      width: "7%",
+    },
     {
       field: "UserName",
       label: "User Name",
@@ -57,13 +66,14 @@ const UserEntry = (props) => {
       visible: true,
       sort: true,
       filter: true,
+      width: "7%",
     },
     {
       field: "Email",
       label: "Email",
       align: "left",
       visible: true,
-      // width: "10%",
+      width: "10%",
       sort: true,
       filter: true,
     },
@@ -72,7 +82,7 @@ const UserEntry = (props) => {
       label: "Phone No",
       align: "left",
       visible: true,
-      // width: "10%",
+      width: "7%",
       sort: true,
       filter: true,
     },
@@ -108,7 +118,7 @@ const UserEntry = (props) => {
       label: "Business Line",
       align: "left",
       visible: true,
-      width: "7%",
+      width: "8%",
       sort: true,
       filter: true,
     },
@@ -141,17 +151,17 @@ const UserEntry = (props) => {
     },
     {
       field: "IsActiveName",
-      label: "Is Active",
+      label: "Active",
       align: "center",
       visible: true,
       sort: true,
       filter: true,
-      width: "5%",
+      width: "4%",
     },
     {
       field: "custom",
       label: "Action",
-      width: "8%",
+      width: "4%",
       align: "center",
       visible: true,
       sort: false,
@@ -209,6 +219,7 @@ const UserEntry = (props) => {
 
     setCurrentRow({
             id: "",
+            UserCode:"",
             UserName: "",
             LoginName: "",
             Password: "",

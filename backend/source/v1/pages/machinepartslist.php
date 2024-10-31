@@ -6,6 +6,8 @@ try{
 	
 	$dbh = new Db();
 	$MachineId =  isset($data['MachineId']) ? $data['MachineId'] : '';
+	$Search =  isset($data['Search']) ? $data['Search'] : '';
+
 
 	if ($MachineId == "") {
 		$apiResponse = json_encode(recordNotFoundMsg(0, "MachineId param is missing"));
@@ -14,24 +16,15 @@ try{
 		return;
 	}
 
-	//$Search =  isset($data['Search'])?$data['Search']:'';
-	
-	// $sWhere="";
-	// if($Search){
-	// 	$sWhere=" where (a.CustomerCode like '%$Search%' 
-	// 	OR a.CustomerName like '%$Search%' 
-	// 	OR a.ContactPhone like '%$Search%' 
-	// 	OR a.CompanyName like '%$Search%' 
-	// 	OR a.NatureOfBusiness like '%$Search%' 
-	// 	OR a.CompanyEmail like '%$Search%' 
-	// 	OR a.CompanyAddress like '%$Search%' 
-	// 	)";
-	// }
+	$sWhere="";
+	if($Search){
+		$sWhere=" and (a.MachinePartsName like '%$Search%' )";
+	}
 	
 	$query = "SELECT 1 AS SysValue,'Successful' AS SysMessage, 
 	a.MachinePartsId, a.MachinePartsName
 	FROM t_machineparts a
-	where a.MachineId=$MachineId
+	where a.MachineId=$MachineId $sWhere
 	ORDER BY a.MachinePartsName ASC;";		
 
 
