@@ -26,15 +26,17 @@ try {
 	$MachineModelId = isset($data['MachineModelId']) ?  checkNull($data['MachineModelId']) : null;
 	$MachineSerial = isset($data['MachineSerial']) ?  checkNull($data['MachineSerial']) : null;
 	$MachineComplain = isset($data['MachineComplain']) ?  checkNull($data['MachineComplain']) : null;
+	$visitStartLocation = isset($data['visitStartLocation']) ?  checkNull($data['visitStartLocation']) : null;
+	$visitStartTime = isset($data['visitStartTime']) ?  checkNull($data['visitStartTime']) : null;
 	$StatusId = 1;
 	/**Draft */
 // echo "===".$MachineId."====";
-	$query = "INSERT INTO t_transaction(ClientId, TransactionTypeId, TransactionDate, InvoiceNo, 
-		PunchLocation, Longitude, Latitude, CustomerId, DropDownListIDForPurpose, DropDownListIDForTransportation, 
+	$query = "INSERT INTO t_transaction(ClientId, TransactionTypeId, TransactionDate, InvoiceNo, visitStartLocation,
+		visitStartTime,PunchLocation, Longitude, Latitude, CustomerId, DropDownListIDForPurpose, DropDownListIDForTransportation, 
 		ConveyanceAmount, RefreshmentAmount, PublicTransportDesc, DummyCustomerDesc, 
 		MachineId, MachineModelId, MachineSerial, MachineComplain, 
-		UserId, UpdateTs, CreateTs) VALUES (:ClientId, :TransactionTypeId, :TransactionDate, :InvoiceNo, 
-		:PunchLocation, :Longitude, :Latitude, :CustomerId, :DropDownListIDForPurpose, :DropDownListIDForTransportation, 
+		UserId, UpdateTs, CreateTs) VALUES (:ClientId, :TransactionTypeId, :TransactionDate, :InvoiceNo, :visitStartLocation,
+		:visitStartTime,:PunchLocation, :Longitude, :Latitude, :CustomerId, :DropDownListIDForPurpose, :DropDownListIDForTransportation, 
 		:ConveyanceAmount, :RefreshmentAmount, :PublicTransportDesc, :DummyCustomerDesc, 
 		:MachineId, :MachineModelId, :MachineSerial, :MachineComplain, 
 		:UserId, :UpdateTs, :CreateTs);";
@@ -44,6 +46,8 @@ $pList = array(
 	'TransactionTypeId' => $TransactionTypeId,
 	'TransactionDate' => $TransactionDate,
 	'InvoiceNo' => $InvoiceNo,
+	'visitStartLocation' => $visitStartLocation,
+	'visitStartTime' => $visitStartTime,
 	'PunchLocation' => $PunchLocation,
 	'Longitude' => $Longitude,
 	'Latitude' => $Latitude,

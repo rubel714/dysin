@@ -36,7 +36,7 @@ function getDataList($data)
 			$query = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
 			b.UserCode AS UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
 			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
-			,b.LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice
+			,f.UserCode as LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			inner join t_dropdownlist c on a.DropDownListIDForPurpose=c.DropDownListID

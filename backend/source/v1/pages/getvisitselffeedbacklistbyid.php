@@ -18,6 +18,9 @@ try{
 
 	ifnull(c.Designation,'') AS CustomerContactPersonDesignation, 
 	ifnull(c.ContactPhone,'') AS CustomerContactPersonMobileNumber,
+	ifnull(a.visitStartLocation,'') AS visitStartLocation,
+	ifnull(a.visitStartTime,'') AS visitStartTime,
+	
 
 
 	ifnull(a.SelfDiscussion,'') AS SelfDiscussion,'' AS SelfFBVisitActions,'' AS SelfFBVisitMachineParts,
