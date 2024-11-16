@@ -33,7 +33,7 @@ const LocalConveyance = (props) => {
   const [currDepartmentId, setCurrDepartmentId] = useState(0);
 
   const [UserList, setUserList] = useState(null);
-  const [currUserId, setCurrUserId] = useState(UserInfo.ClientId);
+  const [currUserId, setCurrUserId] = useState(UserInfo.UserId);
   // console.log('UserInfo: ', UserInfo.UserName);
   const [isdisablevisitorlist, setIsdisablevisitorlist] = useState(true);
 
