@@ -98,6 +98,7 @@ function getDataList($data)
 			AND /*(b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 		   AND*/ (a.UserId=$VisitorId)
 		   AND (a.TransactionDate BETWEEN '$StartDate' and '$EndDate')
+           AND (a.ApprovedConveyanceAmount>0 or a.ApprovedRefreshmentAmount>0)
 		   ORDER BY a.TransactionDate DESC;";
 
 		} else if ($ReportTypeId == "VisitSummaryReport") {

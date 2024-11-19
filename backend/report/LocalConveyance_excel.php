@@ -530,7 +530,7 @@ $spreadsheet->getActiveSheet()->getStyle('G'.$rn.':G'.$rn)->applyFromArray($styl
 
 $sql = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
 			c.DisplayName,d.CustomerName,a.PublicTransportDesc,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
-            ,a.UserId,b.UserName,bb.DepartmentName,bbb.DesignationName,e.BusinessLineName
+            ,b.UserCode as UserId,b.UserName,bb.DepartmentName,bbb.DesignationName,e.BusinessLineName
 		   FROM t_transaction a
 		   inner join t_users b on a.UserId=b.UserId
 		   inner join t_department bb on b.DepartmentId=bb.DepartmentId
@@ -542,6 +542,7 @@ $sql = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i
 			AND /*(b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 		   AND*/ (a.UserId=$VisitorId)
 		   AND (a.TransactionDate BETWEEN '$StartDate' and '$EndDate')
+           AND (a.ApprovedConveyanceAmount>0 or a.ApprovedRefreshmentAmount>0)
 		   ORDER BY a.TransactionDate DESC;";
 
 $result = $db->query($sql);
