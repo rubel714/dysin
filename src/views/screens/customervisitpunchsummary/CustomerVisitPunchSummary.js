@@ -90,16 +90,16 @@ const CustomerVisitPunchSummary = (props) => {
       EXCEL_EXPORT_URL + "report/CustomerVisitPunchSummary_excel.php";
     window.open(
       finalUrl +
-        "?DepartmentId=" +
-        currDepartmentId +
-        "&VisitorId=" +
-        currUserId +
-        "&StartDate=" +
-        StartDate +
-        "&EndDate=" +
-        EndDate +
-        "&TimeStamp=" +
-        Date.now()
+      "?DepartmentId=" +
+      currDepartmentId +
+      "&VisitorId=" +
+      currUserId +
+      "&StartDate=" +
+      StartDate +
+      "&EndDate=" +
+      EndDate +
+      "&TimeStamp=" +
+      Date.now()
     );
   };
 
@@ -111,16 +111,16 @@ const CustomerVisitPunchSummary = (props) => {
     let finalUrl = EXCEL_EXPORT_URL + "report/CustomerVisitPunchSummary_pdf.php";
     window.open(
       finalUrl +
-        "?DepartmentId=" +
-        currDepartmentId +
-        "&VisitorId=" +
-        currUserId +
-        "&StartDate=" +
-        StartDate +
-        "&EndDate=" +
-        EndDate +
-        "&TimeStamp=" +
-        Date.now()
+      "?DepartmentId=" +
+      currDepartmentId +
+      "&VisitorId=" +
+      currUserId +
+      "&StartDate=" +
+      StartDate +
+      "&EndDate=" +
+      EndDate +
+      "&TimeStamp=" +
+      Date.now()
     );
   };
 
@@ -210,7 +210,7 @@ const CustomerVisitPunchSummary = (props) => {
   //   });
   // }
 
-  
+
   useEffect(() => {
     getDataList();
   }, [
@@ -541,83 +541,84 @@ const CustomerVisitPunchSummary = (props) => {
         <div class="searchAdd">
           <div>
             <label>Department</label>
-          </div>
-          <div class="">
-            <Autocomplete
-              autoHighlight
-              disableClearable
-              className="chosen_dropdown"
-              id="DepartmentId"
-              name="DepartmentId"
-              autoComplete
-              options={DepartmentList ? DepartmentList : []}
-              getOptionLabel={(option) => option.name}
-              defaultValue={{ id: 0, name: "All" }}
-              onChange={(event, valueobj) =>
-                handleChangeFilterDropDown(
-                  "DepartmentId",
-                  valueobj ? valueobj.id : ""
-                )
-              }
-              renderOption={(option) => (
-                <Typography className="chosen_dropdown_font">
-                  {option.name}
-                </Typography>
-              )}
-              renderInput={(params) => (
-                <TextField {...params} variant="standard" fullWidth />
-              )}
-            />
-          </div>
-
-          <div>
-            <label class="pl-10">Sales Force</label>
-          </div>
-          <div class="">
-            <Autocomplete
-              autoHighlight
-              disableClearable
-              className="chosen_dropdown"
-              id="UserId"
-              name="UserId"
-              autoComplete
-              options={UserList ? UserList : []}
-              getOptionLabel={(option) => option.name}
-              defaultValue={{ id: 0, name: "All" }}
-              onChange={(event, valueobj) =>
-                handleChangeFilterDropDown(
-                  "UserId",
-                  valueobj ? valueobj.id : ""
-                )
-              }
-              renderOption={(option) => (
-                <Typography className="chosen_dropdown_font">
-                  {option.name}
-                </Typography>
-              )}
-              renderInput={(params) => (
-                <TextField {...params} variant="standard" fullWidth />
-              )}
-            />
+            <div class="">
+              <Autocomplete
+                autoHighlight
+                disableClearable
+                className="chosen_dropdown"
+                id="DepartmentId"
+                name="DepartmentId"
+                autoComplete
+                options={DepartmentList ? DepartmentList : []}
+                getOptionLabel={(option) => option.name}
+                defaultValue={{ id: 0, name: "All" }}
+                onChange={(event, valueobj) =>
+                  handleChangeFilterDropDown(
+                    "DepartmentId",
+                    valueobj ? valueobj.id : ""
+                  )
+                }
+                renderOption={(option) => (
+                  <Typography className="chosen_dropdown_font">
+                    {option.name}
+                  </Typography>
+                )}
+                renderInput={(params) => (
+                  <TextField {...params} variant="standard" fullWidth />
+                )}
+              />
+            </div>
           </div>
 
           <div>
-            <label class="pl-10">Start Date</label>
-          </div>
-          <div class="">
-            <input
-              type="date"
-              id="StartDate"
-              name="StartDate"
-              value={StartDate}
-              onChange={(e) => handleChangeFilterDate(e)}
-            />
+            <label>Sales Force</label>
+            <div class="">
+              <Autocomplete
+                autoHighlight
+                disableClearable
+                className="chosen_dropdown"
+                id="UserId"
+                name="UserId"
+                autoComplete
+                options={UserList ? UserList : []}
+                getOptionLabel={(option) => option.name}
+                defaultValue={{ id: 0, name: "All" }}
+                onChange={(event, valueobj) =>
+                  handleChangeFilterDropDown(
+                    "UserId",
+                    valueobj ? valueobj.id : ""
+                  )
+                }
+                renderOption={(option) => (
+                  <Typography className="chosen_dropdown_font">
+                    {option.name}
+                  </Typography>
+                )}
+                renderInput={(params) => (
+                  <TextField {...params} variant="standard" fullWidth />
+                )}
+              />
+            </div>
           </div>
 
+
           <div>
-            <label class="pl-10">End Date</label>
+            <label>Start Date</label>
+            <div class="">
+              <input
+                type="date"
+                id="StartDate"
+                name="StartDate"
+                value={StartDate}
+                onChange={(e) => handleChangeFilterDate(e)}
+              />
+            </div>
           </div>
-          <div class="">
+
+
+          <div>
+            <label>End Date</label>
+            <div class="">
             <input
               type="date"
               id="EndDate"
@@ -626,6 +627,8 @@ const CustomerVisitPunchSummary = (props) => {
               onChange={(e) => handleChangeFilterDate(e)}
             />
           </div>
+          </div>
+        
 
           {/* <div>
             <label class="pl-10">Visit List</label>
@@ -772,7 +775,7 @@ const CustomerVisitPunchSummary = (props) => {
             <CustomTable
               columns={columnList}
               rows={dataList ? dataList : {}}
-              // actioncontrol={actioncontrol}
+            // actioncontrol={actioncontrol}
             />
           </div>
         </div>

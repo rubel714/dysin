@@ -320,7 +320,7 @@ const LocalConveyance = (props) => {
           </div> */}
 
           <div>
-            <label class="pl-10">Sales Force: {UserInfo.UserName}</label>
+            <label>Sales Force: {UserInfo.UserName}</label>
           </div>
 
           {/* <div class="">
@@ -352,9 +352,8 @@ const LocalConveyance = (props) => {
           </div> */}
 
           <div>
-            <label class="pl-10">Start Date</label>
-          </div>
-          <div class="">
+            <label>Start Date</label>
+            <div class="">
             <input
               type="date"
               id="StartDate"
@@ -364,11 +363,12 @@ const LocalConveyance = (props) => {
               onChange={(e) => handleChangeFilterDate(e)}
             />
           </div>
+          </div>
+          
 
           <div>
-            <label class="pl-10">End Date</label>
-          </div>
-          <div class="">
+            <label>End Date</label>
+            <div class="">
             <input
               type="date"
               id="EndDate"
@@ -378,6 +378,8 @@ const LocalConveyance = (props) => {
               onChange={(e) => handleChangeFilterDate(e)}
             />
           </div>
+          </div>
+       
  
 
           <Button label={"Excel"} class={"btnPrint"} onClick={ExcelGenerate} />

@@ -173,24 +173,33 @@ input[type="number"] {
 /* THIS CLASS IS USE FOR SEARCH TABLE AND ADD TABLE ITEM */
 .searchAdd {
   display: flex;
+  flex-wrap: wrap;
   justify-content: end;
-  align-items: center;
+  align-items: end;
   border: var(--box-border);
   border-radius: 8px;
-  gap: 8px;
+  gap: 12px;
   height: 60px;
   padding: 4px;
 }
 
 .searchAdd input {
-  width: 200px !important;
-  /* height: 25px !important; */
+  width: 140px !important;
   font-size: 0.9rem !important;
   border: 2px solid black;
   height: 25px;
+  padding-right: 0px !important;
 }
+
 .searchAdd label {
-  font-size: 1rem !important;
+  font-size: .8rem !important;
+}
+
+
+
+.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot, .MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot {
+  padding-right: 0px !important;
+  /* width: 230px !important; */
 }
 
 button {
@@ -618,6 +627,10 @@ input {
 .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon
   .MuiAutocomplete-inputRoot {
   padding-right: 0px !important;
+}
+
+#visitList{
+  min-width: 300px;
 }
 
 .MuiInputBase-input {

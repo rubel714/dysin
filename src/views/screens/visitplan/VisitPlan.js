@@ -90,16 +90,16 @@ const VisitPlan = (props) => {
       EXCEL_EXPORT_URL + "report/VisitPlan_excel.php";
     window.open(
       finalUrl +
-        "?DepartmentId=" +
-        currDepartmentId +
-        "&VisitorId=" +
-        currUserId +
-        "&StartDate=" +
-        StartDate +
-        "&EndDate=" +
-        EndDate +
-        "&TimeStamp=" +
-        Date.now()
+      "?DepartmentId=" +
+      currDepartmentId +
+      "&VisitorId=" +
+      currUserId +
+      "&StartDate=" +
+      StartDate +
+      "&EndDate=" +
+      EndDate +
+      "&TimeStamp=" +
+      Date.now()
     );
   };
 
@@ -111,16 +111,16 @@ const VisitPlan = (props) => {
     let finalUrl = EXCEL_EXPORT_URL + "report/VisitPlan_pdf.php";
     window.open(
       finalUrl +
-        "?DepartmentId=" +
-        currDepartmentId +
-        "&VisitorId=" +
-        currUserId +
-        "&StartDate=" +
-        StartDate +
-        "&EndDate=" +
-        EndDate +
-        "&TimeStamp=" +
-        Date.now()
+      "?DepartmentId=" +
+      currDepartmentId +
+      "&VisitorId=" +
+      currUserId +
+      "&StartDate=" +
+      StartDate +
+      "&EndDate=" +
+      EndDate +
+      "&TimeStamp=" +
+      Date.now()
     );
   };
 
@@ -210,7 +210,7 @@ const VisitPlan = (props) => {
   //   });
   // }
 
-  
+
   useEffect(() => {
     getDataList();
   }, [
@@ -514,7 +514,7 @@ const VisitPlan = (props) => {
   //     rowData: rowData,
   //   };
 
-  
+
   //   // apiCall.post("productgroup", { params }, apiOption()).then((res) => {
   //   apiCall.post(serverpage, { params }, apiOption()).then((res) => {
   //     console.log("res: ", res);
@@ -551,39 +551,38 @@ const VisitPlan = (props) => {
         <div class="searchAdd">
           <div>
             <label>Department</label>
-          </div>
-          <div class="">
-            <Autocomplete
-              autoHighlight
-              disableClearable
-              className="chosen_dropdown"
-              id="DepartmentId"
-              name="DepartmentId"
-              autoComplete
-              options={DepartmentList ? DepartmentList : []}
-              getOptionLabel={(option) => option.name}
-              defaultValue={{ id: 0, name: "All" }}
-              onChange={(event, valueobj) =>
-                handleChangeFilterDropDown(
-                  "DepartmentId",
-                  valueobj ? valueobj.id : ""
-                )
-              }
-              renderOption={(option) => (
-                <Typography className="chosen_dropdown_font">
-                  {option.name}
-                </Typography>
-              )}
-              renderInput={(params) => (
-                <TextField {...params} variant="standard" fullWidth />
-              )}
-            />
+            <div class="">
+              <Autocomplete
+                autoHighlight
+                disableClearable
+                className="chosen_dropdown"
+                id="DepartmentId"
+                name="DepartmentId"
+                autoComplete
+                options={DepartmentList ? DepartmentList : []}
+                getOptionLabel={(option) => option.name}
+                defaultValue={{ id: 0, name: "All" }}
+                onChange={(event, valueobj) =>
+                  handleChangeFilterDropDown(
+                    "DepartmentId",
+                    valueobj ? valueobj.id : ""
+                  )
+                }
+                renderOption={(option) => (
+                  <Typography className="chosen_dropdown_font">
+                    {option.name}
+                  </Typography>
+                )}
+                renderInput={(params) => (
+                  <TextField {...params} variant="standard" fullWidth />
+                )}
+              />
+            </div>
           </div>
 
           <div>
-            <label class="pl-10">Sales Force</label>
-          </div>
-          <div class="">
+            <label>Sales Force</label>
+            <div class="">
             <Autocomplete
               autoHighlight
               disableClearable
@@ -610,11 +609,11 @@ const VisitPlan = (props) => {
               )}
             />
           </div>
-
-          <div>
-            <label class="pl-10">Start Date</label>
           </div>
-          <div class="">
+         
+          <div>
+            <label>Start Date</label>
+            <div class="">
             <input
               type="date"
               id="StartDate"
@@ -623,11 +622,12 @@ const VisitPlan = (props) => {
               onChange={(e) => handleChangeFilterDate(e)}
             />
           </div>
+          </div>
+         
 
           <div>
-            <label class="pl-10">End Date</label>
-          </div>
-          <div class="">
+            <label>End Date</label>
+            <div class="">
             <input
               type="date"
               id="EndDate"
@@ -636,6 +636,8 @@ const VisitPlan = (props) => {
               onChange={(e) => handleChangeFilterDate(e)}
             />
           </div>
+          </div>
+          
 
           {/* <div>
             <label class="pl-10">Visit List</label>
@@ -782,7 +784,7 @@ const VisitPlan = (props) => {
             <CustomTable
               columns={columnList}
               rows={dataList ? dataList : {}}
-              // actioncontrol={actioncontrol}
+            // actioncontrol={actioncontrol}
             />
           </div>
         </div>
