@@ -1284,7 +1284,7 @@ const TransactionReport = (props) => {
                 onClick={selectCurrentReport}
               />
               <label for="CustomerVisitPunchLedger">
-                Customer Visit Punch Ledger
+                Visit Punch Ledger
               </label>
             </div>
             <div class="modalItem">
@@ -1297,7 +1297,7 @@ const TransactionReport = (props) => {
                 onClick={selectCurrentReport}
               />
               <label for="CustomerVisitPunchSummary">
-                Customer Visit Punch Summary
+                Visit Punch Summary
               </label>
             </div>
             <div class="modalItem">

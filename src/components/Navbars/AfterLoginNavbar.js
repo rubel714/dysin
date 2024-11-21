@@ -295,7 +295,7 @@ function AfterLoginNavbar(props) {
                             props.history.push("customervisitpunchledger")
                           }
                         >
-                          Customer Visit Punch Ledger
+                          Visit Punch Ledger
                         </a>
                       </li>
                     )}
@@ -308,7 +308,7 @@ function AfterLoginNavbar(props) {
                             props.history.push("customervisitpunchsummary")
                           }
                         >
-                          Customer Visit Punch Summary
+                          Visit Punch Summary
                         </a>
                       </li>
                     )}

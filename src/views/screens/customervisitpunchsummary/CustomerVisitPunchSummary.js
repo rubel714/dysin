@@ -523,7 +523,7 @@ const CustomerVisitPunchSummary = (props) => {
         {/* <!-- ######-----TOP HEADER-----####### --> */}
         <div class="topHeader">
           <h4>
-            <a href="#">Home</a> ❯ Reports ❯ Customer Visit Punch Summary
+            <a href="#">Home</a> ❯ Reports ❯ Visit Punch Summary
           </h4>
         </div>
 
@@ -681,7 +681,7 @@ const CustomerVisitPunchSummary = (props) => {
                 onClick={selectCurrentReport}
               />
               <label for="CustomerVisitPunchLedger">
-                Customer Visit Punch Ledger
+                Visit Punch Ledger
               </label>
             </div>
             <div class="modalItem">
@@ -694,7 +694,7 @@ const CustomerVisitPunchSummary = (props) => {
                 onClick={selectCurrentReport}
               />
               <label for="CustomerVisitPunchSummary">
-                Customer Visit Punch Summary
+                Visit Punch Summary
               </label>
             </div>
             <div class="modalItem">

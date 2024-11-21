@@ -52,7 +52,7 @@ $spreadsheet = new Spreadsheet();
 
 	
 	// $reporttitlelist[] =  $siteTitle;
-    $reporttitlelist[] = "Customer Visit Punch Summary";
+    $reporttitlelist[] = "Visit Punch Summary";
 	$reporttitlelist[] = "Start Date: ".$StartDate.", End Date: " . $_REQUEST['EndDate'];
 	for($p = 0; $p < count($reporttitlelist); $p++){
 		
@@ -320,7 +320,7 @@ foreach ($result as $row) {
 
 $exportTime = date("Y-m-d-His", time());
 $writer = new Xlsx($spreadsheet);
-$file = 'CustomerVisitPunchSummary-' . $exportTime . '.xlsx'; //Save file name
+$file = 'VisitPunchSummary-' . $exportTime . '.xlsx'; //Save file name
 $writer->save('media/' . $file);
 header('Location:media/' . $file); //File open location
 

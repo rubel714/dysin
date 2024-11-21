@@ -139,7 +139,7 @@ $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 // set document information
 $pdf->setCreator(PDF_CREATOR);
 $pdf->setAuthor('DYSIN');
-$pdf->setTitle('Customer Visit Punch Ledger');
+$pdf->setTitle('Visit Punch Ledger');
 
 // set header and footer fonts
 $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -255,7 +255,7 @@ $tblHeader0 = '<!DOCTYPE html>
                         </style>  
                 </head>
                         
-                    <h2 class="center-aln" style="font-size: 15px; ">Customer Visit Punch Ledger</h2>
+                    <h2 class="center-aln" style="font-size: 15px; ">Visit Punch Ledger</h2>
                     <h6 class="center-aln" style="font-size: 11px; ">From: '.$StartDate.' To '.$_REQUEST['EndDate'].'</h6>
                     
                     
@@ -358,7 +358,7 @@ $pdf->setTextColor(0, 63, 127);
 //$pdf->lastPage();
 
 $exportTime = date("Y-m-d-His", time());
-$file = 'CustomerVisitPunchLedger-' . $exportTime . '.pdf'; //Save file name
+$file = 'VisitPunchLedger-' . $exportTime . '.pdf'; //Save file name
 //$pdf->Output(dirname(__FILE__).'/media/'.$file, 'F');
 $pdf->Output(dirname(__FILE__) . '/../../media/files/' . $file, 'F');
 
