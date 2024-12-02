@@ -42,6 +42,7 @@ try{
 	,ifnull(a.customerBySuggestion,'') AS customerBySuggestion
 	,(case when a.customerSignature is null then '' else concat('https://dysin.ng-ssl.com/image/transaction/',a.customerSignature) end) AS customerSignature
 	,ifnull(a.customerToSuggestion,'') AS customerToSuggestion
+	,ifnull(c.CompanyName,'') AS CustomerContactPersonName
 
 
 	FROM t_transaction a
