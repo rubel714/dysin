@@ -139,3 +139,38 @@ Output (2024_10_31_22_44_02): Success
 ========machinepartslist=======Called (2024_10_31_17_44_37)===================
 Params (2024_10_31_17_44_37): {"MachineId":"1","Search":"01"}
 Output (2024_10_31_22_44_37): Success
+
+
+========appinfo=======Called (2024_12_04_15_46_36)===================
+Params (2024_12_04_15_46_36): {"CompanyCode":"NG-SSL"}
+Output (2024_12_04_20_46_36): Success
+
+
+========checkreportavailable=======Called (2024_12_04_15_48_19)===================
+Params (2024_12_04_15_48_19): {"CompanyCode":"NG-SSL"}
+Output (2024_12_04_20_48_19): Success
+
+
+========checkreportavailable=======Called (2024_12_04_16_50_31)===================
+Params (2024_12_04_16_50_31): {"VisitDate":"19-Oct-2024"}
+Output (2024_12_04_21_50_31): Success
+
+
+========checkreportavailable=======Called (2024_12_04_16_50_40)===================
+Params (2024_12_04_16_50_40): {"VisitDate":"20-Oct-2024"}
+Output (2024_12_04_21_50_40): Success
+
+
+========checkreportavailable=======Called (2024_12_04_16_50_49)===================
+Params (2024_12_04_16_50_49): {"VisitDate":"21-Oct-2024"}
+Output (2024_12_04_21_50_49): Success
+
+
+========checkreportavailable=======Called (2024_12_04_16_53_13)===================
+Params (2024_12_04_16_53_13): {"VisitDate":"21-Oct-2024","UserInfoID":"1"}
+Output (2024_12_04_21_53_13): Success
+
+
+========checkreportavailable=======Called (2024_12_04_16_53_25)===================
+Params (2024_12_04_16_53_25): {"UserInfoID":"1","VisitDate":"21-Oct-2024"}
+Output (2024_12_04_21_53_25): Success
