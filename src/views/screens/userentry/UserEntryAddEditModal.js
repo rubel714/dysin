@@ -6,7 +6,9 @@ import {
   LoginUserInfo,
   language,
 } from "../../../actions/api";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 
+import { Typography, TextField } from "@material-ui/core";
 const UserEntryAddEditModal = (props) => {
   //console.log("props modal: ", props);
   const serverpage = "userentry"; // this is .php server page
@@ -189,7 +191,6 @@ const UserEntryAddEditModal = (props) => {
       setCurrBusinessLineId(value);
     }
 
-
     if (name === "TeamId") {
       setCurrTeamId(value);
     }
@@ -198,6 +199,39 @@ const UserEntryAddEditModal = (props) => {
       setCurrLinemanUserId(value);
     }
   };
+
+  
+  const handleChangeFilterDropDown = (name, value) => {
+    let data = { ...currentRow };
+    if (name === "LinemanUserId") {
+      data["LinemanUserId"] = value;
+      setCurrLinemanUserId(value);
+    }
+    if (name === "RoleId") {
+      data["RoleId"] = value;
+      setCurrRoleId(value);
+    }
+    if (name === "DesignationId") {
+      data["DesignationId"] = value;
+      setCurrDesignationId(value);
+    }
+    if (name === "DepartmentId") {
+      data["DepartmentId"] = value;
+      setCurrDepartmentId(value);
+    }
+    if (name === "BusinessLineId") {
+      data["BusinessLineId"] = value;
+      setCurrBusinessLineId(value);
+    }
+    
+    // if (name === "UserId") {
+    //   setCurrUserId(value);
+    // }
+    setErrorObject({ ...errorObject, [name]: null });
+    setCurrentRow(data);
+ 
+  };
+
 
   function handleChangeCheck(e) {
     // console.log('e.target.checked: ', e.target.checked);
@@ -388,7 +422,7 @@ const UserEntryAddEditModal = (props) => {
             <h4>Add/Edit User</h4>
           </div>
           <div class="contactmodalBody pt-10">
-          <label>User Id *</label>
+            <label>User Id *</label>
             <input
               type="text"
               id="UserCode"
@@ -398,11 +432,9 @@ const UserEntryAddEditModal = (props) => {
               value={currentRow.UserCode}
               onChange={(e) => handleChange(e)}
             />
-            
           </div>
 
           <div class="contactmodalBody pt-10">
-         
             <label>User Name *</label>
             <input
               type="text"
@@ -414,7 +446,7 @@ const UserEntryAddEditModal = (props) => {
               onChange={(e) => handleChange(e)}
             />
 
-<label>Login Name *</label>
+            <label>Login Name *</label>
             <input
               type="text"
               id="LoginName"
@@ -427,7 +459,6 @@ const UserEntryAddEditModal = (props) => {
           </div>
 
           <div class="contactmodalBody pt-10">
-
             <label>Password *</label>
             <input
               id="Password"
@@ -473,14 +504,11 @@ const UserEntryAddEditModal = (props) => {
               value={currentRow.PhoneNo}
               onChange={(e) => handleChange(e)}
             ></input>
-
-
           </div>
 
           <div class="contactmodalBody pt-10">
-            
-          <label>Role Name *</label>
-            <select
+            <label>Role Name *</label>
+            {/* <select
               id="RoleId"
               name="RoleId"
               class={errorObject.RoleId}
@@ -491,9 +519,48 @@ const UserEntryAddEditModal = (props) => {
                 RoleList.map((item, index) => {
                   return <option value={item.id}>{item.name}</option>;
                 })}
-            </select>
+            </select> */}
+
+            <Autocomplete
+                autoHighlight
+                disableClearable
+                className="chosen_dropdown"
+                id="RoleId"
+                name="RoleId"
+                autoComplete
+                class={errorObject.RoleId}
+                options={RoleList ? RoleList : []}
+                getOptionLabel={(option) => option.name}
+                defaultValue={{ id: 0, name: "Select Role" }}
+                value={
+                  RoleList
+                    ? RoleList[
+                      RoleList.findIndex(
+                          (list) => list.id === currRoleId
+                        )
+                      ]
+                    : null
+                }
+                onChange={(event, valueobj) =>
+                  handleChangeFilterDropDown(
+                    "RoleId",
+                    valueobj ? valueobj.id : ""
+                  )
+                }
+                renderOption={(option) => (
+                  <Typography className="chosen_dropdown_font">
+                    {option.name}
+                  </Typography>
+                )}
+                renderInput={(params) => (
+                  <TextField {...params} variant="standard" fullWidth />
+                )}
+              />
+
+
+
             <label>Designation *</label>
-            <select
+            {/* <select
               id="DesignationId"
               name="DesignationId"
               class={errorObject.DesignationId}
@@ -504,12 +571,48 @@ const UserEntryAddEditModal = (props) => {
                 DesignationList.map((item, index) => {
                   return <option value={item.id}>{item.name}</option>;
                 })}
-            </select>
+            </select> */}
+            
+            <Autocomplete
+                autoHighlight
+                disableClearable
+                className="chosen_dropdown"
+                id="DesignationId"
+                name="DesignationId"
+                autoComplete
+                class={errorObject.DesignationId}
+                options={DesignationList ? DesignationList : []}
+                getOptionLabel={(option) => option.name}
+                defaultValue={{ id: 0, name: "Select Designation" }}
+                value={
+                  DesignationList
+                    ? DesignationList[
+                      DesignationList.findIndex(
+                          (list) => list.id === currDesignationId
+                        )
+                      ]
+                    : null
+                }
+                onChange={(event, valueobj) =>
+                  handleChangeFilterDropDown(
+                    "DesignationId",
+                    valueobj ? valueobj.id : ""
+                  )
+                }
+                renderOption={(option) => (
+                  <Typography className="chosen_dropdown_font">
+                    {option.name}
+                  </Typography>
+                )}
+                renderInput={(params) => (
+                  <TextField {...params} variant="standard" fullWidth />
+                )}
+              />
 
           </div>
 
           <div class="contactmodalBody pt-10">
-          {/*  <label>Team</label>
+            {/*  <label>Team</label>
             <select
               id="TeamId"
               name="TeamId"
@@ -521,9 +624,9 @@ const UserEntryAddEditModal = (props) => {
                   return <option value={item.id}>{item.name}</option>;
                 })}
             </select>*/}
-            
+
             <label>Department *</label>
-            <select
+            {/* <select
               id="DepartmentId"
               name="DepartmentId"
               class={errorObject.DepartmentId}
@@ -534,10 +637,46 @@ const UserEntryAddEditModal = (props) => {
                 DepartmentList.map((item, index) => {
                   return <option value={item.id}>{item.name}</option>;
                 })}
-            </select>
+            </select> */}
+            
+            <Autocomplete
+                autoHighlight
+                disableClearable
+                className="chosen_dropdown"
+                id="DepartmentId"
+                name="DepartmentId"
+                autoComplete
+                class={errorObject.DepartmentId}
+                options={DepartmentList ? DepartmentList : []}
+                getOptionLabel={(option) => option.name}
+                defaultValue={{ id: 0, name: "Select Department" }}
+                value={
+                  DepartmentList
+                    ? DepartmentList[
+                      DepartmentList.findIndex(
+                          (list) => list.id === currDepartmentId
+                        )
+                      ]
+                    : null
+                }
+                onChange={(event, valueobj) =>
+                  handleChangeFilterDropDown(
+                    "DepartmentId",
+                    valueobj ? valueobj.id : ""
+                  )
+                }
+                renderOption={(option) => (
+                  <Typography className="chosen_dropdown_font">
+                    {option.name}
+                  </Typography>
+                )}
+                renderInput={(params) => (
+                  <TextField {...params} variant="standard" fullWidth />
+                )}
+              />
 
             <label>Business Line *</label>
-            <select
+            {/* <select
               id="BusinessLineId"
               name="BusinessLineId"
               class={errorObject.BusinessLineId}
@@ -548,15 +687,50 @@ const UserEntryAddEditModal = (props) => {
                 BusinessLineList.map((item, index) => {
                   return <option value={item.id}>{item.name}</option>;
                 })}
-            </select>
+            </select> */}
 
+            
+            <Autocomplete
+                autoHighlight
+                disableClearable
+                className="chosen_dropdown"
+                id="BusinessLineId"
+                name="BusinessLineId"
+                autoComplete
+                class={errorObject.BusinessLineId}
+                options={BusinessLineList ? BusinessLineList : []}
+                getOptionLabel={(option) => option.name}
+                defaultValue={{ id: 0, name: "Select Business Line" }}
+                value={
+                  BusinessLineList
+                    ? BusinessLineList[
+                      BusinessLineList.findIndex(
+                          (list) => list.id === currBusinessLineId
+                        )
+                      ]
+                    : null
+                }
+                onChange={(event, valueobj) =>
+                  handleChangeFilterDropDown(
+                    "BusinessLineId",
+                    valueobj ? valueobj.id : ""
+                  )
+                }
+                renderOption={(option) => (
+                  <Typography className="chosen_dropdown_font">
+                    {option.name}
+                  </Typography>
+                )}
+                renderInput={(params) => (
+                  <TextField {...params} variant="standard" fullWidth />
+                )}
+              />
 
           </div>
 
           <div class="contactmodalBody pt-10">
-           
-          <label>Lineman (N+1)</label>
-            <select
+            <label>Lineman (N+1)</label>
+            {/* <select
               id="LinemanUserId"
               name="LinemanUserId"
               // class={errorObject.LinemanUserId}
@@ -567,9 +741,45 @@ const UserEntryAddEditModal = (props) => {
                 UserList.map((item, index) => {
                   return <option value={item.id}>{item.name}</option>;
                 })}
-            </select>
+            </select> */}
 
-          <label>Address</label>
+            <Autocomplete
+                autoHighlight
+                disableClearable
+                className="chosen_dropdown"
+                id="LinemanUserId"
+                name="LinemanUserId"
+                autoComplete
+                options={UserList ? UserList : []}
+                getOptionLabel={(option) => option.name}
+                defaultValue={{ id: 0, name: "Select User" }}
+                value={
+                  UserList
+                    ? UserList[
+                      UserList.findIndex(
+                          (list) => list.id === currLinemanUserId
+                        )
+                      ]
+                    : null
+                }
+                onChange={(event, valueobj) =>
+                  handleChangeFilterDropDown(
+                    "LinemanUserId",
+                    valueobj ? valueobj.id : ""
+                  )
+                }
+                renderOption={(option) => (
+                  <Typography className="chosen_dropdown_font">
+                    {option.name}
+                  </Typography>
+                )}
+                renderInput={(params) => (
+                  <TextField {...params} variant="standard" fullWidth />
+                )}
+              />
+
+
+            <label>Address</label>
             <input
               type="text"
               id="Address"
@@ -579,12 +789,10 @@ const UserEntryAddEditModal = (props) => {
               value={currentRow.Address}
               onChange={(e) => handleChange(e)}
             />
-
           </div>
 
           <div class="contactmodalBody pt-10">
-
-          <label> Is Active?</label>
+            <label> Is Active?</label>
             <input
               id="IsActive"
               name="IsActive"
@@ -593,11 +801,8 @@ const UserEntryAddEditModal = (props) => {
               onChange={handleChangeCheck}
             />
           </div>
-            
-
 
           <div className="contactmodalBody pt-10">
-            
             <label>Photo</label>
             <input
               type="file"
