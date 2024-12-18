@@ -41,6 +41,7 @@ import ConveyanceReport from "views/screens/conveyancereport/index.js";
 import LocalConveyance from "views/screens/localconveyance/index.js";
 import VisitSummaryReport from "views/screens/visitsummaryreport/index.js";
 import MachineryServiceReport from "views/screens/machineryservicereport/index.js";
+import MachineryInstallationReport from "views/screens/machineryinstallationreport/index.js";
 import UserContextProvider from './context/user-info-context';
 
 // import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
@@ -102,6 +103,7 @@ ReactDOM.render(
             <Route path="/localconveyance" render={(props) => <LocalConveyance {...props} />} />
             <Route path="/visitsummaryreport" render={(props) => <VisitSummaryReport {...props} />} />
             <Route path="/machineryservicereport" render={(props) => <MachineryServiceReport {...props} />} />
+            <Route path="/machineryinstallationreport" render={(props) => <MachineryInstallationReport {...props} />} />
             <Route path="/" render={(props) => <Index {...props} />} />
 
           </Switch>

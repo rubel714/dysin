@@ -43,6 +43,9 @@ switch ($task) {
 	case "TransactionList":
 		$returnData = TransactionList($data);
 		break;
+	case "InstallationTransactionList":
+		$returnData = InstallationTransactionList($data);
+		break;
 
 
 	case "NextProductSystemCode":
@@ -460,6 +463,45 @@ function TransactionList($data)
 	return $returnData;
 }
 
+
+function InstallationTransactionList($data)
+{
+	try {
+		// $ClientId = trim($data->ClientId);
+		$DepartmentId = trim($data->DepartmentId)?trim($data->DepartmentId):0;
+		$UserId = trim($data->VisitorId)?trim($data->VisitorId):0;
+		$StartDate = trim($data->StartDate);
+		$EndDate = trim($data->EndDate) . " 23-59-59";
+
+		// Visit date-customer name-machinename-modelname
+
+		$dbh = new Db();
+		$query = "SELECT a.TransactionId id, concat(DATE_FORMAT(a.TransactionDate, '%d-%b-%Y'),' - ', b.CustomerName,' - ',c.MachineName,' - ',d.MachineModelName) `name` 
+		FROM t_transaction a
+		inner join t_customer b on a.CustomerId=b.CustomerId
+		inner join t_machine c on a.MachineId=c.MachineId
+		inner join t_machinemodel d on a.MachineModelId=d.MachineModelId
+		inner join t_users e on a.UserId=e.UserId
+		where a.TransactionTypeId=1
+		AND a.DropDownListIDForPurpose = 5
+		AND (e.DepartmentId=$DepartmentId OR $DepartmentId=0)
+		AND (a.UserId=$UserId OR $UserId=0)
+		AND (a.TransactionDate BETWEEN '$StartDate' and '$EndDate')
+		ORDER BY a.TransactionDate DESC;";
+		$resultdata = $dbh->query($query);
+
+		$returnData = [
+			"success" => 1,
+			"status" => 200,
+			"message" => "",
+			"datalist" => $resultdata
+		];
+	} catch (PDOException $e) {
+		$returnData = msg(0, 500, $e->getMessage());
+	}
+
+	return $returnData;
+}
 
 
 
