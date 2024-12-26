@@ -36,13 +36,24 @@ function getDataList($data)
 			$query = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
 			b.UserCode AS UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
 			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
-			,f.UserCode as LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice
+			,f.UserCode as LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice,
+
+			g.MachineName,h.MachineModelName
+			,a.MachineSerial,a.MachineComplain
+			,(SELECT GROUP_CONCAT(concat(n.MachinePartsName,' (',round(m.Qty),')')) 
+				FROM `t_transaction_machineparts` m 
+				inner join t_machineparts n on m.MachinePartsId=n.MachinePartsId 
+				where m.TransactionId=a.TransactionId) as MachineParts
+
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			inner join t_dropdownlist c on a.DropDownListIDForPurpose=c.DropDownListID
 			inner join t_dropdownlist e on a.DropDownListIDForTransportation=e.DropDownListID
 			inner join t_customer d on a.CustomerId =d.CustomerId
 			inner join t_users f on b.LinemanUserId =f.UserId
+
+			left join t_machine g on a.MachineId =g.MachineId
+			left join t_machinemodel h on a.MachineModelId =h.MachineModelId
 
 			where a.TransactionTypeId=1
 			AND (b.DepartmentId=$DepartmentId OR $DepartmentId=0)
@@ -51,7 +62,9 @@ function getDataList($data)
 			ORDER BY a.TransactionDate DESC;";
 
 		} else if ($ReportTypeId == "CustomerVisitPunchSummary") {
-			$query = "SELECT a.TransactionId id, b.UserCode AS UserId,b.UserName,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+			$query = "SELECT a.UserId id, b.UserCode AS UserId,b.UserName,
+			sum(a.ApprovedConveyanceAmount) ApprovedConveyanceAmount,
+			sum(a.ApprovedRefreshmentAmount) ApprovedRefreshmentAmount
 			,b.LinemanUserId,c.UserName as LinemanUserName
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
@@ -60,7 +73,8 @@ function getDataList($data)
 			AND (b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 			AND (a.UserId=$VisitorId OR $VisitorId=0)
 			AND (a.TransactionDate BETWEEN '$StartDate' and '$EndDate')
-			ORDER BY a.TransactionDate DESC;";
+			group by a.UserId, b.UserCode,b.UserName,b.LinemanUserId,c.UserName
+			ORDER BY b.UserCode,b.UserName ASC;";
 		} else if ($ReportTypeId == "VisitPlan") {
 
 			$query = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,

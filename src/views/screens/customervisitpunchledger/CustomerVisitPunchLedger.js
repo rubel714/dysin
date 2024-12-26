@@ -377,6 +377,54 @@ const CustomerVisitPunchLedger = (props) => {
       filter: true,
       // width: "6%"
     },
+
+
+
+    {
+      field: "MachineName",
+      label: "Machine Name",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+      // width: "6%"
+    },
+    {
+      field: "MachineParts",
+      label: "Machine Parts",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+      // width: "6%"
+    },
+    {
+      field: "MachineSerial",
+      label: "Serial No",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+      // width: "6%"
+    },
+    {
+      field: "MachineModelName",
+      label: "Model No",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+      // width: "6%"
+    },
+    {
+      field: "MachineComplain",
+      label: "Customer Complaint/Problem/Symptom Description",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+      // width: "6%"
+    },
   ];
   // setColumnList(columnListCustomerVisitPunchLedger);
 

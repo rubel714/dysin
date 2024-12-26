@@ -90,14 +90,23 @@ class MYPDF extends TCPDF
 $sqlf = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
 			b.UserCode AS UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
 			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
-			,f.UserCode as LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice
+			,f.UserCode as LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice,
+
+            g.MachineName,h.MachineModelName
+			,a.MachineSerial,a.MachineComplain
+			,(SELECT GROUP_CONCAT(concat(n.MachinePartsName,' (',round(m.Qty),')')) 
+				FROM `t_transaction_machineparts` m 
+				inner join t_machineparts n on m.MachinePartsId=n.MachinePartsId 
+				where m.TransactionId=a.TransactionId) as MachineParts
+
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			inner join t_dropdownlist c on a.DropDownListIDForPurpose=c.DropDownListID
 			inner join t_dropdownlist e on a.DropDownListIDForTransportation=e.DropDownListID
 			inner join t_customer d on a.CustomerId =d.CustomerId
 			inner join t_users f on b.LinemanUserId =f.UserId
-
+            left join t_machine g on a.MachineId =g.MachineId
+			left join t_machinemodel h on a.MachineModelId =h.MachineModelId
 			where a.TransactionTypeId=1
 			AND (b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 			AND (a.UserId=$VisitorId OR $VisitorId=0)
@@ -115,7 +124,7 @@ foreach ($sqlLoop1result as $result) {
     <td style="width:5% !important;" class="border_Remove">'.$result['TransactionDate'].'</td>
     <td style="width:5% !important;" class="center-aln border_Remove">'.$result['UserId'].'</td> 
     <td style="width:5% !important;" class="border_Remove">'. $result['UserName'].'</td>
-    <td style="width:10% !important;" class="border_Remove">'.$result['PunchLocation'].'</td>
+    <td style="width:5% !important;" class="border_Remove">'.$result['PunchLocation'].'</td>
     <td style="width:5% !important;" class="border_Remove">'. $result['Purpose'].'</td>
     <td style="width:5% !important;" class="center-aln border_Remove">'. $result['CustomerCode'].'</td>
     <td style="width:5% !important;" class="border_Remove">'. $result['CustomerName'].'</td>
@@ -127,8 +136,13 @@ foreach ($sqlLoop1result as $result) {
     <td style="width:5% !important;" class="right-aln border_Remove">'. $result['ApprovedRefreshmentAmount'].'</td>
     <td style="width:5% !important;" class="center-aln border_Remove">'. $result['LinemanUserId'].'</td>
     <td style="width:5% !important;" class="border_Remove">'. $result['LinemanUserName'].'</td>
-    <td style="width:10% !important;" class="border_Remove">'. $result['SelfDiscussion'].'</td>
+    <td style="width:5% !important;" class="border_Remove">'. $result['SelfDiscussion'].'</td>
     <td style="width:5% !important;" class="border_Remove">'. $result['LMAdvice'].'</td>
+    <td style="width:5% !important;" class="border_Remove">'. $result['MachineName'].'</td>
+    <td style="width:5% !important;" class="border_Remove">'. $result['MachineParts'].'</td>
+    <td style="width:5% !important;" class="border_Remove">'. $result['MachineSerial'].'</td>
+    <td style="width:5% !important;" class="border_Remove">'. $result['MachineModelName'].'</td>
+    <td style="width:5% !important;" class="border_Remove">'. $result['MachineComplain'].'</td>
     </tr>';
 }
 
@@ -267,7 +281,7 @@ $tblHeader0 = '<!DOCTYPE html>
                                 <th rowspan="1" style="width:5% !important;">Visit Date</th>
                                 <th rowspan="1" style="width:5% !important;" class="center-aln">Employee ID</th>
                                 <th rowspan="1" style="width:5% !important;">Employee Name</th>
-                                <th rowspan="1" style="width:10% !important;">Punch Location</th>
+                                <th rowspan="1" style="width:5% !important;">Punch Location</th>
                                 <th rowspan="1" style="width:5% !important; ">Visit Purpose</th>
                                 <th rowspan="1" style="width:5% !important;" >Customer No</th>
                                 <th rowspan="1" style="width:5% !important;" >Customer Name</th>
@@ -279,8 +293,13 @@ $tblHeader0 = '<!DOCTYPE html>
                                 <th rowspan="1" style="width:5% !important;" class="right-aln">Refreshment</th>
                                 <th rowspan="1" style="width:5% !important;"class="center-aln" >LM ID</th>
                                 <th rowspan="1" style="width:5% !important;" >LM Name</th>
-                                <th rowspan="1" style="width:10% !important;" >Self Discussion</th>
+                                <th rowspan="1" style="width:5% !important;" >Self Discussion</th>
                                 <th rowspan="1" style="width:5% !important;" >LM Advice</th>
+                                <th rowspan="1" style="width:5% !important;" >Machine Name</th>
+                                <th rowspan="1" style="width:5% !important;" >Machine Parts</th>
+                                <th rowspan="1" style="width:5% !important;" >Serial No</th>
+                                <th rowspan="1" style="width:5% !important;" >Model No</th>
+                                <th rowspan="1" style="width:5% !important;" >Customer Complaint/Problem/Symptom Description</th>
                             </tr>
                         </thead>
                         '.$dataList.'

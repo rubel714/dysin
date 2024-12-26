@@ -232,7 +232,9 @@ $spreadsheet->getActiveSheet()->getStyle('F'.$rn.':F'.$rn)->applyFromArray($styl
 $spreadsheet->getActiveSheet()->getStyle('G'.$rn.':G'.$rn)->applyFromArray($styleThinBlackBorderOutline);
 
  
-$sql = "SELECT a.TransactionId id, b.UserCode AS UserId,b.UserName,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+$sql = "SELECT a.UserId id, b.UserCode AS UserId,b.UserName,
+            sum(a.ApprovedConveyanceAmount) ApprovedConveyanceAmount,
+			sum(a.ApprovedRefreshmentAmount) ApprovedRefreshmentAmount
 			,b.LinemanUserId,c.UserName as LinemanUserName
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
@@ -241,7 +243,8 @@ $sql = "SELECT a.TransactionId id, b.UserCode AS UserId,b.UserName,a.ApprovedCon
 			AND (b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 			AND (a.UserId=$VisitorId OR $VisitorId=0)
 			AND (a.TransactionDate BETWEEN '$StartDate' and '$EndDate')
-			ORDER BY a.TransactionDate DESC;";
+			group by a.UserId, b.UserCode,b.UserName,b.LinemanUserId,c.UserName
+			ORDER BY b.UserCode,b.UserName ASC;";
             
 
 $result = $db->query($sql);
