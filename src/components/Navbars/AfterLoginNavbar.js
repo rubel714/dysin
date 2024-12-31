@@ -269,6 +269,28 @@ function AfterLoginNavbar(props) {
                 </li>
               )}
 
+              {menuShowPermision("mytask") === 1 && (
+                <li class="dropdownMenu">
+                  {" "}
+                  My Task
+                  <ul class="dropdownList">
+                    {menuShowPermision("feedback") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("feedback")
+                          }
+                        >
+                          Feedback
+                        </a>
+                      </li>
+                    )}
+      
+                  </ul>
+                </li>
+              )}
+
               {menuShowPermision("reports") === 1 && (
                 <li class="dropdownMenu">
                   {" "}

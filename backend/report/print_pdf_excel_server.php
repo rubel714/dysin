@@ -47,6 +47,9 @@ switch ($task) {
 	case "MachineserialExport":
 		MachineserialExport();
 		break;
+	case "FeedbackExport":
+		FeedbackExport();
+		break;
 
 
 
@@ -380,6 +383,67 @@ function MachineserialExport()
 	$tableProperties["report_save_name"] = 'Machine_Serial';
 }
 
+
+function FeedbackExport()
+{
+
+	global $sql, $tableProperties, $TEXT, $siteTitle;
+	$UserId = $_REQUEST['UserId'];
+	$Search = $_REQUEST['Search'];
+
+	// $sql = "SELECT b.MachineName,c.`MachineModelName`,a.MachineSerial
+	// 	FROM t_machineserial a
+	// 	INNER JOIN t_machine b on a.MachineId=b.MachineId
+	// 	INNER JOIN t_machinemodel c on a.MachineModelId=c.MachineModelId
+	// 	ORDER BY b.MachineName ASC, c.MachineModelName ASC, a.MachineSerial ASC;";
+
+	$sWhere = "";
+		if ($Search === "Y") {
+			$sWhere = " AND a.IsLinemanFeedback='Y' ";
+		} else if ($Search === "N") {
+			$sWhere = " AND a.IsLinemanFeedback='N' ";
+		}
+
+		$sql = "SELECT ifnull(c.CustomerName,'') AS CustomerName,	DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS VisitDate,
+		ifnull(b.DisplayName,'') AS Purpose, ifnull(d.DisplayName,'') AS Transportation, ifnull(a.PublicTransportDesc,'') AS PublicTransportDesc,
+		ifnull(a.SelfDiscussion,'') AS SelfDiscussion,ifnull(a.ConveyanceAmount,'') AS ConveyanceAmount, 
+		ifnull(a.RefreshmentAmount,'') AS RefreshmentAmount,
+		case when a.ApprovedRefreshmentAmount is null then a.RefreshmentAmount else a.ApprovedRefreshmentAmount end AS ApprovedRefreshmentAmount,
+		case when a.ApprovedConveyanceAmount is null then a.ConveyanceAmount else a.ApprovedRefreshmentAmount end AS ApprovedConveyanceAmount,
+		a.IsLinemanFeedback
+
+	FROM t_transaction a
+	inner join t_users g on a.UserId=g.UserId
+	left join t_dropdownlist b on a.DropDownListIDForPurpose=b.DropDownListID
+	left join t_customer c on a.CustomerId=c.CustomerId
+	left join t_dropdownlist d on a.DropDownListIDForTransportation=d.DropDownListID
+	left join t_machine e on a.MachineId=e.MachineId
+	left join t_machinemodel f on a.MachineModelId=f.MachineModelId
+	where g.LinemanUserId=$UserId
+	and a.TransactionTypeId=1
+	and a.IsVisitorFeedback='Y'
+	$sWhere
+	ORDER BY a.TransactionDate DESC;";
+
+	$tableProperties["query_field"] = array("CustomerName", "VisitDate", "Purpose","Transportation","PublicTransportDesc","SelfDiscussion","ConveyanceAmount","RefreshmentAmount","ApprovedConveyanceAmount","ApprovedRefreshmentAmount","IsLinemanFeedback");
+	$tableProperties["table_header"] = array('Customer Name', 'Visit Date', 'Purpose','Transportation','Transportation Description','Discussion','Conveyance','Refreshment','Approved Conveyance','Approved Refreshment','Approved');
+	$tableProperties["align"] = array("left", "left", "left");
+	$tableProperties["width_print_pdf"] = array("10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "5%", "5%"); //when exist serial then here total 95% and 5% use for serial
+	$tableProperties["width_excel"] = array("25", "22", "20", "15", "15", "15", "15", "16", "20", "20", "12");
+	$tableProperties["precision"] = array("string", "string", "string", "string", "string", "string",2,2,2, 2, "string"); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0); //not total=0, total=1
+	$tableProperties["color_code"] = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0); //colorcode field = 1 not color code field = 0
+	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
+	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
+
+	//Report header list
+	$tableProperties["header_list"][0] = $siteTitle;
+	$tableProperties["header_list"][1] = 'Feedback';
+	// $tableProperties["header_list"][1] = 'Heading 2';
+
+	//Report save name. Not allow any type of special character
+	$tableProperties["report_save_name"] = 'Feedback';
+}
 
 
 

@@ -6,7 +6,7 @@ try{
 	
 	$dbh = new Db();
 	$UserId =  isset($data['UserInfoID']) ? $data['UserInfoID'] : 0; /**This is Line Man user id. We will return under this members visitor list */
-	$Search =  isset($data['Search']) ? $data['Search'] : 0;
+	$Search =  isset($data['Search']) ? $data['Search'] : 0; //0=All, Y=LM approved, N=LM not approved
 	
 	if ($UserId == "" ) {
 		$apiResponse = json_encode(recordNotFoundMsg(0, "UserInfoID param is missing"));
