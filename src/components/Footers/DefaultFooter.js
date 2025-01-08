@@ -15,19 +15,19 @@ function DefaultFooter() {
           <nav>
             <ul>
               <li>
-                <a href="http://192.241.155.223/" target="_blank" className="text-capitalize">
-                Benin SVDL
+                <a href="#" target="_blank" className="text-capitalize">
+                DYSIN
                 </a>
               </li>
             </ul>
           </nav>
           <div className="copyright" id="copyright">
-            © {new Date().getFullYear()},{" "}
+            © 2024,{" "}
             <a
             // href=""
             // target="_blank"
             >
-              Supported by GHSC-TA Francophone TO, Benin
+              NA
             </a>
           </div>
         </Container>

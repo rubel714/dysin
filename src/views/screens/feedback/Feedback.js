@@ -66,6 +66,16 @@ const Feedback = (props) => {
       width: "6%"
     },
     {
+      field: "VisitorName",
+      label: "Employee",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+      width: "7%"
+    },
+    
+    {
       field: "Purpose",
       label: "Purpose",
       align: "left",

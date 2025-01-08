@@ -404,7 +404,7 @@ function FeedbackExport()
 			$sWhere = " AND a.IsLinemanFeedback='N' ";
 		}
 
-		$sql = "SELECT ifnull(c.CustomerName,'') AS CustomerName,	DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS VisitDate,
+		$sql = "SELECT ifnull(c.CustomerName,'') AS CustomerName,	DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS VisitDate,g.UserName AS VisitorName,
 		ifnull(b.DisplayName,'') AS Purpose, ifnull(d.DisplayName,'') AS Transportation, ifnull(a.PublicTransportDesc,'') AS PublicTransportDesc,
 		ifnull(a.SelfDiscussion,'') AS SelfDiscussion,ifnull(a.ConveyanceAmount,'') AS ConveyanceAmount, 
 		ifnull(a.RefreshmentAmount,'') AS RefreshmentAmount,
@@ -423,16 +423,17 @@ function FeedbackExport()
 	and a.TransactionTypeId=1
 	and a.IsVisitorFeedback='Y'
 	$sWhere
+	and (a.ConveyanceAmount>0 OR a.RefreshmentAmount>0 OR a.ApprovedRefreshmentAmount>0 OR a.ApprovedConveyanceAmount>0)
 	ORDER BY a.TransactionDate DESC;";
 
-	$tableProperties["query_field"] = array("CustomerName", "VisitDate", "Purpose","Transportation","PublicTransportDesc","SelfDiscussion","ConveyanceAmount","RefreshmentAmount","ApprovedConveyanceAmount","ApprovedRefreshmentAmount","IsLinemanFeedback");
-	$tableProperties["table_header"] = array('Customer Name', 'Visit Date', 'Purpose','Transportation','Transportation Description','Discussion','Conveyance','Refreshment','Approved Conveyance','Approved Refreshment','Approved');
+	$tableProperties["query_field"] = array("CustomerName", "VisitDate","VisitorName", "Purpose","Transportation","PublicTransportDesc","SelfDiscussion","ConveyanceAmount","RefreshmentAmount","ApprovedConveyanceAmount","ApprovedRefreshmentAmount","IsLinemanFeedback");
+	$tableProperties["table_header"] = array('Customer Name', 'Visit Date','Employee', 'Purpose','Transportation','Transportation Description','Discussion','Conveyance','Refreshment','Approved Conveyance','Approved Refreshment','Approved');
 	$tableProperties["align"] = array("left", "left", "left");
-	$tableProperties["width_print_pdf"] = array("10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "5%", "5%"); //when exist serial then here total 95% and 5% use for serial
-	$tableProperties["width_excel"] = array("25", "22", "20", "15", "15", "15", "15", "16", "20", "20", "12");
-	$tableProperties["precision"] = array("string", "string", "string", "string", "string", "string",2,2,2, 2, "string"); //string,date,datetime,0,1,2,3,4
-	$tableProperties["total"] = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0); //not total=0, total=1
-	$tableProperties["color_code"] = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0); //colorcode field = 1 not color code field = 0
+	$tableProperties["width_print_pdf"] = array("10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "5%", "5%"); //when exist serial then here total 95% and 5% use for serial
+	$tableProperties["width_excel"] = array("25", "22", "20","20", "15", "15", "15", "15", "16", "20", "20", "12");
+	$tableProperties["precision"] = array("string", "string","string", "string", "string", "string", "string",2,2,2, 2, "string"); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0); //not total=0, total=1
+	$tableProperties["color_code"] = array(0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0); //colorcode field = 1 not color code field = 0
 	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
 	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
 

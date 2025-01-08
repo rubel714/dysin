@@ -94,6 +94,7 @@ function getDataList($data)
 	and a.TransactionTypeId=1
 	and a.IsVisitorFeedback='Y'
 	$sWhere
+	and (a.ConveyanceAmount>0 OR a.RefreshmentAmount>0 OR a.ApprovedRefreshmentAmount>0 OR a.ApprovedConveyanceAmount>0)
 	ORDER BY a.TransactionDate DESC;";
 
 		$resultdata = $dbh->query($query);
