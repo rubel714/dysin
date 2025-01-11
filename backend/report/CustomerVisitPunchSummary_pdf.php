@@ -89,24 +89,81 @@ class MYPDF extends TCPDF
 
 
 $sqlf = "SELECT a.UserId id, b.UserCode AS UserId,b.UserName,
-            sum(a.ApprovedConveyanceAmount) ApprovedConveyanceAmount,
-			sum(a.ApprovedRefreshmentAmount) ApprovedRefreshmentAmount
-			,b.LinemanUserId,c.UserName as LinemanUserName
+            ifnull(sum(a.ApprovedConveyanceAmount),0) ApprovedConveyanceAmount,
+			ifnull(sum(a.ApprovedRefreshmentAmount),0) ApprovedRefreshmentAmount,
+            (ifnull(sum(a.ApprovedConveyanceAmount),0) +
+			ifnull(sum(a.ApprovedRefreshmentAmount),0)) RowTotal
+			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
+			inner join t_department bb on b.DepartmentId=bb.DepartmentId
 			inner join t_users c on b.LinemanUserId =c.UserId
 			where a.TransactionTypeId=1
 			AND (b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 			AND (a.UserId=$VisitorId OR $VisitorId=0)
 			AND (a.TransactionDate BETWEEN '$StartDate' and '$EndDate')
-			group by a.UserId, b.UserCode,b.UserName,b.LinemanUserId,c.UserName
-			ORDER BY b.UserCode,b.UserName ASC;";
+			group by bb.DepartmentName,a.UserId, b.UserCode,b.UserName,b.LinemanUserId,c.UserName
+			ORDER BY bb.DepartmentName,b.UserCode,b.UserName ASC;";
 
 $sqlLoop1result = $db->query($sqlf);
 $dataList = '';
 $sl = 1;
 
+$SubTotalApprovedConveyanceAmount = 0;
+$SubTotalApprovedRefreshmentAmount = 0;
+$SubTotal = 0;
+
+$GrandTotalApprovedConveyanceAmount = 0;
+$GrandTotalApprovedRefreshmentAmount = 0;
+$GrandTotal = 0;
+
+$tempDepartmentName= '';
+
+
 foreach ($sqlLoop1result as $result) {
+
+    
+
+ /**Group name start */
+ if($tempDepartmentName != $result["DepartmentName"]){
+
+
+    /**Sub Total */
+    if($tempDepartmentName != ""){
+            /**sub Name */ 
+        $dataList.= '<tr style="font-size: 11px;">
+            <td  style="width:5% !important;" class="center-aln border_Remove"></td>
+            <td style="width:10% !important;" class="center-aln border_Remove"></td>
+            <td style="width:23% !important;font-weight: bold;" class="border_Remove">Sub Total</td> 
+            <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedConveyanceAmount).'</td>
+            <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedRefreshmentAmount).'</td>
+            <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotal).'</td>
+            <td style="width:12% !important;" class="center-aln border_Remove"></td>
+            <td style="width:20% !important;" class="border_Remove"></td>
+            </tr>';
+   
+        $SubTotalApprovedConveyanceAmount = 0;
+        $SubTotalApprovedRefreshmentAmount = 0;
+        $SubTotal = 0;
+    }
+
+
+    /**Group Name */
+    $dataList.= '<tr style="font-size: 11px;">
+        <td  style="width:5% !important;" class="center-aln border_Remove"></td>
+        <td style="width:10% !important;font-weight: bold;" class="center-aln border_Remove">'.$result["DepartmentName"].'</td>
+        <td style="width:23% !important;" class="border_Remove"></td> 
+        <td style="width:10% !important;" class="right-aln border_Remove"></td>
+        <td style="width:10% !important;" class="right-aln border_Remove"></td>
+        <td style="width:10% !important;" class="right-aln border_Remove"></td>
+        <td style="width:12% !important;" class="center-aln border_Remove"></td>
+        <td style="width:20% !important;" class="border_Remove"></td>
+        </tr>';
+    $tempDepartmentName = $result["DepartmentName"];
+}
+
+
+
 
     $dataList.= '<tr style="font-size: 11px;">
     <td  style="width:5% !important;" class="center-aln border_Remove">' .$sl++.'</td>
@@ -114,10 +171,59 @@ foreach ($sqlLoop1result as $result) {
     <td style="width:23% !important;" class="border_Remove">'.$result['UserName'].'</td> 
     <td style="width:10% !important;" class="right-aln border_Remove">'. $result['ApprovedConveyanceAmount'].'</td>
     <td style="width:10% !important;" class="right-aln border_Remove">'.$result['ApprovedRefreshmentAmount'].'</td>
+    <td style="width:10% !important;" class="right-aln border_Remove">'.$result['RowTotal'].'</td>
     <td style="width:12% !important;" class="center-aln border_Remove">'. $result['LinemanUserId'].'</td>
-    <td style="width:30% !important;" class="border_Remove">'. $result['LinemanUserName'].'</td>
+    <td style="width:20% !important;" class="border_Remove">'. $result['LinemanUserName'].'</td>
     </tr>';
+
+/**For sub total */
+$SubTotalApprovedConveyanceAmount += $result["ApprovedConveyanceAmount"];
+$SubTotalApprovedRefreshmentAmount += $result["ApprovedRefreshmentAmount"];
+$SubTotal += $result["RowTotal"];
+
+/**For Grand total */
+$GrandTotalApprovedConveyanceAmount += $result["ApprovedConveyanceAmount"];
+$GrandTotalApprovedRefreshmentAmount += $result["ApprovedRefreshmentAmount"];
+$GrandTotal += $result["RowTotal"];
+
+
+
+
 }
+
+
+
+
+ /**Grand Total */
+ if($sl > 1){
+    /**For sub total */
+         $dataList.= '<tr style="font-size: 11px;">
+         <td  style="width:5% !important;" class="center-aln border_Remove"></td>
+         <td style="width:10% !important;" class="center-aln border_Remove"></td>
+         <td style="width:23% !important;font-weight: bold;" class="border_Remove">Sub Total</td> 
+         <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedConveyanceAmount).'</td>
+         <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedRefreshmentAmount).'</td>
+         <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotal).'</td>
+         <td style="width:12% !important;" class="center-aln border_Remove"></td>
+         <td style="width:20% !important;" class="border_Remove"></td>
+         </tr>';
+    
+    /**For grand total */
+        $dataList.= '<tr style="font-size: 11px;">
+        <td  style="width:5% !important;" class="center-aln border_Remove"></td>
+        <td style="width:10% !important;" class="center-aln border_Remove"></td>
+        <td style="width:23% !important;font-weight: bold;" class="border_Remove">Grand Total</td> 
+        <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotalApprovedConveyanceAmount).'</td>
+        <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotalApprovedRefreshmentAmount).'</td>
+        <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotal).'</td>
+        <td style="width:12% !important;" class="center-aln border_Remove"></td>
+        <td style="width:20% !important;" class="border_Remove"></td>
+        </tr>';
+
+    }
+
+
+
 
 $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -255,8 +361,9 @@ $tblHeader0 = '<!DOCTYPE html>
                                 <th rowspan="1" style="width:23% !important;" >Employee Name</th>
                                 <th rowspan="1" style="width:10% !important;" class="right-aln ">Conveyance</th>
                                 <th rowspan="1" style="width:10% !important;" class="right-aln ">Refreshment</th>
+                                <th rowspan="1" style="width:10% !important;" class="right-aln ">Total</th>
                                 <th rowspan="1" style="width:12% !important;  class="center-aln"">Line Manager ID</th>
-                                <th rowspan="1" style="width:30% !important;" >Line Manager Name</th>
+                                <th rowspan="1" style="width:20% !important;" >Line Manager Name</th>
                             </tr>
                         </thead>
                         '.$dataList.'

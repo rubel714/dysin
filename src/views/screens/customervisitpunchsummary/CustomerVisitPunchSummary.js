@@ -226,6 +226,15 @@ const CustomerVisitPunchSummary = (props) => {
     { field: "rownumber", label: "SL", align: "center", width: "5%" },
     // { field: 'SL', label: 'SL',width:'10%',align:'center',visible:true,sort:false,filter:false },
     {
+      field: "DepartmentName",
+      label: "Department",
+      align: "left",
+      visible: true,
+      sort: true,
+      filter: true,
+      width: "7%",
+    },
+    {
       field: "UserId",
       label: "Employee ID",
       align: "left",
@@ -251,7 +260,7 @@ const CustomerVisitPunchSummary = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "12%",
+      width: "8%",
     },
     {
       field: "ApprovedRefreshmentAmount",
@@ -260,9 +269,17 @@ const CustomerVisitPunchSummary = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "12%",
+      width: "8%",
     },
-
+    {
+      field: "RowTotal",
+      label: "Total",
+      align: "right",
+      visible: true,
+      sort: true,
+      filter: true,
+      width: "7%",
+    },
     {
       field: "LinemanUserId",
       label: "Line Manager ID",

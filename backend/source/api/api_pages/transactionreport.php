@@ -64,17 +64,20 @@ function getDataList($data)
 		} else if ($ReportTypeId == "CustomerVisitPunchSummary") {
 			$query = "SELECT a.UserId id, b.UserCode AS UserId,b.UserName,
 			sum(a.ApprovedConveyanceAmount) ApprovedConveyanceAmount,
-			sum(a.ApprovedRefreshmentAmount) ApprovedRefreshmentAmount
-			,b.LinemanUserId,c.UserName as LinemanUserName
+			sum(a.ApprovedRefreshmentAmount) ApprovedRefreshmentAmount,
+			(ifnull(sum(a.ApprovedConveyanceAmount),0) +
+			ifnull(sum(a.ApprovedRefreshmentAmount),0)) RowTotal
+			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
+			inner join t_department bb on b.DepartmentId=bb.DepartmentId
 			inner join t_users c on b.LinemanUserId =c.UserId
 			where a.TransactionTypeId=1
 			AND (b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 			AND (a.UserId=$VisitorId OR $VisitorId=0)
 			AND (a.TransactionDate BETWEEN '$StartDate' and '$EndDate')
-			group by a.UserId, b.UserCode,b.UserName,b.LinemanUserId,c.UserName
-			ORDER BY b.UserCode,b.UserName ASC;";
+			group by bb.DepartmentName,a.UserId, b.UserCode,b.UserName,b.LinemanUserId,c.UserName
+			ORDER BY bb.DepartmentName,b.UserCode,b.UserName ASC;";
 		} else if ($ReportTypeId == "VisitPlan") {
 
 			$query = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
