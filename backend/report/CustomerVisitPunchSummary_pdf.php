@@ -93,11 +93,15 @@ $sqlf = "SELECT a.UserId id, b.UserCode AS UserId,b.UserName,
 			ifnull(sum(a.ApprovedRefreshmentAmount),0) ApprovedRefreshmentAmount,
             (ifnull(sum(a.ApprovedConveyanceAmount),0) +
 			ifnull(sum(a.ApprovedRefreshmentAmount),0)) RowTotal
-			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName
+			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName,
+			(case when a.CustomerId=38 then concat(d.CustomerName,'-',a.DummyCustomerDesc) else d.CustomerName end) CustomerName
+
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			inner join t_department bb on b.DepartmentId=bb.DepartmentId
 			inner join t_users c on b.LinemanUserId =c.UserId
+			inner join t_customer d on a.CustomerId =d.CustomerId
+
 			where a.TransactionTypeId=1
 			AND (b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 			AND (a.UserId=$VisitorId OR $VisitorId=0)
@@ -138,9 +142,10 @@ foreach ($sqlLoop1result as $result) {
             <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedConveyanceAmount).'</td>
             <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedRefreshmentAmount).'</td>
             <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotal).'</td>
-            <td style="width:12% !important;" class="center-aln border_Remove"></td>
-            <td style="width:20% !important;" class="border_Remove"></td>
+            <td style="width:15% !important;" class="border_Remove"></td>
+            <td style="width:17% !important;" class="border_Remove"></td>
             </tr>';
+            // <td style="width:12% !important;" class="center-aln border_Remove"></td>
    
         $SubTotalApprovedConveyanceAmount = 0;
         $SubTotalApprovedRefreshmentAmount = 0;
@@ -156,9 +161,11 @@ foreach ($sqlLoop1result as $result) {
         <td style="width:10% !important;" class="right-aln border_Remove"></td>
         <td style="width:10% !important;" class="right-aln border_Remove"></td>
         <td style="width:10% !important;" class="right-aln border_Remove"></td>
-        <td style="width:12% !important;" class="center-aln border_Remove"></td>
-        <td style="width:20% !important;" class="border_Remove"></td>
+        <td style="width:15% !important;" class="border_Remove"></td>
+        <td style="width:17% !important;" class="border_Remove"></td>
         </tr>';
+        // <td style="width:12% !important;" class="center-aln border_Remove"></td>
+
     $tempDepartmentName = $result["DepartmentName"];
 }
 
@@ -172,9 +179,11 @@ foreach ($sqlLoop1result as $result) {
     <td style="width:10% !important;" class="right-aln border_Remove">'. $result['ApprovedConveyanceAmount'].'</td>
     <td style="width:10% !important;" class="right-aln border_Remove">'.$result['ApprovedRefreshmentAmount'].'</td>
     <td style="width:10% !important;" class="right-aln border_Remove">'.$result['RowTotal'].'</td>
-    <td style="width:12% !important;" class="center-aln border_Remove">'. $result['LinemanUserId'].'</td>
-    <td style="width:20% !important;" class="border_Remove">'. $result['LinemanUserName'].'</td>
+    <td style="width:15% !important;" class="border_Remove">'. $result['LinemanUserName'].'</td>
+    <td style="width:17% !important;" class="border_Remove">'. $result['CustomerName'].'</td>
     </tr>';
+
+    // <td style="width:12% !important;" class="center-aln border_Remove">'. $result['LinemanUserId'].'</td>
 
 /**For sub total */
 $SubTotalApprovedConveyanceAmount += $result["ApprovedConveyanceAmount"];
@@ -204,9 +213,10 @@ $GrandTotal += $result["RowTotal"];
          <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedConveyanceAmount).'</td>
          <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedRefreshmentAmount).'</td>
          <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotal).'</td>
-         <td style="width:12% !important;" class="center-aln border_Remove"></td>
-         <td style="width:20% !important;" class="border_Remove"></td>
+         <td style="width:15% !important;" class="border_Remove"></td>
+         <td style="width:17% !important;" class="border_Remove"></td>
          </tr>';
+        //  <td style="width:12% !important;" class="center-aln border_Remove"></td>
     
     /**For grand total */
         $dataList.= '<tr style="font-size: 11px;">
@@ -216,9 +226,10 @@ $GrandTotal += $result["RowTotal"];
         <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotalApprovedConveyanceAmount).'</td>
         <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotalApprovedRefreshmentAmount).'</td>
         <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotal).'</td>
-        <td style="width:12% !important;" class="center-aln border_Remove"></td>
-        <td style="width:20% !important;" class="border_Remove"></td>
+        <td style="width:15% !important;" class="border_Remove"></td>
+        <td style="width:17% !important;" class="border_Remove"></td>
         </tr>';
+        // <td style="width:12% !important;" class="center-aln border_Remove"></td>
 
     }
 
@@ -362,8 +373,8 @@ $tblHeader0 = '<!DOCTYPE html>
                                 <th rowspan="1" style="width:10% !important;" class="right-aln ">Conveyance</th>
                                 <th rowspan="1" style="width:10% !important;" class="right-aln ">Refreshment</th>
                                 <th rowspan="1" style="width:10% !important;" class="right-aln ">Total</th>
-                                <th rowspan="1" style="width:12% !important;  class="center-aln"">Line Manager ID</th>
-                                <th rowspan="1" style="width:20% !important;" >Line Manager Name</th>
+                                <th rowspan="1" style="width:15% !important;" >HOT Name</th>
+                                <th rowspan="1" style="width:17% !important;" >Company Name</th>
                             </tr>
                         </thead>
                         '.$dataList.'
@@ -376,6 +387,7 @@ $tblHeader0 = '<!DOCTYPE html>
 
 
         </html>';
+        // <th rowspan="1" style="width:12% !important;  class="center-aln"">Line Manager ID</th>
 
 //output the HTML content
 $pdf->writeHTML($tblHeader0, true, false, true, false, '');

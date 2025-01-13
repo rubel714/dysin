@@ -409,7 +409,7 @@ function FeedbackExport()
 		ifnull(a.SelfDiscussion,'') AS SelfDiscussion,ifnull(a.ConveyanceAmount,'') AS ConveyanceAmount, 
 		ifnull(a.RefreshmentAmount,'') AS RefreshmentAmount,
 		case when a.ApprovedRefreshmentAmount is null then a.RefreshmentAmount else a.ApprovedRefreshmentAmount end AS ApprovedRefreshmentAmount,
-		case when a.ApprovedConveyanceAmount is null then a.ConveyanceAmount else a.ApprovedRefreshmentAmount end AS ApprovedConveyanceAmount,
+		case when a.ApprovedConveyanceAmount is null then a.ConveyanceAmount else a.ApprovedConveyanceAmount end AS ApprovedConveyanceAmount,
 		a.IsLinemanFeedback
 
 	FROM t_transaction a

@@ -22,7 +22,8 @@ const FeedbackAddEditModal = (props) => {
   
   const validateForm = () => {
 
-    let validateFields = ["ApprovedConveyanceAmount","ApprovedRefreshmentAmount"];
+    // let validateFields = ["ApprovedConveyanceAmount","ApprovedRefreshmentAmount"];
+    let validateFields = ["ApprovedConveyanceAmount"];
     let errorData = {};
     let isValid = true;
     validateFields.map((field) => {
@@ -102,12 +103,12 @@ const FeedbackAddEditModal = (props) => {
             />
           </div>
           <div class="modalItem">
-            <label>Refreshment *</label>
+            <label>Refreshment</label>
             <input
               type="text"
               id="ApprovedRefreshmentAmount"
               name="ApprovedRefreshmentAmount"
-              class={errorObject.ApprovedRefreshmentAmount}
+              // class={errorObject.ApprovedRefreshmentAmount}
               placeholder="Enter Approved Refreshment"
               value={currentRow.ApprovedRefreshmentAmount}
               onChange={(e) => handleChange(e)}

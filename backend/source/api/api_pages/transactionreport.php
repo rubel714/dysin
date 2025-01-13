@@ -62,16 +62,33 @@ function getDataList($data)
 			ORDER BY a.TransactionDate DESC;";
 
 		} else if ($ReportTypeId == "CustomerVisitPunchSummary") {
+
+			
+// $sql = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
+// c.DisplayName, (case when a.CustomerId=38 then concat(d.CustomerName,'-',a.DummyCustomerDesc) else d.CustomerName end) CustomerName,a.PublicTransportDesc,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+// ,b.UserCode as UserId,b.UserName,bb.DepartmentName,bbb.DesignationName,e.BusinessLineName
+// FROM t_transaction a
+// inner join t_users b on a.UserId=b.UserId
+// inner join t_department bb on b.DepartmentId=bb.DepartmentId
+// inner join t_designation bbb on b.DesignationId=bbb.DesignationId
+// inner join t_dropdownlist c on a.DropDownListIDForPurpose=c.DropDownListID
+// inner join t_customer d on a.CustomerId =d.CustomerId
+// left join t_businessline e on b.BusinessLineId =e.BusinessLineId
+// where a.TransactionTypeId=1
+
 			$query = "SELECT a.UserId id, b.UserCode AS UserId,b.UserName,
 			sum(a.ApprovedConveyanceAmount) ApprovedConveyanceAmount,
 			sum(a.ApprovedRefreshmentAmount) ApprovedRefreshmentAmount,
 			(ifnull(sum(a.ApprovedConveyanceAmount),0) +
 			ifnull(sum(a.ApprovedRefreshmentAmount),0)) RowTotal
-			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName
+			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName,
+
+			(case when a.CustomerId=38 then concat(d.CustomerName,'-',a.DummyCustomerDesc) else d.CustomerName end) CustomerName
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			inner join t_department bb on b.DepartmentId=bb.DepartmentId
 			inner join t_users c on b.LinemanUserId =c.UserId
+			inner join t_customer d on a.CustomerId =d.CustomerId
 			where a.TransactionTypeId=1
 			AND (b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 			AND (a.UserId=$VisitorId OR $VisitorId=0)

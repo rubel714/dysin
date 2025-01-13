@@ -65,7 +65,7 @@ $spreadsheet = new Spreadsheet();
 		/* Text Alignment Vertical(VERTICAL_TOP,VERTICAL_CENTER,VERTICAL_BOTTOM) */
 		$spreadsheet->getActiveSheet()->getStyle('A'.$rn)->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
 		/* merge Cell */
-		$spreadsheet->getActiveSheet()->mergeCells('A'.$rn.':G'.$rn);
+		$spreadsheet->getActiveSheet()->mergeCells('A'.$rn.':H'.$rn);
 		$rn++;
 	 }
 
@@ -173,9 +173,10 @@ $spreadsheet->getActiveSheet()
         ->SetCellValue('D'.$rn, "Conveyance")
         ->SetCellValue('E'.$rn, "Refreshment")
         ->SetCellValue('F'.$rn, "Total")
-        ->SetCellValue('G'.$rn, "Line Manager ID")
-        ->SetCellValue('H'.$rn, "Line Manager Name")
+        ->SetCellValue('G'.$rn, "HOT Name")
+        ->SetCellValue('H'.$rn, "Company Name")
 		;
+        // ->SetCellValue('G'.$rn, "Line Manager ID")
 
 /* Font Size for Cells */
 $spreadsheet->getActiveSheet()->getStyle('A'.$rn)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'A'.$rn);
@@ -194,8 +195,8 @@ $spreadsheet->getActiveSheet()->getStyle('C'.$rn)->getAlignment()->setHorizontal
 $spreadsheet->getActiveSheet()->getStyle('D'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
 $spreadsheet->getActiveSheet()->getStyle('E'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
 $spreadsheet->getActiveSheet()->getStyle('F'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-$spreadsheet->getActiveSheet()->getStyle('G'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-$spreadsheet->getActiveSheet()->getStyle('H'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+$spreadsheet->getActiveSheet()->getStyle('G'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+$spreadsheet->getActiveSheet()->getStyle('G'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 
 /* Text Alignment Vertical(VERTICAL_TOP,VERTICAL_CENTER,VERTICAL_BOTTOM) */
 // $spreadsheet->getActiveSheet()->getStyle('A'.$rn)->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
@@ -218,9 +219,9 @@ $spreadsheet->getActiveSheet()->getColumnDimension('B')->setWidth(15);
 $spreadsheet->getActiveSheet()->getColumnDimension('C')->setWidth(25);
 $spreadsheet->getActiveSheet()->getColumnDimension('D')->setWidth(18);
 $spreadsheet->getActiveSheet()->getColumnDimension('E')->setWidth(18);
-$spreadsheet->getActiveSheet()->getColumnDimension('F')->setWidth(18);
+$spreadsheet->getActiveSheet()->getColumnDimension('F')->setWidth(15);
 $spreadsheet->getActiveSheet()->getColumnDimension('G')->setWidth(18);
-$spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth(25);
+$spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth(30);
 
 /* Wrap text */
 // $spreadsheet->getActiveSheet()->getStyle('B'.$rn)->getAlignment()->setWrapText(true);
@@ -244,11 +245,15 @@ $sql = "SELECT a.UserId id, b.UserCode AS UserId,b.UserName,
             (ifnull(sum(a.ApprovedConveyanceAmount),0) +
 			ifnull(sum(a.ApprovedRefreshmentAmount),0)) RowTotal
 
-			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName
+			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName,
+			(case when a.CustomerId=38 then concat(d.CustomerName,'-',a.DummyCustomerDesc) else d.CustomerName end) CustomerName
+
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			inner join t_department bb on b.DepartmentId=bb.DepartmentId
 			inner join t_users c on b.LinemanUserId =c.UserId
+			inner join t_customer d on a.CustomerId =d.CustomerId
+
 			where a.TransactionTypeId=1
 			AND (b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 			AND (a.UserId=$VisitorId OR $VisitorId=0)
@@ -314,7 +319,8 @@ foreach ($result as $row) {
             $spreadsheet->getActiveSheet()->getStyle('D' . $j . ':D' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
             $spreadsheet->getActiveSheet()->getStyle('E' . $j . ':E' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
             $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-            $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+            // $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+            $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
             $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
         
             
@@ -350,8 +356,9 @@ foreach ($result as $row) {
             ->SetCellValue('D' . $j, number_format($row["ApprovedConveyanceAmount"]))
             ->SetCellValue('E' . $j, number_format($row["ApprovedRefreshmentAmount"]))
             ->SetCellValue('F' . $j, number_format($row["RowTotal"]))
-            ->SetCellValue('G' . $j, $row["LinemanUserId"])
-            ->SetCellValue('H' . $j, $row["LinemanUserName"])
+            // ->SetCellValue('G' . $j, $row["LinemanUserId"])
+            ->SetCellValue('G' . $j, $row["LinemanUserName"])
+            ->SetCellValue('H' . $j, $row["CustomerName"])
 			;
 
 /**For sub total */
@@ -383,7 +390,8 @@ foreach ($result as $row) {
     $spreadsheet->getActiveSheet()->getStyle('D' . $j . ':D' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
     $spreadsheet->getActiveSheet()->getStyle('E' . $j . ':E' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
     $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-    $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+    // $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+    $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
     $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
    
     /* Text Alignment Vertical(VERTICAL_TOP,VERTICAL_CENTER,VERTICAL_BOTTOM) */
@@ -454,7 +462,7 @@ foreach ($result as $row) {
      $spreadsheet->getActiveSheet()->getStyle('D' . $j . ':D' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
      $spreadsheet->getActiveSheet()->getStyle('E' . $j . ':E' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
      $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-     $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+     $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
      $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
      $j++;
 
@@ -492,7 +500,7 @@ foreach ($result as $row) {
      $spreadsheet->getActiveSheet()->getStyle('D' . $j . ':D' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
      $spreadsheet->getActiveSheet()->getStyle('E' . $j . ':E' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
      $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-     $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+     $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
      $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
  
     $j++;

@@ -70,7 +70,7 @@ function getDataList($data)
 	ifnull(a.ConveyanceAmount,'') AS ConveyanceAmount, ifnull(a.RefreshmentAmount,'') AS RefreshmentAmount,
 
 	case when a.ApprovedRefreshmentAmount is null then a.RefreshmentAmount else a.ApprovedRefreshmentAmount end AS ApprovedRefreshmentAmount,
-	case when a.ApprovedConveyanceAmount is null then a.ConveyanceAmount else a.ApprovedRefreshmentAmount end AS ApprovedConveyanceAmount,
+	case when a.ApprovedConveyanceAmount is null then a.ConveyanceAmount else a.ApprovedConveyanceAmount end AS ApprovedConveyanceAmount,
 
 	DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS VisitDate,
 	a.IsVisitorFeedback,a.IsLinemanFeedback,
