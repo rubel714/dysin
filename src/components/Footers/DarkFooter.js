@@ -28,7 +28,7 @@ function DarkFooter() {
         </div> */}
 
         <div class="footer">
-            <h6>Powred By NextGen Software & Solutions Ltd. &#169; Reserved (v0.7)</h6>
+            <h6>Powred By NextGen Software & Solutions Ltd. &#169; Reserved (v0.8)</h6>
         </div>
       </Container>
     </footer>
