@@ -62,7 +62,9 @@ function getDataList($data)
 	a.TransactionId AS id, ifnull(PunchLocation,'') AS PunchLocation, 
 	ifnull(Longitude,'') AS Longitude, ifnull(Latitude,'') AS Latitude,
 	ifnull(a.DropDownListIDForPurpose,'') AS DropDownListIDForPurpose,ifnull(b.DisplayName,'') AS Purpose,
-	ifnull(a.CustomerId,'') AS CustomerID,ifnull(c.CustomerName,'') AS CustomerName,
+	ifnull(a.CustomerId,'') AS CustomerID,
+	 (case when a.CustomerId=38 then concat(c.CustomerName,'-',a.DummyCustomerDesc) else c.CustomerName end) CustomerName,
+
 	ifnull(a.ContactPersonName,'') AS ContactPersonName,ifnull(a.ContactPersonDesignation,'') AS ContactPersonDesignation,
 	ifnull(a.ContactPersonMobileNumber,'') AS ContactPersonMobileNumber,
 	ifnull(a.DropDownListIDForTransportation,'') AS DropDownListIDForTransportation,

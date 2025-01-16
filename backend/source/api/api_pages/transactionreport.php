@@ -83,12 +83,13 @@ function getDataList($data)
 			ifnull(sum(a.ApprovedRefreshmentAmount),0)) RowTotal
 			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName,
 
-			(case when a.CustomerId=38 then concat(d.CustomerName,'-',a.DummyCustomerDesc) else d.CustomerName end) CustomerName
+			e.BusinessLineName AS CustomerName
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			inner join t_department bb on b.DepartmentId=bb.DepartmentId
 			inner join t_users c on b.LinemanUserId =c.UserId
 			inner join t_customer d on a.CustomerId =d.CustomerId
+			inner join t_businessline e on b.BusinessLineId =e.BusinessLineId
 			where a.TransactionTypeId=1
 			AND (b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 			AND (a.UserId=$VisitorId OR $VisitorId=0)

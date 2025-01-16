@@ -404,8 +404,12 @@ function FeedbackExport()
 			$sWhere = " AND a.IsLinemanFeedback='N' ";
 		}
 
-		$sql = "SELECT ifnull(c.CustomerName,'') AS CustomerName,	DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS VisitDate,g.UserName AS VisitorName,
-		ifnull(b.DisplayName,'') AS Purpose, ifnull(d.DisplayName,'') AS Transportation, ifnull(a.PublicTransportDesc,'') AS PublicTransportDesc,
+		$sql = "SELECT  
+	 (case when a.CustomerId=38 then concat(c.CustomerName,'-',a.DummyCustomerDesc) else c.CustomerName end) CustomerName,
+
+		DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS VisitDate,g.UserName AS VisitorName,
+		ifnull(b.DisplayName,'') AS Purpose, 
+		ifnull(d.DisplayName,'') AS Transportation, ifnull(a.PublicTransportDesc,'') AS PublicTransportDesc,
 		ifnull(a.SelfDiscussion,'') AS SelfDiscussion,ifnull(a.ConveyanceAmount,'') AS ConveyanceAmount, 
 		ifnull(a.RefreshmentAmount,'') AS RefreshmentAmount,
 		case when a.ApprovedRefreshmentAmount is null then a.RefreshmentAmount else a.ApprovedRefreshmentAmount end AS ApprovedRefreshmentAmount,
