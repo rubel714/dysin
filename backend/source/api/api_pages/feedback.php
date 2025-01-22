@@ -69,10 +69,13 @@ function getDataList($data)
 	ifnull(a.ContactPersonMobileNumber,'') AS ContactPersonMobileNumber,
 	ifnull(a.DropDownListIDForTransportation,'') AS DropDownListIDForTransportation,
 	ifnull(d.DisplayName,'') AS Transportation,
-	ifnull(a.ConveyanceAmount,'') AS ConveyanceAmount, ifnull(a.RefreshmentAmount,'') AS RefreshmentAmount,
+	ifnull(a.ConveyanceAmount,'') AS ConveyanceAmount,
+	 ifnull(a.RefreshmentAmount,'') AS RefreshmentAmount,
+	 ifnull(a.DinnerBillAmount,'') AS DinnerBillAmount,
 
 	case when a.ApprovedRefreshmentAmount is null then a.RefreshmentAmount else a.ApprovedRefreshmentAmount end AS ApprovedRefreshmentAmount,
 	case when a.ApprovedConveyanceAmount is null then a.ConveyanceAmount else a.ApprovedConveyanceAmount end AS ApprovedConveyanceAmount,
+	case when a.ApprovedDinnerBillAmount is null then a.DinnerBillAmount else a.ApprovedDinnerBillAmount end AS ApprovedDinnerBillAmount,
 
 	DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS VisitDate,
 	a.IsVisitorFeedback,a.IsLinemanFeedback,
@@ -96,7 +99,7 @@ function getDataList($data)
 	and a.TransactionTypeId=1
 	and a.IsVisitorFeedback='Y'
 	$sWhere
-	and (a.ConveyanceAmount>0 OR a.RefreshmentAmount>0 OR a.ApprovedRefreshmentAmount>0 OR a.ApprovedConveyanceAmount>0)
+	and (a.ConveyanceAmount>0 OR a.RefreshmentAmount>0 OR a.ApprovedRefreshmentAmount>0 OR a.ApprovedConveyanceAmount>0 OR a.DinnerBillAmount>0 OR a.ApprovedDinnerBillAmount>0)
 	ORDER BY a.TransactionDate DESC;";
 
 		$resultdata = $dbh->query($query);
@@ -132,6 +135,8 @@ function dataAddEdit($data)
 		$TransactionId = $data->rowData->id;
 		$ApprovedRefreshmentAmount = $data->rowData->ApprovedRefreshmentAmount;
 		$ApprovedConveyanceAmount = $data->rowData->ApprovedConveyanceAmount;
+		$ApprovedDinnerBillAmount = $data->rowData->ApprovedDinnerBillAmount;
+		
 		$LMAdvice = $data->rowData->LMAdvice ? $data->rowData->LMAdvice : null;
 		$LMFollowUpDate = $data->rowData->LMFollowUpDate ? $data->rowData->LMFollowUpDate : null;
 		$IsLinemanFeedback = "Y";
@@ -153,8 +158,8 @@ function dataAddEdit($data)
 			// } else {
 			$u = new updateq();
 			$u->table = 't_transaction';
-			$u->columns = ['ApprovedRefreshmentAmount', 'ApprovedConveyanceAmount', 'LMAdvice', 'LMFollowUpDate', 'IsLinemanFeedback'];
-			$u->values = [$ApprovedRefreshmentAmount, $ApprovedConveyanceAmount, $LMAdvice, $LMFollowUpDate, $IsLinemanFeedback];
+			$u->columns = ['ApprovedRefreshmentAmount', 'ApprovedConveyanceAmount','ApprovedDinnerBillAmount', 'LMAdvice', 'LMFollowUpDate', 'IsLinemanFeedback'];
+			$u->values = [$ApprovedRefreshmentAmount, $ApprovedConveyanceAmount,$ApprovedDinnerBillAmount, $LMAdvice, $LMFollowUpDate, $IsLinemanFeedback];
 			$u->pks = ['TransactionId'];
 			$u->pk_values = [$TransactionId];
 			$u->build_query();

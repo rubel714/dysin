@@ -65,7 +65,7 @@ $spreadsheet = new Spreadsheet();
 		/* Text Alignment Vertical(VERTICAL_TOP,VERTICAL_CENTER,VERTICAL_BOTTOM) */
 		$spreadsheet->getActiveSheet()->getStyle('A'.$rn)->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
 		/* merge Cell */
-		$spreadsheet->getActiveSheet()->mergeCells('A'.$rn.':R'.$rn);
+		$spreadsheet->getActiveSheet()->mergeCells('A'.$rn.':X'.$rn);
 		$rn++;
 	 }
 
@@ -196,15 +196,16 @@ $spreadsheet->getActiveSheet()
         ->SetCellValue('L'.$rn, "Transportation")
         ->SetCellValue('M'.$rn, "Conveyance")
         ->SetCellValue('N'.$rn, "Refreshment")
-        ->SetCellValue('O'.$rn, "LM ID")
-        ->SetCellValue('P'.$rn, "LM Name")
-        ->SetCellValue('Q'.$rn, "Self Discussion")
-        ->SetCellValue('R'.$rn, "LM Advice")
-        ->SetCellValue('S'.$rn, "Machine Name")
-        ->SetCellValue('T'.$rn, "Machine Parts")
-        ->SetCellValue('U'.$rn, "Serial No")
-        ->SetCellValue('V'.$rn, "Model No")
-        ->SetCellValue('W'.$rn, "Customer Complaint/Problem/Symptom Description")
+        ->SetCellValue('O'.$rn, "Dinner Bill")
+        ->SetCellValue('P'.$rn, "LM ID")
+        ->SetCellValue('Q'.$rn, "LM Name")
+        ->SetCellValue('R'.$rn, "Self Discussion")
+        ->SetCellValue('S'.$rn, "LM Advice")
+        ->SetCellValue('T'.$rn, "Machine Name")
+        ->SetCellValue('U'.$rn, "Machine Parts")
+        ->SetCellValue('V'.$rn, "Serial No")
+        ->SetCellValue('W'.$rn, "Model No")
+        ->SetCellValue('X'.$rn, "Customer Complaint/Problem/Symptom Description")
 		;
 
 /* Font Size for Cells */
@@ -231,6 +232,7 @@ $spreadsheet->getActiveSheet()->getStyle('T'.$rn)->applyFromArray(array('font' =
 $spreadsheet->getActiveSheet()->getStyle('U'.$rn)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'U'.$rn);
 $spreadsheet->getActiveSheet()->getStyle('V'.$rn)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'V'.$rn);
 $spreadsheet->getActiveSheet()->getStyle('W'.$rn)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'W'.$rn);
+$spreadsheet->getActiveSheet()->getStyle('X'.$rn)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'X'.$rn);
 /* Text Alignment Horizontal(HORIZONTAL_LEFT,HORIZONTAL_CENTER,HORIZONTAL_RIGHT) */
 $spreadsheet->getActiveSheet()->getStyle('A'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
 $spreadsheet->getActiveSheet()->getStyle('B'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
@@ -246,8 +248,8 @@ $spreadsheet->getActiveSheet()->getStyle('K'.$rn)->getAlignment()->setHorizontal
 $spreadsheet->getActiveSheet()->getStyle('L'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 $spreadsheet->getActiveSheet()->getStyle('M'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
 $spreadsheet->getActiveSheet()->getStyle('N'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-$spreadsheet->getActiveSheet()->getStyle('O'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-$spreadsheet->getActiveSheet()->getStyle('P'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+$spreadsheet->getActiveSheet()->getStyle('O'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
+$spreadsheet->getActiveSheet()->getStyle('P'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
 $spreadsheet->getActiveSheet()->getStyle('Q'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 $spreadsheet->getActiveSheet()->getStyle('R'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 $spreadsheet->getActiveSheet()->getStyle('S'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
@@ -255,6 +257,7 @@ $spreadsheet->getActiveSheet()->getStyle('T'.$rn)->getAlignment()->setHorizontal
 $spreadsheet->getActiveSheet()->getStyle('U'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 $spreadsheet->getActiveSheet()->getStyle('V'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 $spreadsheet->getActiveSheet()->getStyle('W'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+$spreadsheet->getActiveSheet()->getStyle('X'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 
 /* Text Alignment Vertical(VERTICAL_TOP,VERTICAL_CENTER,VERTICAL_BOTTOM) */
 // $spreadsheet->getActiveSheet()->getStyle('A'.$rn)->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
@@ -286,15 +289,16 @@ $spreadsheet->getActiveSheet()->getColumnDimension('K')->setWidth(18);
 $spreadsheet->getActiveSheet()->getColumnDimension('L')->setWidth(15);
 $spreadsheet->getActiveSheet()->getColumnDimension('M')->setWidth(13);
 $spreadsheet->getActiveSheet()->getColumnDimension('N')->setWidth(13);
-$spreadsheet->getActiveSheet()->getColumnDimension('O')->setWidth(10);
-$spreadsheet->getActiveSheet()->getColumnDimension('P')->setWidth(15);
-$spreadsheet->getActiveSheet()->getColumnDimension('Q')->setWidth(18);
+$spreadsheet->getActiveSheet()->getColumnDimension('O')->setWidth(13);
+$spreadsheet->getActiveSheet()->getColumnDimension('P')->setWidth(10);
+$spreadsheet->getActiveSheet()->getColumnDimension('Q')->setWidth(15);
 $spreadsheet->getActiveSheet()->getColumnDimension('R')->setWidth(18);
 $spreadsheet->getActiveSheet()->getColumnDimension('S')->setWidth(18);
 $spreadsheet->getActiveSheet()->getColumnDimension('T')->setWidth(18);
 $spreadsheet->getActiveSheet()->getColumnDimension('U')->setWidth(18);
 $spreadsheet->getActiveSheet()->getColumnDimension('V')->setWidth(18);
 $spreadsheet->getActiveSheet()->getColumnDimension('W')->setWidth(18);
+$spreadsheet->getActiveSheet()->getColumnDimension('X')->setWidth(18);
 /* Wrap text */
 // $spreadsheet->getActiveSheet()->getStyle('B'.$rn)->getAlignment()->setWrapText(true);
 // $spreadsheet->getActiveSheet()->getStyle('C'.$rn)->getAlignment()->setWrapText(true);
@@ -323,11 +327,12 @@ $spreadsheet->getActiveSheet()->getStyle('T'.$rn.':T'.$rn)->applyFromArray($styl
 $spreadsheet->getActiveSheet()->getStyle('U'.$rn.':U'.$rn)->applyFromArray($styleThinBlackBorderOutline);
 $spreadsheet->getActiveSheet()->getStyle('V'.$rn.':V'.$rn)->applyFromArray($styleThinBlackBorderOutline);
 $spreadsheet->getActiveSheet()->getStyle('W'.$rn.':W'.$rn)->applyFromArray($styleThinBlackBorderOutline);
+$spreadsheet->getActiveSheet()->getStyle('X'.$rn.':X'.$rn)->applyFromArray($styleThinBlackBorderOutline);
 
  
 $sql = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
 			b.UserCode AS UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
-			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount,a.ApprovedDinnerBillAmount
 			,f.UserCode as LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice,
             g.MachineName,h.MachineModelName
 			,a.MachineSerial,a.MachineComplain
@@ -377,15 +382,16 @@ foreach ($result as $row) {
             ->SetCellValue('L' . $j, $row["Transportation"])
             ->SetCellValue('M' . $j, number_format($row["ApprovedConveyanceAmount"],2))
             ->SetCellValue('N' . $j, number_format($row["ApprovedRefreshmentAmount"],2))
-            ->SetCellValue('O' . $j, $row["LinemanUserId"])
-            ->SetCellValue('P' . $j, $row["LinemanUserName"])
-            ->SetCellValue('Q' . $j, $row["SelfDiscussion"])
-            ->SetCellValue('R' . $j, $row["LMAdvice"])
-            ->SetCellValue('S' . $j, $row["MachineName"])
-            ->SetCellValue('T' . $j, $row["MachineParts"])
-            ->SetCellValue('U' . $j, $row["MachineSerial"])
-            ->SetCellValue('V' . $j, $row["MachineModelName"])
-            ->SetCellValue('W' . $j, $row["MachineComplain"])
+            ->SetCellValue('O' . $j, number_format($row["ApprovedDinnerBillAmount"],2))            
+            ->SetCellValue('P' . $j, $row["LinemanUserId"])
+            ->SetCellValue('Q' . $j, $row["LinemanUserName"])
+            ->SetCellValue('R' . $j, $row["SelfDiscussion"])
+            ->SetCellValue('S' . $j, $row["LMAdvice"])
+            ->SetCellValue('T' . $j, $row["MachineName"])
+            ->SetCellValue('U' . $j, $row["MachineParts"])
+            ->SetCellValue('V' . $j, $row["MachineSerial"])
+            ->SetCellValue('W' . $j, $row["MachineModelName"])
+            ->SetCellValue('X' . $j, $row["MachineComplain"])
 			;
 
     /* border color set for cells */
@@ -412,6 +418,7 @@ foreach ($result as $row) {
     $spreadsheet->getActiveSheet()->getStyle('U' . $j . ':U' . $j)->applyFromArray($styleThinBlackBorderOutline);
     $spreadsheet->getActiveSheet()->getStyle('V' . $j . ':V' . $j)->applyFromArray($styleThinBlackBorderOutline);
     $spreadsheet->getActiveSheet()->getStyle('W' . $j . ':W' . $j)->applyFromArray($styleThinBlackBorderOutline);
+    $spreadsheet->getActiveSheet()->getStyle('X' . $j . ':X' . $j)->applyFromArray($styleThinBlackBorderOutline);
 
     /* Text Alignment Horizontal(HORIZONTAL_LEFT,HORIZONTAL_CENTER,HORIZONTAL_RIGHT) */
     $spreadsheet->getActiveSheet()->getStyle('A' . $j . ':A' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -428,8 +435,8 @@ foreach ($result as $row) {
     $spreadsheet->getActiveSheet()->getStyle('L' . $j . ':L' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
     $spreadsheet->getActiveSheet()->getStyle('M' . $j . ':M' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
     $spreadsheet->getActiveSheet()->getStyle('N' . $j . ':N' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-    $spreadsheet->getActiveSheet()->getStyle('O' . $j . ':O' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-    $spreadsheet->getActiveSheet()->getStyle('P' . $j . ':P' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+    $spreadsheet->getActiveSheet()->getStyle('O' . $j . ':O' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
+    $spreadsheet->getActiveSheet()->getStyle('P' . $j . ':P' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
     $spreadsheet->getActiveSheet()->getStyle('Q' . $j . ':Q' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
     $spreadsheet->getActiveSheet()->getStyle('R' . $j . ':R' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
     $spreadsheet->getActiveSheet()->getStyle('S' . $j . ':S' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
@@ -437,6 +444,7 @@ foreach ($result as $row) {
     $spreadsheet->getActiveSheet()->getStyle('U' . $j . ':U' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
     $spreadsheet->getActiveSheet()->getStyle('V' . $j . ':V' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
     $spreadsheet->getActiveSheet()->getStyle('W' . $j . ':W' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+    $spreadsheet->getActiveSheet()->getStyle('X' . $j . ':X' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 
     /* Text Alignment Vertical(VERTICAL_TOP,VERTICAL_CENTER,VERTICAL_BOTTOM) */
     // $spreadsheet->getActiveSheet()->getStyle('A' . $j . ':A' . $j)->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
@@ -460,7 +468,7 @@ foreach ($result as $row) {
 
 
     if ($j % 2 == 0) {
-        cellColor('A' . $j . ':W' . $j, 'f6f8fb');
+        cellColor('A' . $j . ':X' . $j, 'f6f8fb');
     }
 
     $i++;

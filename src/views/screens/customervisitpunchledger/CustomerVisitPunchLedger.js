@@ -340,7 +340,15 @@ const CustomerVisitPunchLedger = (props) => {
       filter: true,
       // width: "12%",
     },
-
+    {
+      field: "ApprovedDinnerBillAmount",
+      label: "Dinner Bill",
+      align: "right",
+      visible: true,
+      sort: true,
+      filter: true,
+      // width: "12%",
+    },
     {
       field: "LinemanUserId",
       label: "LM ID",
@@ -377,9 +385,6 @@ const CustomerVisitPunchLedger = (props) => {
       filter: true,
       // width: "6%"
     },
-
-
-
     {
       field: "MachineName",
       label: "Machine Name",

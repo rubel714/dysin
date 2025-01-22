@@ -89,7 +89,7 @@ class MYPDF extends TCPDF
 
 $sqlf = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
 			b.UserCode AS UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
-			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount,a.ApprovedDinnerBillAmount
 			,f.UserCode as LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice,
 
             g.MachineName,h.MachineModelName
@@ -134,6 +134,7 @@ foreach ($sqlLoop1result as $result) {
     <td style="width:5% !important;" class="border_Remove">'. $result['Transportation'].'</td>
     <td style="width:5% !important;" class="right-aln border_Remove">'. $result['ApprovedConveyanceAmount'].'</td>
     <td style="width:5% !important;" class="right-aln border_Remove">'. $result['ApprovedRefreshmentAmount'].'</td>
+    <td style="width:5% !important;" class="right-aln border_Remove">'. $result['ApprovedDinnerBillAmount'].'</td>
     <td style="width:5% !important;" class="center-aln border_Remove">'. $result['LinemanUserId'].'</td>
     <td style="width:5% !important;" class="border_Remove">'. $result['LinemanUserName'].'</td>
     <td style="width:5% !important;" class="border_Remove">'. $result['SelfDiscussion'].'</td>
@@ -291,6 +292,7 @@ $tblHeader0 = '<!DOCTYPE html>
                                 <th rowspan="1" style="width:5% !important;" >Transportation</th>
                                 <th rowspan="1" style="width:5% !important;" class="right-aln">Conveyance</th>
                                 <th rowspan="1" style="width:5% !important;" class="right-aln">Refreshment</th>
+                                <th rowspan="1" style="width:5% !important;" class="right-aln">Dinner Bill</th>
                                 <th rowspan="1" style="width:5% !important;"class="center-aln" >LM ID</th>
                                 <th rowspan="1" style="width:5% !important;" >LM Name</th>
                                 <th rowspan="1" style="width:5% !important;" >Self Discussion</th>

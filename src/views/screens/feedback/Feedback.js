@@ -130,6 +130,15 @@ const Feedback = (props) => {
       width: "7%"
     },
     {
+      field: "DinnerBillAmount",
+      label: "Dinner Bill",
+      align: "right",
+      visible: true,
+      sort: true,
+      filter: true,
+      width: "7%"
+    },
+    {
       field: "ApprovedConveyanceAmount",
       label: "Approved Conveyance",
       align: "right",
@@ -141,6 +150,15 @@ const Feedback = (props) => {
     {
       field: "ApprovedRefreshmentAmount",
       label: "Approved Refreshment",
+      align: "right",
+      visible: true,
+      sort: true,
+      filter: true,
+      width: "7%"
+    },
+    {
+      field: "ApprovedDinnerBillAmount",
+      label: "Approved Dinner Bill",
       align: "right",
       visible: true,
       sort: true,

@@ -272,6 +272,15 @@ const CustomerVisitPunchSummary = (props) => {
       width: "8%",
     },
     {
+      field: "ApprovedDinnerBillAmount",
+      label: "Dinner Bill",
+      align: "right",
+      visible: true,
+      sort: true,
+      filter: true,
+      width: "8%",
+    },
+    {
       field: "RowTotal",
       label: "Total",
       align: "right",

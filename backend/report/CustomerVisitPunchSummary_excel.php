@@ -65,7 +65,7 @@ $spreadsheet = new Spreadsheet();
 		/* Text Alignment Vertical(VERTICAL_TOP,VERTICAL_CENTER,VERTICAL_BOTTOM) */
 		$spreadsheet->getActiveSheet()->getStyle('A'.$rn)->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
 		/* merge Cell */
-		$spreadsheet->getActiveSheet()->mergeCells('A'.$rn.':H'.$rn);
+		$spreadsheet->getActiveSheet()->mergeCells('A'.$rn.':I'.$rn);
 		$rn++;
 	 }
 
@@ -172,9 +172,10 @@ $spreadsheet->getActiveSheet()
         ->SetCellValue('C'.$rn, "Employee Name")
         ->SetCellValue('D'.$rn, "Conveyance")
         ->SetCellValue('E'.$rn, "Refreshment")
-        ->SetCellValue('F'.$rn, "Total")
-        ->SetCellValue('G'.$rn, "HOT Name")
-        ->SetCellValue('H'.$rn, "Company Name")
+        ->SetCellValue('F'.$rn, "Dinner Bill")
+        ->SetCellValue('G'.$rn, "Total")
+        ->SetCellValue('H'.$rn, "HOT Name")
+        ->SetCellValue('I'.$rn, "Company Name")
 		;
         // ->SetCellValue('G'.$rn, "Line Manager ID")
 
@@ -187,6 +188,7 @@ $spreadsheet->getActiveSheet()->getStyle('E'.$rn)->applyFromArray(array('font' =
 $spreadsheet->getActiveSheet()->getStyle('F'.$rn)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'F'.$rn);
 $spreadsheet->getActiveSheet()->getStyle('G'.$rn)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'G'.$rn);
 $spreadsheet->getActiveSheet()->getStyle('H'.$rn)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'H'.$rn);
+$spreadsheet->getActiveSheet()->getStyle('I'.$rn)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'I'.$rn);
 
 /* Text Alignment Horizontal(HORIZONTAL_LEFT,HORIZONTAL_CENTER,HORIZONTAL_RIGHT) */
 $spreadsheet->getActiveSheet()->getStyle('A'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -195,8 +197,9 @@ $spreadsheet->getActiveSheet()->getStyle('C'.$rn)->getAlignment()->setHorizontal
 $spreadsheet->getActiveSheet()->getStyle('D'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
 $spreadsheet->getActiveSheet()->getStyle('E'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
 $spreadsheet->getActiveSheet()->getStyle('F'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-$spreadsheet->getActiveSheet()->getStyle('G'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
-$spreadsheet->getActiveSheet()->getStyle('G'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+$spreadsheet->getActiveSheet()->getStyle('G'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
+$spreadsheet->getActiveSheet()->getStyle('H'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+$spreadsheet->getActiveSheet()->getStyle('I'.$rn)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 
 /* Text Alignment Vertical(VERTICAL_TOP,VERTICAL_CENTER,VERTICAL_BOTTOM) */
 // $spreadsheet->getActiveSheet()->getStyle('A'.$rn)->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
@@ -220,8 +223,9 @@ $spreadsheet->getActiveSheet()->getColumnDimension('C')->setWidth(25);
 $spreadsheet->getActiveSheet()->getColumnDimension('D')->setWidth(18);
 $spreadsheet->getActiveSheet()->getColumnDimension('E')->setWidth(18);
 $spreadsheet->getActiveSheet()->getColumnDimension('F')->setWidth(15);
-$spreadsheet->getActiveSheet()->getColumnDimension('G')->setWidth(18);
-$spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth(30);
+$spreadsheet->getActiveSheet()->getColumnDimension('G')->setWidth(15);
+$spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth(18);
+$spreadsheet->getActiveSheet()->getColumnDimension('I')->setWidth(30);
 
 /* Wrap text */
 // $spreadsheet->getActiveSheet()->getStyle('B'.$rn)->getAlignment()->setWrapText(true);
@@ -236,14 +240,17 @@ $spreadsheet->getActiveSheet()->getStyle('E'.$rn.':E'.$rn)->applyFromArray($styl
 $spreadsheet->getActiveSheet()->getStyle('F'.$rn.':F'.$rn)->applyFromArray($styleThinBlackBorderOutline);
 $spreadsheet->getActiveSheet()->getStyle('G'.$rn.':G'.$rn)->applyFromArray($styleThinBlackBorderOutline);
 $spreadsheet->getActiveSheet()->getStyle('H'.$rn.':H'.$rn)->applyFromArray($styleThinBlackBorderOutline);
+$spreadsheet->getActiveSheet()->getStyle('I'.$rn.':I'.$rn)->applyFromArray($styleThinBlackBorderOutline);
 
  
 $sql = "SELECT a.UserId id, b.UserCode AS UserId,b.UserName,
             ifnull(sum(a.ApprovedConveyanceAmount),0) ApprovedConveyanceAmount,
 			ifnull(sum(a.ApprovedRefreshmentAmount),0) ApprovedRefreshmentAmount,
+			ifnull(sum(a.ApprovedDinnerBillAmount),0) ApprovedDinnerBillAmount,
             
             (ifnull(sum(a.ApprovedConveyanceAmount),0) +
-			ifnull(sum(a.ApprovedRefreshmentAmount),0)) RowTotal
+			ifnull(sum(a.ApprovedRefreshmentAmount),0)+
+			ifnull(sum(a.ApprovedDinnerBillAmount),0)) RowTotal
 
 			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName,
 		e.BusinessLineName AS CustomerName
@@ -267,10 +274,12 @@ $i = 1;
 $j = $rn+1;
 $SubTotalApprovedConveyanceAmount = 0;
 $SubTotalApprovedRefreshmentAmount = 0;
+$SubTotalApprovedDinnerBillAmount = 0;
 $SubTotal = 0;
 
 $GrandTotalApprovedConveyanceAmount = 0;
 $GrandTotalApprovedRefreshmentAmount = 0;
+$GrandTotalApprovedDinnerBillAmount = 0;
 $GrandTotal = 0;
 
 $tempDepartmentName= '';
@@ -290,7 +299,8 @@ foreach ($result as $row) {
             ->SetCellValue('C' . $j, "Sub Total")
             ->SetCellValue('D' . $j, number_format($SubTotalApprovedConveyanceAmount))
             ->SetCellValue('E' . $j, number_format($SubTotalApprovedRefreshmentAmount))
-            ->SetCellValue('F' . $j, number_format($SubTotal));
+            ->SetCellValue('F' . $j, number_format($SubTotalApprovedDinnerBillAmount))
+            ->SetCellValue('G' . $j, number_format($SubTotal));
 
             /* Font Size for Cells */
             $spreadsheet->getActiveSheet()->getStyle('A'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'A'.$j);
@@ -301,6 +311,7 @@ foreach ($result as $row) {
             $spreadsheet->getActiveSheet()->getStyle('F'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'F'.$j);
             $spreadsheet->getActiveSheet()->getStyle('G'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'G'.$j);
             $spreadsheet->getActiveSheet()->getStyle('H'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'H'.$j);
+            $spreadsheet->getActiveSheet()->getStyle('I'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'I'.$j);
 
              /* border color set for cells */
             $spreadsheet->getActiveSheet()->getStyle('A' . $j . ':A' . $j)->applyFromArray($styleThinBlackBorderOutline);
@@ -311,6 +322,7 @@ foreach ($result as $row) {
             $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->applyFromArray($styleThinBlackBorderOutline);
             $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->applyFromArray($styleThinBlackBorderOutline);
             $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->applyFromArray($styleThinBlackBorderOutline);
+            $spreadsheet->getActiveSheet()->getStyle('I' . $j . ':I' . $j)->applyFromArray($styleThinBlackBorderOutline);
             
             /* Text Alignment Horizontal(HORIZONTAL_LEFT,HORIZONTAL_CENTER,HORIZONTAL_RIGHT) */
             $spreadsheet->getActiveSheet()->getStyle('A' . $j . ':A' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -319,15 +331,16 @@ foreach ($result as $row) {
             $spreadsheet->getActiveSheet()->getStyle('D' . $j . ':D' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
             $spreadsheet->getActiveSheet()->getStyle('E' . $j . ':E' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
             $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-            // $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-            $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+            $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
             $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+            $spreadsheet->getActiveSheet()->getStyle('I' . $j . ':I' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
         
             
             $j++;
 
             $SubTotalApprovedConveyanceAmount = 0;
             $SubTotalApprovedRefreshmentAmount = 0;
+            $SubTotalApprovedDinnerBillAmount = 0;
             $SubTotal = 0;
         }
 
@@ -355,20 +368,23 @@ foreach ($result as $row) {
             ->SetCellValue('C' . $j, $row["UserName"])
             ->SetCellValue('D' . $j, number_format($row["ApprovedConveyanceAmount"]))
             ->SetCellValue('E' . $j, number_format($row["ApprovedRefreshmentAmount"]))
-            ->SetCellValue('F' . $j, number_format($row["RowTotal"]))
+            ->SetCellValue('F' . $j, number_format($row["ApprovedDinnerBillAmount"]))
+            ->SetCellValue('G' . $j, number_format($row["RowTotal"]))
             // ->SetCellValue('G' . $j, $row["LinemanUserId"])
-            ->SetCellValue('G' . $j, $row["LinemanUserName"])
-            ->SetCellValue('H' . $j, $row["CustomerName"])
+            ->SetCellValue('H' . $j, $row["LinemanUserName"])
+            ->SetCellValue('I' . $j, $row["CustomerName"])
 			;
 
 /**For sub total */
     $SubTotalApprovedConveyanceAmount += $row["ApprovedConveyanceAmount"];
     $SubTotalApprovedRefreshmentAmount += $row["ApprovedRefreshmentAmount"];
+    $SubTotalApprovedDinnerBillAmount += $row["ApprovedDinnerBillAmount"];
     $SubTotal += $row["RowTotal"];
     
     /**For Grand total */
     $GrandTotalApprovedConveyanceAmount += $row["ApprovedConveyanceAmount"];
     $GrandTotalApprovedRefreshmentAmount += $row["ApprovedRefreshmentAmount"];
+    $GrandTotalApprovedDinnerBillAmount += $row["ApprovedDinnerBillAmount"];
     $GrandTotal += $row["RowTotal"];
 
     
@@ -382,6 +398,7 @@ foreach ($result as $row) {
     $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->applyFromArray($styleThinBlackBorderOutline);
     $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->applyFromArray($styleThinBlackBorderOutline);
     $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->applyFromArray($styleThinBlackBorderOutline);
+    $spreadsheet->getActiveSheet()->getStyle('I' . $j . ':I' . $j)->applyFromArray($styleThinBlackBorderOutline);
     
     /* Text Alignment Horizontal(HORIZONTAL_LEFT,HORIZONTAL_CENTER,HORIZONTAL_RIGHT) */
     $spreadsheet->getActiveSheet()->getStyle('A' . $j . ':A' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -390,9 +407,10 @@ foreach ($result as $row) {
     $spreadsheet->getActiveSheet()->getStyle('D' . $j . ':D' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
     $spreadsheet->getActiveSheet()->getStyle('E' . $j . ':E' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
     $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
+    $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
     // $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-    $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
     $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+    $spreadsheet->getActiveSheet()->getStyle('I' . $j . ':I' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
    
     /* Text Alignment Vertical(VERTICAL_TOP,VERTICAL_CENTER,VERTICAL_BOTTOM) */
     // $spreadsheet->getActiveSheet()->getStyle('A' . $j . ':A' . $j)->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
@@ -416,7 +434,7 @@ foreach ($result as $row) {
 
 
     if ($j % 2 == 0) {
-        cellColor('A' . $j . ':H' . $j, 'f6f8fb');
+        cellColor('A' . $j . ':I' . $j, 'f6f8fb');
     }
 
     $i++;
@@ -433,7 +451,8 @@ foreach ($result as $row) {
     ->SetCellValue('C' . $j, "Sub Total")
     ->SetCellValue('D' . $j, number_format($SubTotalApprovedConveyanceAmount))
     ->SetCellValue('E' . $j, number_format($SubTotalApprovedRefreshmentAmount))
-    ->SetCellValue('F' . $j, number_format($SubTotal));
+    ->SetCellValue('F' . $j, number_format($SubTotalApprovedDinnerBillAmount))
+    ->SetCellValue('G' . $j, number_format($SubTotal));
 
     /* Font Size for Cells */
     $spreadsheet->getActiveSheet()->getStyle('A'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'A'.$j);
@@ -444,6 +463,7 @@ foreach ($result as $row) {
     $spreadsheet->getActiveSheet()->getStyle('F'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'F'.$j);
     $spreadsheet->getActiveSheet()->getStyle('G'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'G'.$j);
     $spreadsheet->getActiveSheet()->getStyle('H'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'H'.$j);
+    $spreadsheet->getActiveSheet()->getStyle('I'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'I'.$j);
 
      /* border color set for cells */
      $spreadsheet->getActiveSheet()->getStyle('A' . $j . ':A' . $j)->applyFromArray($styleThinBlackBorderOutline);
@@ -454,6 +474,7 @@ foreach ($result as $row) {
      $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->applyFromArray($styleThinBlackBorderOutline);
      $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->applyFromArray($styleThinBlackBorderOutline);
      $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->applyFromArray($styleThinBlackBorderOutline);
+     $spreadsheet->getActiveSheet()->getStyle('I' . $j . ':I' . $j)->applyFromArray($styleThinBlackBorderOutline);
      
      /* Text Alignment Horizontal(HORIZONTAL_LEFT,HORIZONTAL_CENTER,HORIZONTAL_RIGHT) */
      $spreadsheet->getActiveSheet()->getStyle('A' . $j . ':A' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -462,8 +483,9 @@ foreach ($result as $row) {
      $spreadsheet->getActiveSheet()->getStyle('D' . $j . ':D' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
      $spreadsheet->getActiveSheet()->getStyle('E' . $j . ':E' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
      $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-     $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+     $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
      $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+     $spreadsheet->getActiveSheet()->getStyle('I' . $j . ':I' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
      $j++;
 
 /**For grand total */
@@ -471,6 +493,7 @@ foreach ($result as $row) {
     ->SetCellValue('C' . $j, "Grand Total")
     ->SetCellValue('D' . $j, number_format($GrandTotalApprovedConveyanceAmount))
     ->SetCellValue('E' . $j, number_format($GrandTotalApprovedRefreshmentAmount))
+    ->SetCellValue('E' . $j, number_format($GrandTotalApprovedDinnerBillAmount))
     ->SetCellValue('F' . $j, number_format($GrandTotal));
 
     /* Font Size for Cells */
@@ -482,6 +505,7 @@ foreach ($result as $row) {
     $spreadsheet->getActiveSheet()->getStyle('F'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'F'.$j);
     $spreadsheet->getActiveSheet()->getStyle('G'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'G'.$j);
     $spreadsheet->getActiveSheet()->getStyle('H'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'H'.$j);
+    $spreadsheet->getActiveSheet()->getStyle('I'.$j)->applyFromArray(array('font' => array('size' => '12', 'bold' => true)), 'I'.$j);
 
      /* border color set for cells */
      $spreadsheet->getActiveSheet()->getStyle('A' . $j . ':A' . $j)->applyFromArray($styleThinBlackBorderOutline);
@@ -492,6 +516,7 @@ foreach ($result as $row) {
      $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->applyFromArray($styleThinBlackBorderOutline);
      $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->applyFromArray($styleThinBlackBorderOutline);
      $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->applyFromArray($styleThinBlackBorderOutline);
+     $spreadsheet->getActiveSheet()->getStyle('I' . $j . ':I' . $j)->applyFromArray($styleThinBlackBorderOutline);
      
      /* Text Alignment Horizontal(HORIZONTAL_LEFT,HORIZONTAL_CENTER,HORIZONTAL_RIGHT) */
      $spreadsheet->getActiveSheet()->getStyle('A' . $j . ':A' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -500,8 +525,9 @@ foreach ($result as $row) {
      $spreadsheet->getActiveSheet()->getStyle('D' . $j . ':D' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
      $spreadsheet->getActiveSheet()->getStyle('E' . $j . ':E' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
      $spreadsheet->getActiveSheet()->getStyle('F' . $j . ':F' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-     $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+     $spreadsheet->getActiveSheet()->getStyle('G' . $j . ':G' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
      $spreadsheet->getActiveSheet()->getStyle('H' . $j . ':H' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+     $spreadsheet->getActiveSheet()->getStyle('I' . $j . ':I' . $j)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
  
     $j++;
 }

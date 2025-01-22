@@ -9,20 +9,21 @@ try {
 	$TransactionId = isset($data['SalesForceCustomerVisitID']) ? checkNull($data['SalesForceCustomerVisitID']) : null;
 	$ApprovedRefreshmentAmount = isset($data['ApprovedRefreshmentAmount']) ? checkNull($data['ApprovedRefreshmentAmount']) : null;
 	$ApprovedConveyanceAmount = isset($data['ApprovedConveyanceAmount']) ? checkNull($data['ApprovedConveyanceAmount']) : null;
+	$ApprovedDinnerBillAmount = isset($data['ApprovedDinnerBillAmount']) ? checkNull($data['ApprovedDinnerBillAmount']) : null;
 	$LMAdvice = isset($data['LMAdvice']) ? checkNull($data['LMAdvice']) : NULL;
 	$LMFollowUpDate = isset($data['LMFollowUpDate']) ? convertAppToDBDate(checkNull($data['LMFollowUpDate'])) : null; //'20-Aug-2024'
 	$IsLinemanFeedback = "Y";
 
 
-
 	$query = "UPDATE t_transaction set ApprovedRefreshmentAmount=:ApprovedRefreshmentAmount,
-	ApprovedConveyanceAmount=:ApprovedConveyanceAmount,
+	ApprovedConveyanceAmount=:ApprovedConveyanceAmount,ApprovedDinnerBillAmount=:ApprovedDinnerBillAmount,
 	LMAdvice=:LMAdvice,LMFollowUpDate=:LMFollowUpDate,IsLinemanFeedback=:IsLinemanFeedback
  	where TransactionId=:TransactionId;";
 	
 	$pList = array(
 		'ApprovedRefreshmentAmount' => $ApprovedRefreshmentAmount,
 		'ApprovedConveyanceAmount' => $ApprovedConveyanceAmount,
+		'ApprovedDinnerBillAmount' => $ApprovedDinnerBillAmount,
 		'LMAdvice' => $LMAdvice,
 		'LMFollowUpDate' => $LMFollowUpDate,
 		'IsLinemanFeedback' => $IsLinemanFeedback,

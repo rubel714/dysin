@@ -91,8 +91,10 @@ class MYPDF extends TCPDF
 $sqlf = "SELECT a.UserId id, b.UserCode AS UserId,b.UserName,
             ifnull(sum(a.ApprovedConveyanceAmount),0) ApprovedConveyanceAmount,
 			ifnull(sum(a.ApprovedRefreshmentAmount),0) ApprovedRefreshmentAmount,
+			ifnull(sum(a.ApprovedDinnerBillAmount),0) ApprovedDinnerBillAmount,
             (ifnull(sum(a.ApprovedConveyanceAmount),0) +
-			ifnull(sum(a.ApprovedRefreshmentAmount),0)) RowTotal
+			ifnull(sum(a.ApprovedRefreshmentAmount),0)+
+            ifnull(sum(a.ApprovedDinnerBillAmount),0)) RowTotal
 			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName,
 		e.BusinessLineName AS CustomerName
 			FROM t_transaction a
@@ -115,10 +117,12 @@ $sl = 1;
 
 $SubTotalApprovedConveyanceAmount = 0;
 $SubTotalApprovedRefreshmentAmount = 0;
+$SubTotalApprovedDinnerBillAmount = 0;
 $SubTotal = 0;
 
 $GrandTotalApprovedConveyanceAmount = 0;
 $GrandTotalApprovedRefreshmentAmount = 0;
+$GrandTotalApprovedDinnerBillAmount = 0;
 $GrandTotal = 0;
 
 $tempDepartmentName= '';
@@ -139,9 +143,10 @@ foreach ($sqlLoop1result as $result) {
             <td  style="width:5% !important;" class="center-aln border_Remove"></td>
             <td style="width:10% !important;" class="center-aln border_Remove"></td>
             <td style="width:23% !important;font-weight: bold;" class="border_Remove">Sub Total</td> 
-            <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedConveyanceAmount).'</td>
-            <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedRefreshmentAmount).'</td>
-            <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotal).'</td>
+            <td style="width:8% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedConveyanceAmount).'</td>
+            <td style="width:9% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedRefreshmentAmount).'</td>
+            <td style="width:8% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedDinnerBillAmount).'</td>
+            <td style="width:7% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotal).'</td>
             <td style="width:15% !important;" class="border_Remove"></td>
             <td style="width:17% !important;" class="border_Remove"></td>
             </tr>';
@@ -149,6 +154,7 @@ foreach ($sqlLoop1result as $result) {
    
         $SubTotalApprovedConveyanceAmount = 0;
         $SubTotalApprovedRefreshmentAmount = 0;
+        $SubTotalApprovedDinnerBillAmount = 0;
         $SubTotal = 0;
     }
 
@@ -158,9 +164,10 @@ foreach ($sqlLoop1result as $result) {
         <td  style="width:5% !important;" class="center-aln border_Remove"></td>
         <td style="width:10% !important;font-weight: bold;" class="center-aln border_Remove">'.$result["DepartmentName"].'</td>
         <td style="width:23% !important;" class="border_Remove"></td> 
-        <td style="width:10% !important;" class="right-aln border_Remove"></td>
-        <td style="width:10% !important;" class="right-aln border_Remove"></td>
-        <td style="width:10% !important;" class="right-aln border_Remove"></td>
+        <td style="width:8% !important;" class="right-aln border_Remove"></td>
+        <td style="width:9% !important;" class="right-aln border_Remove"></td>
+        <td style="width:8% !important;" class="right-aln border_Remove"></td>
+        <td style="width:7% !important;" class="right-aln border_Remove"></td>
         <td style="width:15% !important;" class="border_Remove"></td>
         <td style="width:17% !important;" class="border_Remove"></td>
         </tr>';
@@ -176,9 +183,10 @@ foreach ($sqlLoop1result as $result) {
     <td  style="width:5% !important;" class="center-aln border_Remove">' .$sl++.'</td>
     <td style="width:10% !important;" class="center-aln border_Remove">'.$result['UserId'].'</td>
     <td style="width:23% !important;" class="border_Remove">'.$result['UserName'].'</td> 
-    <td style="width:10% !important;" class="right-aln border_Remove">'. $result['ApprovedConveyanceAmount'].'</td>
-    <td style="width:10% !important;" class="right-aln border_Remove">'.$result['ApprovedRefreshmentAmount'].'</td>
-    <td style="width:10% !important;" class="right-aln border_Remove">'.$result['RowTotal'].'</td>
+    <td style="width:8% !important;" class="right-aln border_Remove">'. $result['ApprovedConveyanceAmount'].'</td>
+    <td style="width:9% !important;" class="right-aln border_Remove">'.$result['ApprovedRefreshmentAmount'].'</td>
+    <td style="width:8% !important;" class="right-aln border_Remove">'.$result['ApprovedDinnerBillAmount'].'</td>
+    <td style="width:7% !important;" class="right-aln border_Remove">'.$result['RowTotal'].'</td>
     <td style="width:15% !important;" class="border_Remove">'. $result['LinemanUserName'].'</td>
     <td style="width:17% !important;" class="border_Remove">'. $result['CustomerName'].'</td>
     </tr>';
@@ -188,11 +196,13 @@ foreach ($sqlLoop1result as $result) {
 /**For sub total */
 $SubTotalApprovedConveyanceAmount += $result["ApprovedConveyanceAmount"];
 $SubTotalApprovedRefreshmentAmount += $result["ApprovedRefreshmentAmount"];
+$SubTotalApprovedDinnerBillAmount += $result["ApprovedDinnerBillAmount"];
 $SubTotal += $result["RowTotal"];
 
 /**For Grand total */
 $GrandTotalApprovedConveyanceAmount += $result["ApprovedConveyanceAmount"];
 $GrandTotalApprovedRefreshmentAmount += $result["ApprovedRefreshmentAmount"];
+$GrandTotalApprovedDinnerBillAmount += $result["ApprovedDinnerBillAmount"];
 $GrandTotal += $result["RowTotal"];
 
 
@@ -210,9 +220,10 @@ $GrandTotal += $result["RowTotal"];
          <td  style="width:5% !important;" class="center-aln border_Remove"></td>
          <td style="width:10% !important;" class="center-aln border_Remove"></td>
          <td style="width:23% !important;font-weight: bold;" class="border_Remove">Sub Total</td> 
-         <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedConveyanceAmount).'</td>
-         <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedRefreshmentAmount).'</td>
-         <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotal).'</td>
+         <td style="width:8% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedConveyanceAmount).'</td>
+         <td style="width:9% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedRefreshmentAmount).'</td>
+         <td style="width:8% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotalApprovedDinnerBillAmount).'</td>
+         <td style="width:7% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($SubTotal).'</td>
          <td style="width:15% !important;" class="border_Remove"></td>
          <td style="width:17% !important;" class="border_Remove"></td>
          </tr>';
@@ -223,9 +234,10 @@ $GrandTotal += $result["RowTotal"];
         <td  style="width:5% !important;" class="center-aln border_Remove"></td>
         <td style="width:10% !important;" class="center-aln border_Remove"></td>
         <td style="width:23% !important;font-weight: bold;" class="border_Remove">Grand Total</td> 
-        <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotalApprovedConveyanceAmount).'</td>
-        <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotalApprovedRefreshmentAmount).'</td>
-        <td style="width:10% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotal).'</td>
+        <td style="width:8% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotalApprovedConveyanceAmount).'</td>
+        <td style="width:9% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotalApprovedRefreshmentAmount).'</td>
+        <td style="width:8% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotalApprovedDinnerBillAmount).'</td>
+        <td style="width:7% !important;font-weight: bold;" class="right-aln border_Remove">'.number_format($GrandTotal).'</td>
         <td style="width:15% !important;" class="border_Remove"></td>
         <td style="width:17% !important;" class="border_Remove"></td>
         </tr>';
@@ -370,9 +382,10 @@ $tblHeader0 = '<!DOCTYPE html>
                                 <th rowspan="1" style="width:5% !important;" class="center-aln" >Sl#</th>
                                 <th rowspan="1" style="width:10% !important;" class="center-aln ">Employee ID</th>
                                 <th rowspan="1" style="width:23% !important;" >Employee Name</th>
-                                <th rowspan="1" style="width:10% !important;" class="right-aln ">Conveyance</th>
-                                <th rowspan="1" style="width:10% !important;" class="right-aln ">Refreshment</th>
-                                <th rowspan="1" style="width:10% !important;" class="right-aln ">Total</th>
+                                <th rowspan="1" style="width:8% !important;" class="right-aln ">Conveyance</th>
+                                <th rowspan="1" style="width:9% !important;" class="right-aln ">Refreshment</th>
+                                <th rowspan="1" style="width:8% !important;" class="right-aln ">Dinner Bill</th>
+                                <th rowspan="1" style="width:7% !important;" class="right-aln ">Total</th>
                                 <th rowspan="1" style="width:15% !important;" >HOT Name</th>
                                 <th rowspan="1" style="width:17% !important;" >Company Name</th>
                             </tr>

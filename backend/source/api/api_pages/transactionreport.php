@@ -35,7 +35,7 @@ function getDataList($data)
 		if ($ReportTypeId == "CustomerVisitPunchLedger") {
 			$query = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
 			b.UserCode AS UserId,b.UserName,a.PunchLocation,c.DisplayName AS Purpose,d.CustomerCode,d.CustomerName,a.ContactPersonName,a.ContactPersonDesignation,
-			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+			a.ContactPersonMobileNumber,c.DisplayName AS Transportation,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount,a.ApprovedDinnerBillAmount
 			,f.UserCode as LinemanUserId,f.UserName as LinemanUserName, a.SelfDiscussion,a.LMAdvice,
 
 			g.MachineName,h.MachineModelName
@@ -79,8 +79,10 @@ function getDataList($data)
 			$query = "SELECT a.UserId id, b.UserCode AS UserId,b.UserName,
 			sum(a.ApprovedConveyanceAmount) ApprovedConveyanceAmount,
 			sum(a.ApprovedRefreshmentAmount) ApprovedRefreshmentAmount,
+			sum(a.ApprovedDinnerBillAmount) ApprovedDinnerBillAmount,
 			(ifnull(sum(a.ApprovedConveyanceAmount),0) +
-			ifnull(sum(a.ApprovedRefreshmentAmount),0)) RowTotal
+			ifnull(sum(a.ApprovedRefreshmentAmount),0)+
+			ifnull(sum(a.ApprovedDinnerBillAmount),0)) RowTotal
 			,b.LinemanUserId,c.UserName as LinemanUserName, bb.DepartmentName,
 
 			e.BusinessLineName AS CustomerName

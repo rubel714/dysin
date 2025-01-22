@@ -115,6 +115,18 @@ const FeedbackAddEditModal = (props) => {
             />
           </div>
           <div class="modalItem">
+            <label>Dinner Bill</label>
+            <input
+              type="text"
+              id="ApprovedDinnerBillAmount"
+              name="ApprovedDinnerBillAmount"
+              // class={errorObject.ApprovedDinnerBillAmount}
+              placeholder="Enter Approved Dinner Bill"
+              value={currentRow.ApprovedDinnerBillAmount}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div class="modalItem">
             <label>Pass with Advice</label>
             <input
               type="text"

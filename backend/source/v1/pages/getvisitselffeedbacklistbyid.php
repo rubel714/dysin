@@ -26,8 +26,12 @@ try{
 	ifnull(a.SelfDiscussion,'') AS SelfDiscussion,'' AS SelfFBVisitActions,'' AS SelfFBVisitMachineParts,
 	case when a.SelfFollowUpDate is null then '' else DATE_FORMAT(a.SelfFollowUpDate, '%d-%b-%Y') end AS SelfFollowUpDate,
 	ifnull(a.CustomerId,'') AS CustomerID,ifnull(c.CustomerName,'') AS CustomerName,
-	ifnull(a.ConveyanceAmount,'') AS ConveyanceAmount, ifnull(a.RefreshmentAmount,'') AS RefreshmentAmount,
-	ifnull(a.ApprovedConveyanceAmount,'') AS ApprovedConveyanceAmount, ifnull(a.ApprovedRefreshmentAmount,'') AS ApprovedRefreshmentAmount,
+	ifnull(a.ConveyanceAmount,'') AS ConveyanceAmount,
+	ifnull(a.RefreshmentAmount,'') AS RefreshmentAmount,
+	ifnull(a.DinnerBillAmount,'') AS DinnerBillAmount,
+	ifnull(a.ApprovedConveyanceAmount,'') AS ApprovedConveyanceAmount,
+	ifnull(a.ApprovedRefreshmentAmount,'') AS ApprovedRefreshmentAmount,
+	ifnull(a.ApprovedDinnerBillAmount,'') AS ApprovedDinnerBillAmount,
 	ifnull(a.DropDownListIDForPurpose,'') AS DropDownListIDForPurpose,ifnull(b.DisplayName,'') AS Purpose,
 	ifnull(a.PunchLocation,'') AS PunchLocation, ifnull(a.Longitude,'') AS Longitude,ifnull(a.Latitude,'') AS Latitude,
 	ifnull(a.DropDownListIDForTransportation,'') AS DropDownListIDForTransportation,
@@ -43,6 +47,8 @@ try{
 	,(case when a.customerSignature is null then '' else concat('https://dysin.ng-ssl.com/image/transaction/',a.customerSignature) end) AS customerSignature
 	,ifnull(a.customerToSuggestion,'') AS customerToSuggestion
 	,ifnull(c.CompanyName,'') AS CustomerContactPersonName
+	,case when a.VisitOutDate is null then '' else DATE_FORMAT(a.VisitOutDate, '%d-%b-%Y') end AS VisitOutDate
+
 
 
 	FROM t_transaction a
