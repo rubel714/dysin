@@ -388,7 +388,7 @@ class MYPDF extends TCPDF
 $sqlf = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
 			c.DisplayName,
             (case when a.CustomerId=38 then concat(d.CustomerName,'-',a.DummyCustomerDesc) else d.CustomerName end) CustomerName,
-            a.PublicTransportDesc,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+            a.PublicTransportDesc,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount,a.ApprovedDinnerBillAmount
             ,b.UserCode as UserId,b.UserName,bb.DepartmentName,bbb.DesignationName,e.BusinessLineName
 		   FROM t_transaction a
 		   inner join t_users b on a.UserId=b.UserId
@@ -403,9 +403,9 @@ $sqlf = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%
 			AND /*(b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 		   AND*/ (a.UserId=$VisitorId)
 		   AND (a.TransactionDate BETWEEN '$StartDate' and '$EndDate')
-           AND (a.ApprovedConveyanceAmount>0 or a.ApprovedRefreshmentAmount>0)
+           AND (a.ApprovedConveyanceAmount>0 or a.ApprovedRefreshmentAmount>0 or a.ApprovedDinnerBillAmount>0)
 		   ORDER BY a.TransactionDate DESC;";
- 
+
 $sqlLoop1result = $db->query($sqlf);
 $dataList = '';
 $sl = 1;
@@ -420,6 +420,7 @@ $BusinessLineName="";
 
 $TotalApprovedConveyanceAmount=0;
 $TotalApprovedRefreshmentAmount=0;
+$TotalApprovedDinnerBillAmount=0;
 foreach ($sqlLoop1result as $result) {
 
     if($sl == 1){
@@ -433,23 +434,26 @@ foreach ($sqlLoop1result as $result) {
 
     $dataList.= '<tr style="font-size: 11px;">
     <td  style="width:5% !important;" class="center-aln border_Remove">' .$sl++.'</td>
-    <td style="width:17% !important;" class="border_Remove">'.$result['TransactionDate'].'</td>
+    <td style="width:12% !important;" class="border_Remove">'.$result['TransactionDate'].'</td>
     <td style="width:10% !important;" class="border_Remove">'.$result['DisplayName'].'</td> 
     <td style="width:20% !important;" class="border_Remove">'. $result['CustomerName'].'</td>
-    <td style="width:28% !important;" class="border_Remove">'.$result['PublicTransportDesc'].'</td>
+    <td style="width:23% !important;" class="border_Remove">'.$result['PublicTransportDesc'].'</td>
     <td style="width:9% !important;" class="right-aln border_Remove">'. $result['ApprovedConveyanceAmount'].'</td>
     <td style="width:11% !important;" class="right-aln border_Remove">'. $result['ApprovedRefreshmentAmount'].'</td>
+    <td style="width:10% !important;" class="right-aln border_Remove">'. $result['ApprovedDinnerBillAmount'].'</td>
     </tr>';
 
     $TotalApprovedConveyanceAmount+=$result['ApprovedConveyanceAmount']?$result['ApprovedConveyanceAmount']:0;
     $TotalApprovedRefreshmentAmount+=$result['ApprovedRefreshmentAmount']?$result['ApprovedRefreshmentAmount']:0;
+    $TotalApprovedDinnerBillAmount+=$result['ApprovedDinnerBillAmount']?$result['ApprovedDinnerBillAmount']:0;
 
 }
 
 $dataList.= '<tr style="font-size: 11px;">
-<td colspan="5" style="width:80% !important;" class="right-aln border_Remove"><b>Total</b></td>
+<td colspan="5" style="width:70% !important;" class="right-aln border_Remove"><b>Total</b></td>
 <td style="width:9% !important;" class="right-aln border_Remove"><b>'. $TotalApprovedConveyanceAmount.'</b></td>
 <td style="width:11% !important;" class="right-aln border_Remove"><b>'. $TotalApprovedRefreshmentAmount.'</b></td>
+<td style="width:10% !important;" class="right-aln border_Remove"><b>'. $TotalApprovedDinnerBillAmount.'</b></td>
 </tr>';
 
 
@@ -640,20 +644,21 @@ $tblHeader0 = '<!DOCTYPE html>
                         <thead>
                             <tr class="ittaliy">
                                 <th rowspan="1" style="width:5% !important;" class="center-aln" ></th>
-                                <th rowspan="1" style="width:17% !important;"></th>
+                                <th rowspan="1" style="width:12% !important;"></th>
                                 <th rowspan="1" style="width:10% !important;"></th>
                                 <th rowspan="1" style="width:20% !important;"></th>
-                                <th rowspan="1" style="width:28% !important;"></th>
-                                <th colspan="2" style="width:20% !important;" class="center-aln">General Ledger Account Name</th>
+                                <th rowspan="1" style="width:23% !important;"></th>
+                                <th colspan="3" style="width:30% !important;" class="center-aln">General Ledger Account Name</th>
                             </tr>
                             <tr class="ittaliy">
                                 <th rowspan="1" style="width:5% !important;" class="center-aln" >Sl#</th>
-                                <th rowspan="1" style="width:17% !important;">Date</th>
+                                <th rowspan="1" style="width:12% !important;">Date</th>
                                 <th rowspan="1" style="width:10% !important;">Reason For Entertainment</th>
                                 <th rowspan="1" style="width:20% !important;">Travel Origin to Destination</th>
-                                <th rowspan="1" style="width:28% !important;">Transport Details</th>
+                                <th rowspan="1" style="width:23% !important;">Transport Details</th>
                                 <th rowspan="1" style="width:9% !important;" class="right-aln">Conveyance (TK)</th>
                                 <th rowspan="1" style="width:11% !important;" class="right-aln">Entertainment (TK)</th>
+                                <th rowspan="1" style="width:10% !important;" class="right-aln">Dinner Bill (TK)</th>
                             </tr>
                         </thead>
                         '.$dataList.'

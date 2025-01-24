@@ -231,7 +231,7 @@ const ConveyanceReport = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "10%",
+      width: "7%",
     },
 
     {
@@ -276,7 +276,7 @@ const ConveyanceReport = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "12%",
+      width: "9%",
     },
     {
       field: "ApprovedRefreshmentAmount",
@@ -285,7 +285,16 @@ const ConveyanceReport = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "12%",
+      width: "9%",
+    },
+    {
+      field: "ApprovedDinnerBillAmount",
+      label: "Dinner Bill Amt",
+      align: "right",
+      visible: true,
+      sort: true,
+      filter: true,
+      width: "9%",
     },
     {
       field: "AuthorisedBy",

@@ -238,7 +238,7 @@ const LocalConveyance = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "12%",
+      width: "9%",
     },
     {
       field: "ApprovedRefreshmentAmount",
@@ -247,7 +247,16 @@ const LocalConveyance = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "12%",
+      width: "10%",
+    },
+    {
+      field: "ApprovedDinnerBillAmount",
+      label: "Dinner Bill (TK)",
+      align: "right",
+      visible: true,
+      sort: true,
+      filter: true,
+      width: "9%",
     },
   ];
 

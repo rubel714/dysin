@@ -90,7 +90,7 @@ class MYPDF extends TCPDF
 
 $sqlf = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y') AS TransactionDate,
 			 a.UserId,b.UserName,a.ContactPersonName,a.ContactPersonDesignation,
-			 a.ContactPersonMobileNumber,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount,'' AuthorisedBy
+			 a.ContactPersonMobileNumber,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount,a.ApprovedDinnerBillAmount,'' AuthorisedBy
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			where a.TransactionTypeId=1
@@ -105,29 +105,33 @@ $sl = 1;
 
 $TotalApprovedConveyanceAmount=0;
 $TotalApprovedRefreshmentAmount=0;
+$TotalApprovedDinnerBillAmount=0;
 foreach ($sqlLoop1result as $result) {
 
     $dataList.= '<tr style="font-size: 11px;">
     <td  style="width:5% !important;" class="center-aln border_Remove">' .$sl++.'</td>
     <td style="width:10% !important;" class="border_Remove">'.$result['TransactionDate'].'</td>
-    <td style="width:19% !important;" class="border_Remove">'.$result['UserName'].'</td> 
-    <td style="width:18% !important;" class="border_Remove">'. $result['ContactPersonName'].'</td>
+    <td style="width:15% !important;" class="border_Remove">'.$result['UserName'].'</td> 
+    <td style="width:14% !important;" class="border_Remove">'. $result['ContactPersonName'].'</td>
     <td style="width:10% !important;" class="border_Remove">'.$result['ContactPersonDesignation'].'</td>
     <td style="width:10% !important;" class="border_Remove">'. $result['ContactPersonMobileNumber'].'</td>
     <td style="width:11% !important;" class="right-aln border_Remove">'. $result['ApprovedConveyanceAmount'].'</td>
     <td style="width:9% !important;" class="right-aln border_Remove">'. $result['ApprovedRefreshmentAmount'].'</td>
+    <td style="width:8% !important;" class="right-aln border_Remove">'. $result['ApprovedDinnerBillAmount'].'</td>
     <td style="width:8% !important;" class="border_Remove">'. $result['AuthorisedBy'].'</td>
     </tr>';
 
     $TotalApprovedConveyanceAmount+=$result['ApprovedConveyanceAmount']?$result['ApprovedConveyanceAmount']:0;
     $TotalApprovedRefreshmentAmount+=$result['ApprovedRefreshmentAmount']?$result['ApprovedRefreshmentAmount']:0;
+    $TotalApprovedDinnerBillAmount+=$result['ApprovedDinnerBillAmount']?$result['ApprovedDinnerBillAmount']:0;
 
 }
 
 $dataList.= '<tr style="font-size: 11px;">
-<td colspan="6" style="width:72% !important;" class="right-aln border_Remove"><b>Total Amount</b></td>
+<td colspan="6" style="width:64% !important;" class="right-aln border_Remove"><b>Total Amount</b></td>
 <td style="width:11% !important;" class="right-aln border_Remove"><b>'. $TotalApprovedConveyanceAmount.'</b></td>
 <td style="width:9% !important;" class="right-aln border_Remove"><b>'. $TotalApprovedRefreshmentAmount.'</b></td>
+<td style="width:8% !important;" class="right-aln border_Remove"><b>'. $TotalApprovedDinnerBillAmount.'</b></td>
 <td style="width:8% !important;" class="right-aln border_Remove"></td>
 
 </tr>';
@@ -267,12 +271,13 @@ $tblHeader0 = '<!DOCTYPE html>
                             <tr class="ittaliy">
                                 <th rowspan="1" style="width:5% !important;" class="center-aln" >Sl#</th>
                                 <th rowspan="1" style="width:10% !important;">Date</th>
-                                <th rowspan="1" style="width:19% !important;">Sales Force</th>
-                                <th rowspan="1" style="width:18% !important;">Person Name</th>
+                                <th rowspan="1" style="width:15% !important;">Sales Force</th>
+                                <th rowspan="1" style="width:14% !important;">Person Name</th>
                                 <th rowspan="1" style="width:10% !important;">Designation</th>
                                 <th rowspan="1" style="width:10% !important;">Mobile No</th>
                                 <th rowspan="1" style="width:11% !important;" class="right-aln">Transportation Amt</th>
                                 <th rowspan="1" style="width:9% !important;" class="right-aln">Refreshment Amt</th>
+                                <th rowspan="1" style="width:8% !important;" class="right-aln">Dinner Bill Amt</th>
                                 <th rowspan="1" style="width:8% !important;">Authorised By</th>
                             </tr>
                         </thead>

@@ -115,7 +115,7 @@ function getDataList($data)
 		} else if ($ReportTypeId == "ConveyanceReport") {
 			$query = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y') AS TransactionDate,
 			 a.UserId,b.UserName,a.ContactPersonName,a.ContactPersonDesignation,
-			 a.ContactPersonMobileNumber,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount,'' AuthorisedBy
+			 a.ContactPersonMobileNumber,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount,a.ApprovedDinnerBillAmount,'' AuthorisedBy
 			FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 			where a.TransactionTypeId=1
@@ -126,7 +126,8 @@ function getDataList($data)
 
 		} else if ($ReportTypeId == "LocalConveyance") {
 			$query = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
-			c.DisplayName, (case when a.CustomerId=38 then concat(d.CustomerName,'-',a.DummyCustomerDesc) else d.CustomerName end) CustomerName,a.PublicTransportDesc,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount
+			c.DisplayName, (case when a.CustomerId=38 then concat(d.CustomerName,'-',a.DummyCustomerDesc) else d.CustomerName end) CustomerName,
+			a.PublicTransportDesc,a.ApprovedConveyanceAmount,a.ApprovedRefreshmentAmount,a.ApprovedDinnerBillAmount
 		   FROM t_transaction a
 			inner join t_users b on a.UserId=b.UserId
 		   inner join t_dropdownlist c on a.DropDownListIDForPurpose=c.DropDownListID
@@ -135,8 +136,10 @@ function getDataList($data)
 			AND /*(b.DepartmentId=$DepartmentId OR $DepartmentId=0)
 		   AND*/ (a.UserId=$VisitorId)
 		   AND (a.TransactionDate BETWEEN '$StartDate' and '$EndDate')
-           AND (a.ApprovedConveyanceAmount>0 or a.ApprovedRefreshmentAmount>0)
+           AND (a.ApprovedConveyanceAmount>0 or a.ApprovedRefreshmentAmount>0 OR a.ApprovedDinnerBillAmount>0)
 		   ORDER BY a.TransactionDate DESC;";
+ 
+
 
 		} else if ($ReportTypeId == "VisitSummaryReport") {
 			$query = "SELECT a.TransactionId id,DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS TransactionDate,
