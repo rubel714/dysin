@@ -27,29 +27,13 @@ switch ($task) {
 function getDataList($data)
 {
 
-
 	//$ClientId = trim($data->ClientId);
 	$UserId = trim($data->UserId);
 	//$BranchId = trim($data->BranchId); 
 	$Search =  isset($data->Search) ? $data->Search : 0; //0=All, Y=LM approved, N=LM not approved
 
-
 	try {
 		$dbh = new Db();
-		// $query = "SELECT MachineId AS id, MachineName
-		// FROM t_machine 
-		// ORDER BY `MachineName` ASC;";
-
-		// $UserId =  isset($data['UserInfoID']) ? $data['UserInfoID'] : 0;
-		/**This is Line Man user id. We will return under this members visitor list */
-		// $Search =  isset($data['Search']) ? $data['Search'] : 0; //0=All, Y=LM approved, N=LM not approved
-
-		// if ($UserId == "") {
-		// 	$apiResponse = json_encode(recordNotFoundMsg(0, "UserInfoID param is missing"));
-		// 	apiLogWrite("Output (" . date('Y_m_d_H_i_s') . "): " . $apiResponse);
-		// 	echo $apiResponse;
-		// 	return;
-		// }
 
 		$sWhere = "";
 		if ($Search === "Y") {
@@ -95,7 +79,7 @@ function getDataList($data)
 	left join t_dropdownlist d on a.DropDownListIDForTransportation=d.DropDownListID
 	left join t_machine e on a.MachineId=e.MachineId
 	left join t_machinemodel f on a.MachineModelId=f.MachineModelId
-	where g.LinemanUserId=$UserId
+	where (g.LinemanUserId=$UserId OR $UserId=0)
 	and a.TransactionTypeId=1
 	and a.IsVisitorFeedback='Y'
 	$sWhere
@@ -136,7 +120,7 @@ function dataAddEdit($data)
 		$ApprovedRefreshmentAmount = $data->rowData->ApprovedRefreshmentAmount;
 		$ApprovedConveyanceAmount = $data->rowData->ApprovedConveyanceAmount;
 		$ApprovedDinnerBillAmount = $data->rowData->ApprovedDinnerBillAmount;
-		
+
 		$LMAdvice = $data->rowData->LMAdvice ? $data->rowData->LMAdvice : null;
 		$LMFollowUpDate = $data->rowData->LMFollowUpDate ? $data->rowData->LMFollowUpDate : null;
 		$IsLinemanFeedback = "Y";
@@ -158,8 +142,8 @@ function dataAddEdit($data)
 			// } else {
 			$u = new updateq();
 			$u->table = 't_transaction';
-			$u->columns = ['ApprovedRefreshmentAmount', 'ApprovedConveyanceAmount','ApprovedDinnerBillAmount', 'LMAdvice', 'LMFollowUpDate', 'IsLinemanFeedback'];
-			$u->values = [$ApprovedRefreshmentAmount, $ApprovedConveyanceAmount,$ApprovedDinnerBillAmount, $LMAdvice, $LMFollowUpDate, $IsLinemanFeedback];
+			$u->columns = ['ApprovedRefreshmentAmount', 'ApprovedConveyanceAmount', 'ApprovedDinnerBillAmount', 'LMAdvice', 'LMFollowUpDate', 'IsLinemanFeedback'];
+			$u->values = [$ApprovedRefreshmentAmount, $ApprovedConveyanceAmount, $ApprovedDinnerBillAmount, $LMAdvice, $LMFollowUpDate, $IsLinemanFeedback];
 			$u->pks = ['TransactionId'];
 			$u->pk_values = [$TransactionId];
 			$u->build_query();

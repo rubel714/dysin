@@ -923,7 +923,7 @@ const CustomerVisitPunchLedger = (props) => {
         </div> */}
 
         <div class="subContainer ">
-          <div className="App">
+          <div className="App" style={{overflowX:"scroll"}}>
             <CustomTable
               columns={columnList}
               rows={dataList ? dataList : {}}

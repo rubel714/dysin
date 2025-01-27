@@ -4,7 +4,12 @@ import { DeleteOutline, Edit } from "@material-ui/icons";
 import { Button } from "../../../components/CustomControl/Button";
 
 import CustomTable from "components/CustomTable/CustomTable";
-import { apiCall, apiOption, LoginUserInfo, language } from "../../../actions/api";
+import {
+  apiCall,
+  apiOption,
+  LoginUserInfo,
+  language,
+} from "../../../actions/api";
 import ExecuteQueryHook from "../../../components/hooks/ExecuteQueryHook";
 import { Typography, TextField } from "@material-ui/core";
 
@@ -20,10 +25,15 @@ const Feedback = (props) => {
   const [currSearch, setCurrSearch] = useState("N"); //0=All, Y=LM approved, N=LM not approved
   const [currentRow, setCurrentRow] = useState([]);
   const [showModal, setShowModal] = useState(false); //true=show modal, false=hide modal
-  const [approvedStatusList, setApprovedStatusList] = useState([{ id: 0, name: "All" },{ id: 'Y', name: "Approved" },{ id: 'N', name: "Not Approved" }]);  
+  const [approvedStatusList, setApprovedStatusList] = useState([
+    { id: 0, name: "All" },
+    { id: "Y", name: "Approved" },
+    { id: "N", name: "Not Approved" },
+  ]);
 
   const { isLoading, data: dataList, error, ExecuteQuery } = ExecuteQueryHook(); //Fetch data
   const UserInfo = LoginUserInfo();
+  const CurrRoleId = UserInfo.RoleId[0] ? UserInfo.RoleId[0] : 0;
 
   /* =====Start of Excel Export Code==== */
   const EXCEL_EXPORT_URL = process.env.REACT_APP_API_URL;
@@ -33,16 +43,16 @@ const Feedback = (props) => {
 
     window.open(
       finalUrl +
-      "?action=FeedbackExport" +
-      "&reportType=excel" +
-      "&UserId=" + UserInfo.UserId +
-      "&Search=" + currSearch +
-      "&TimeStamp=" +
-      Date.now()
+        "?action=FeedbackExport" +
+        "&reportType=excel" +
+        "&UserId=" +
+        (CurrRoleId ==
+        1
+        ? 0
+        : UserInfo.UserId) + "&Search=" + currSearch + "&TimeStamp=" + Date.now()
     );
   };
   /* =====End of Excel Export Code==== */
-
 
   const columnList = [
     { field: "rownumber", label: "SL", align: "center", width: "4%" },
@@ -63,7 +73,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "6%"
+      width: "6%",
     },
     {
       field: "VisitorName",
@@ -72,9 +82,9 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "7%"
+      width: "7%",
     },
-    
+
     {
       field: "Purpose",
       label: "Purpose",
@@ -82,7 +92,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "7%"
+      width: "7%",
     },
     {
       field: "Transportation",
@@ -91,7 +101,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "7%"
+      width: "7%",
     },
     {
       field: "PublicTransportDesc",
@@ -100,7 +110,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "10%"
+      width: "10%",
     },
     {
       field: "SelfDiscussion",
@@ -109,7 +119,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "12%"
+      width: "12%",
     },
     {
       field: "ConveyanceAmount",
@@ -118,7 +128,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "7%"
+      width: "7%",
     },
     {
       field: "RefreshmentAmount",
@@ -127,7 +137,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "7%"
+      width: "7%",
     },
     {
       field: "DinnerBillAmount",
@@ -136,7 +146,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "7%"
+      width: "7%",
     },
     {
       field: "ApprovedConveyanceAmount",
@@ -145,7 +155,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "7%"
+      width: "7%",
     },
     {
       field: "ApprovedRefreshmentAmount",
@@ -154,7 +164,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "7%"
+      width: "7%",
     },
     {
       field: "ApprovedDinnerBillAmount",
@@ -163,7 +173,7 @@ const Feedback = (props) => {
       visible: true,
       sort: true,
       filter: true,
-      width: "7%"
+      width: "7%",
     },
     {
       field: "IsLinemanFeedback",
@@ -185,7 +195,6 @@ const Feedback = (props) => {
     },
   ];
 
-
   if (bFirst) {
     /**First time call for datalist */
     getDataList();
@@ -194,14 +203,12 @@ const Feedback = (props) => {
 
   /**Get data for table list */
   function getDataList() {
-
-
     let params = {
       action: "getDataList",
       lan: language(),
-      UserId: UserInfo.UserId,
+      UserId: CurrRoleId == 1 ? 0 : UserInfo.UserId,
       Search: currSearch,
-      
+
       // ClientId: UserInfo.ClientId,
       // BranchId: UserInfo.BranchId,
     };
@@ -214,12 +221,14 @@ const Feedback = (props) => {
   function actioncontrol(rowData) {
     return (
       <>
-        {permissionType === 0 && rowData.IsLinemanFeedback=="N" && (<Edit
-          className={"table-edit-icon"}
-          onClick={() => {
-            editData(rowData);
-          }}
-        />)}
+        {permissionType === 0 && rowData.IsLinemanFeedback == "N" && (
+          <Edit
+            className={"table-edit-icon"}
+            onClick={() => {
+              editData(rowData);
+            }}
+          />
+        )}
 
         {/* {permissionType === 0 && (<DeleteOutline
           className={"table-delete-icon"}
@@ -253,7 +262,6 @@ const Feedback = (props) => {
     openModal();
   };
 
-
   function openModal() {
     setShowModal(true); //true=modal show, false=modal hide
   }
@@ -263,10 +271,7 @@ const Feedback = (props) => {
     // console.log('response: ', response);
     getDataList();
     setShowModal(false); //true=modal show, false=modal hide
-
   }
-
-
 
   // const deleteData = (rowData) => {
   //   swal({
@@ -326,10 +331,8 @@ const Feedback = (props) => {
 
     if (name === "IsLinemanFeedback") {
       setCurrSearch(value);
-      //getUser(value); 
+      //getUser(value);
     }
-
-
   };
   React.useEffect(() => {
     getDataList();
@@ -347,8 +350,7 @@ const Feedback = (props) => {
 
         {/* <!-- TABLE SEARCH AND GROUP ADD --> */}
         <div class="searchAdd">
-        
-        <div>
+          <div>
             <label>Approved Status</label>
             <div class="">
               <Autocomplete
@@ -360,7 +362,7 @@ const Feedback = (props) => {
                 autoComplete
                 options={approvedStatusList ? approvedStatusList : []}
                 getOptionLabel={(option) => option.name}
-                defaultValue={{ id: 'N', name: "Not Approved" }}
+                defaultValue={{ id: "N", name: "Not Approved" }}
                 onChange={(event, valueobj) =>
                   handleChangeFilterDropDown(
                     "IsLinemanFeedback",
@@ -379,10 +381,12 @@ const Feedback = (props) => {
             </div>
           </div>
 
-
-          <Button label={"Export"} class={"btnPrint"} onClick={PrintPDFExcelExportFunction} />
+          <Button
+            label={"Export"}
+            class={"btnPrint"}
+            onClick={PrintPDFExcelExportFunction}
+          />
           {/* <Button disabled={permissionType} label={"ADD"} class={"btnAdd"} onClick={addData} /> */}
-   
         </div>
 
         {/* <!-- ####---THIS CLASS IS USE FOR TABLE GRID PRODUCT INFORMATION---####s --> */}
@@ -398,10 +402,13 @@ const Feedback = (props) => {
       </div>
       {/* <!-- BODY CONTAINER END --> */}
 
-
-      {showModal && (<FeedbackAddEditModal masterProps={props} currentRow={currentRow} modalCallback={modalCallback} />)}
-
-
+      {showModal && (
+        <FeedbackAddEditModal
+          masterProps={props}
+          currentRow={currentRow}
+          modalCallback={modalCallback}
+        />
+      )}
     </>
   );
 };

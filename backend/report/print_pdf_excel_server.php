@@ -391,12 +391,6 @@ function FeedbackExport()
 	$UserId = $_REQUEST['UserId'];
 	$Search = $_REQUEST['Search'];
 
-	// $sql = "SELECT b.MachineName,c.`MachineModelName`,a.MachineSerial
-	// 	FROM t_machineserial a
-	// 	INNER JOIN t_machine b on a.MachineId=b.MachineId
-	// 	INNER JOIN t_machinemodel c on a.MachineModelId=c.MachineModelId
-	// 	ORDER BY b.MachineName ASC, c.MachineModelName ASC, a.MachineSerial ASC;";
-
 	$sWhere = "";
 		if ($Search === "Y") {
 			$sWhere = " AND a.IsLinemanFeedback='Y' ";
@@ -425,12 +419,13 @@ function FeedbackExport()
 	left join t_dropdownlist d on a.DropDownListIDForTransportation=d.DropDownListID
 	left join t_machine e on a.MachineId=e.MachineId
 	left join t_machinemodel f on a.MachineModelId=f.MachineModelId
-	where g.LinemanUserId=$UserId
+	where (g.LinemanUserId=$UserId or $UserId=0)
 	and a.TransactionTypeId=1
 	and a.IsVisitorFeedback='Y'
 	$sWhere
 	and (a.ConveyanceAmount>0 OR a.RefreshmentAmount>0 OR a.ApprovedRefreshmentAmount>0 OR a.ApprovedConveyanceAmount>0 OR a.DinnerBillAmount>0 OR a.ApprovedDinnerBillAmount>0)
 	ORDER BY a.TransactionDate DESC;";
+
 
 	$tableProperties["query_field"] = array("CustomerName", "VisitDate","VisitorName", "Purpose","Transportation","PublicTransportDesc","SelfDiscussion","ConveyanceAmount","RefreshmentAmount","DinnerBillAmount","ApprovedConveyanceAmount","ApprovedRefreshmentAmount","ApprovedDinnerBillAmount","IsLinemanFeedback");
 	$tableProperties["table_header"] = array('Customer Name', 'Visit Date','Employee', 'Purpose','Transportation','Transportation Description','Discussion','Conveyance','Refreshment','Dinner Bill','Approved Conveyance','Approved Refreshment','Approved Dinner Bill','Approved');
