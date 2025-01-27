@@ -47,7 +47,7 @@ try{
 	,(case when a.customerSignature is null then '' else concat('https://dysin.ng-ssl.com/image/transaction/',a.customerSignature) end) AS customerSignature
 	,ifnull(a.customerToSuggestion,'') AS customerToSuggestion
 	,ifnull(c.CompanyName,'') AS CustomerContactPersonName
-	,case when a.VisitOutDate is null then '' else DATE_FORMAT(a.VisitOutDate, '%d-%b-%Y') end AS VisitOutDate
+	,case when a.VisitOutDate is null then '' else DATE_FORMAT(a.VisitOutDate, '%d-%b-%Y %h:%i:%s %p') end AS VisitOutDate
 
 
 
