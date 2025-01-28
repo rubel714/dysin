@@ -51,7 +51,7 @@ try{
 	left join t_dropdownlist d on a.DropDownListIDForTransportation=d.DropDownListID
 	left join t_machine e on a.MachineId=e.MachineId
 	left join t_machinemodel f on a.MachineModelId=f.MachineModelId
-	where g.LinemanUserId=$UserId
+	where (g.LinemanUserId=$UserId OR $UserId=0)
 	and a.TransactionTypeId=1
 	and a.IsVisitorFeedback='Y'
 	$sWhere

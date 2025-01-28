@@ -46,10 +46,11 @@ const Feedback = (props) => {
         "?action=FeedbackExport" +
         "&reportType=excel" +
         "&UserId=" +
-        (CurrRoleId ==
-        1
-        ? 0
-        : UserInfo.UserId) + "&Search=" + currSearch + "&TimeStamp=" + Date.now()
+        (CurrRoleId == 1 ? 0 : UserInfo.UserId) +
+        "&Search=" +
+        currSearch +
+        "&TimeStamp=" +
+        Date.now()
     );
   };
   /* =====End of Excel Export Code==== */
@@ -221,14 +222,15 @@ const Feedback = (props) => {
   function actioncontrol(rowData) {
     return (
       <>
-        {permissionType === 0 && rowData.IsLinemanFeedback == "N" && (
-          <Edit
-            className={"table-edit-icon"}
-            onClick={() => {
-              editData(rowData);
-            }}
-          />
-        )}
+        {permissionType === 0 &&
+          (rowData.IsLinemanFeedback == "N" || CurrRoleId == 1) && (
+            <Edit
+              className={"table-edit-icon"}
+              onClick={() => {
+                editData(rowData);
+              }}
+            />
+          )}
 
         {/* {permissionType === 0 && (<DeleteOutline
           className={"table-delete-icon"}
