@@ -329,7 +329,6 @@ const Feedback = (props) => {
   // }
 
   const handleChangeFilterDropDown = (name, value) => {
-    // const { name, value } = e.target;
 
     if (name === "IsLinemanFeedback") {
       setCurrSearch(value);
@@ -339,6 +338,64 @@ const Feedback = (props) => {
   React.useEffect(() => {
     getDataList();
   }, [currSearch]);
+
+
+
+
+  
+  const ApproveALl = () => {
+    swal({
+      title: "Are you sure?",
+      text: "You want to approve all following visit!",
+      icon: "warning",
+      buttons: {
+        confirm: {
+          text: "Yes",
+          value: true,
+          visible: true,
+          className: "",
+          closeModal: true,
+        },
+        cancel: {
+          text: "No",
+          value: null,
+          visible: true,
+          className: "",
+          closeModal: true,
+        },
+      },
+      dangerMode: true,
+    }).then((allowAction) => {
+      if (allowAction) {
+        approveAllApi();
+      }
+    });
+  };
+
+  function approveAllApi() {
+
+    let params = {
+      action: "approveAll",
+      lan: language(),
+      UserId: (CurrRoleId == 1 ? 0 : UserInfo.UserId),
+      ClientId: UserInfo.ClientId,
+      BranchId: UserInfo.BranchId,
+      // rowData: rowData,
+    };
+
+    // apiCall.post("productgroup", { params }, apiOption()).then((res) => {
+    apiCall.post(serverpage, { params }, apiOption()).then((res) => {
+     // console.log('res: ', res);
+      props.openNoticeModal({
+        isOpen: true,
+        msg: res.data.message,
+        msgtype: res.data.success,
+      });
+      getDataList();
+    });
+
+  }
+
 
   return (
     <>
@@ -382,6 +439,11 @@ const Feedback = (props) => {
               />
             </div>
           </div>
+          <Button
+            label={"Approve"}
+            class={"btnSave"}
+            onClick={ApproveALl}
+          />
 
           <Button
             label={"Export"}
@@ -391,6 +453,9 @@ const Feedback = (props) => {
           {/* <Button disabled={permissionType} label={"ADD"} class={"btnAdd"} onClick={addData} /> */}
         </div>
 
+
+
+ 
         {/* <!-- ####---THIS CLASS IS USE FOR TABLE GRID PRODUCT INFORMATION---####s --> */}
         <div class="subContainer tableHeight">
           <div className="App">

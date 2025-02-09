@@ -14,7 +14,9 @@ switch ($task) {
 	case "dataAddEdit":
 		$returnData = dataAddEdit($data);
 		break;
-
+	case "approveAll":
+		$returnData = approveAll($data);
+		break;
 		// case "deleteData":
 		// 	$returnData = deleteData($data);
 		// 	break;
@@ -151,6 +153,75 @@ function dataAddEdit($data)
 			// }
 
 			$res = exec_query($aQuerys, $UserId, $lan);
+			$success = ($res['msgType'] == 'success') ? 1 : 0;
+			$status = ($res['msgType'] == 'success') ? 200 : 500;
+
+			$returnData = [
+				"success" => $success,
+				"status" => $status,
+				"UserId" => $UserId,
+				"message" => $res['msg']
+			];
+		} catch (PDOException $e) {
+			$returnData = msg(0, 500, $e->getMessage());
+		}
+
+		return $returnData;
+	}
+}
+
+
+function approveAll($data)
+{
+
+	if ($_SERVER["REQUEST_METHOD"] != "POST") {
+		return $returnData = msg(0, 404, 'Page Not Found!');
+	} else {
+
+
+		$lan = trim($data->lan);
+		$UserId = trim($data->UserId);
+
+		$IsLinemanFeedback = "Y";
+
+		try {
+
+			$dbh = new Db();
+			$aQuerys = array();
+
+			$query = "SELECT a.TransactionId,
+			ifnull(a.ConveyanceAmount,'') AS ConveyanceAmount,
+			ifnull(a.RefreshmentAmount,'') AS RefreshmentAmount,
+			ifnull(a.DinnerBillAmount,'') AS DinnerBillAmount
+		
+			FROM t_transaction a
+			inner join t_users g on a.UserId=g.UserId
+			where (g.LinemanUserId=$UserId OR $UserId=0)
+			and a.TransactionTypeId=1
+			and a.IsVisitorFeedback='Y'
+			AND a.IsLinemanFeedback='N'
+			and (a.ConveyanceAmount>0 OR a.RefreshmentAmount>0 OR a.ApprovedRefreshmentAmount>0 OR a.ApprovedConveyanceAmount>0 OR a.DinnerBillAmount>0 OR a.ApprovedDinnerBillAmount>0);";
+
+			$resultdata = $dbh->query($query);
+
+			foreach ($resultdata as $row) {
+				$TransactionId = $row["TransactionId"];
+				$ApprovedRefreshmentAmount = $row["RefreshmentAmount"];
+				$ApprovedConveyanceAmount = $row["ConveyanceAmount"];
+				$ApprovedDinnerBillAmount = $row["DinnerBillAmount"];
+
+				$u = new updateq();
+				$u->table = 't_transaction';
+				$u->columns = ['ApprovedRefreshmentAmount', 'ApprovedConveyanceAmount', 'ApprovedDinnerBillAmount', 'IsLinemanFeedback'];
+				$u->values = [$ApprovedRefreshmentAmount, $ApprovedConveyanceAmount, $ApprovedDinnerBillAmount, $IsLinemanFeedback];
+				$u->pks = ['TransactionId'];
+				$u->pk_values = [$TransactionId];
+				$u->build_query();
+				$aQuerys[] = $u;
+			}
+
+
+			$res = exec_query($aQuerys, ($UserId == 0 ? 1 : $UserId), $lan);
 			$success = ($res['msgType'] == 'success') ? 1 : 0;
 			$status = ($res['msgType'] == 'success') ? 200 : 500;
 
