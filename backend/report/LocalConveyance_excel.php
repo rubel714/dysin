@@ -789,7 +789,7 @@ $spreadsheet->getActiveSheet()
 $j++;
 $spreadsheet->getActiveSheet()
 ->SetCellValue('D' . $j, 'Total Amount to be received:')
-->SetCellValue('E' . $j, ($TotalApprovedConveyanceAmount+$TotalApprovedRefreshmentAmount))
+->SetCellValue('E' . $j, ($TotalApprovedConveyanceAmount+$TotalApprovedRefreshmentAmount+$TotalApprovedDinnerBillAmount))
 ;
 
 $j++;
@@ -798,7 +798,7 @@ $spreadsheet->getActiveSheet()
 ->SetCellValue('B' . $j, 'Claimants Signature')
 ->SetCellValue('C' . $j, 'Date')
 ->SetCellValue('D' . $j, 'Amount in words:')
-->SetCellValue('E' . $j, ConvertQuantityToWords($TotalApprovedConveyanceAmount+$TotalApprovedRefreshmentAmount))
+->SetCellValue('E' . $j, ConvertQuantityToWords($TotalApprovedConveyanceAmount+$TotalApprovedRefreshmentAmount+$TotalApprovedDinnerBillAmount))
 ;
 
 $j++;

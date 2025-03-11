@@ -733,12 +733,12 @@ $tblHeader0 = '<!DOCTYPE html>
                                     </tr>
                                     <tr><td style="width:100%;">&nbsp;</td></tr>
                                     <tr>
-                                        <td style="width:100%; border-bottom:0.5px solid gray;"><b>Total Amount to be received:</b>  TK. '.($TotalApprovedConveyanceAmount+$TotalApprovedRefreshmentAmount).'</td>
+                                        <td style="width:100%; border-bottom:0.5px solid gray;"><b>Total Amount to be received:</b>  TK. '.($TotalApprovedConveyanceAmount+$TotalApprovedRefreshmentAmount+$TotalApprovedDinnerBillAmount).'</td>
                                     </tr>
                                     <tr><td style="width:100%;">&nbsp;</td></tr>
 
                                     <tr>
-                                        <td style="width:100%; border-bottom:0.5px solid gray;"><b>Amount in words:</b> '.ConvertQuantityToWords($TotalApprovedConveyanceAmount+$TotalApprovedRefreshmentAmount).'</td>
+                                        <td style="width:100%; border-bottom:0.5px solid gray;"><b>Amount in words:</b> '.ConvertQuantityToWords($TotalApprovedConveyanceAmount+$TotalApprovedRefreshmentAmount+$TotalApprovedDinnerBillAmount).'</td>
                                     </tr>
                                     <tr><td style="width:100%;">&nbsp;</td></tr>
                                     <tr><td style="width:100%;">&nbsp;</td></tr>
