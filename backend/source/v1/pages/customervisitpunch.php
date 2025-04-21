@@ -49,6 +49,7 @@ try {
 	a.TransactionId AS SalesForceCustomerVisitID, 
 	DATE_FORMAT(a.TransactionDate, '%d-%b-%Y %h:%i:%s %p') AS VisitDate,
 	a.UserId AS EmployeeID, b.UserName AS EmployeeName, 
+	ifnull(b.PhoneNo,'') AS EmployeePhone,
 	ifnull(a.PunchLocation,'') AS PunchLocation,
 	ifnull(c.DisplayName,'') AS VisitPurpose,
 	ifnull(d.CustomerCode,'') AS CustomerCode,
