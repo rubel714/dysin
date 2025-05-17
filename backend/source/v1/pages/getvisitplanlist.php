@@ -5,7 +5,7 @@ try{
 	apiLogWrite("Params (".date('Y_m_d_H_i_s')."): ".json_encode($data));
 	
 	$dbh = new Db();
-	// $UserId =  isset($data['UserInfoID']) ? $data['UserInfoID'] : 0;
+	$UserId =  isset($data['UserInfoID']) ? $data['UserInfoID'] : 0;
 	//$Search =  isset($data['Search']) ? $data['Search'] : 0;
 	
 	// if ($UserId == "" ) {
@@ -42,6 +42,7 @@ try{
 	ifnull(a.SelfDiscussion,'') AS VisitPurpose, a.UserId as UserInfoID
 	FROM t_transaction a
 	left join t_customer c on a.CustomerId=c.CustomerId
+	where (a.UserId = $UserId OR $UserId = 0)
 	ORDER BY a.TransactionDate DESC;";		
 
 	$resultdata = $dbh->query($query);
