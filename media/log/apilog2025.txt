@@ -68,3 +68,33 @@ Output (2025_01_28_23_49_48): [{"SysValue":0,"SysMessage":"No record found"}]
 ========visitlmfeedbacklist=======Called (2025_01_28_18_50_10)===================
 Params (2025_01_28_18_50_10): {"UserInfoID":"0","Search":"0"}
 Output (2025_01_28_23_50_11): Success
+
+
+========customervisitpunch=======Called (2025_04_21_15_58_27)===================
+Params (2025_04_21_15_58_27): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"3"}
+Output (2025_04_21_19_58_27): Success
+
+
+========customervisitpunch=======Called (2025_04_21_16_00_59)===================
+Params (2025_04_21_16_00_59): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"3"}
+Output (2025_04_21_20_00_59): Success
+
+
+========customervisitpunch=======Called (2025_04_21_16_01_37)===================
+Params (2025_04_21_16_01_37): {"FromDate":"20-Aug-2023","ToDate":"20-Aug-2025","DepartmentId":"2","UserInfoID":"3"}
+Output (2025_04_21_20_01_37): Success
+
+
+========getvisitplanlist=======Called (2025_05_17_13_14_03)===================
+Params (2025_05_17_13_14_03): {"UserInfoID":"3","Search":"0"}
+Output (2025_05_17_17_14_04): Success
+
+
+========getvisitplanlist=======Called (2025_05_17_13_18_07)===================
+Params (2025_05_17_13_18_07): {"UserInfoID":"3","Search":"0"}
+Output (2025_05_17_17_18_07): Success
+
+
+========getvisitplanlist=======Called (2025_05_17_13_18_20)===================
+Params (2025_05_17_13_18_20): {"UserInfoID":"0","Search":"0"}
+Output (2025_05_17_17_18_21): Success
