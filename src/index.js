@@ -30,6 +30,8 @@ import Machineserial from "views/screens/machineserial/index.js";
 import UserRole from "views/screens/userrole/index.js";
 import RoleToMenuPermission from "views/screens/roletomenupermission/index.js";
 import Feedback from "views/screens/feedback/index.js";
+import ProductCategory from "views/screens/productcategory/index.js";
+import Supplier from "views/screens/supplier/index.js";
 // import Client from "views/screens/client/index.js";
 // import Branch from "views/screens/branch/index.js";
 import AuditLog from "views/screens/auditlog/index.js";
@@ -93,6 +95,8 @@ ReactDOM.render(
             <Route path="/userrole" render={(props) => <UserRole {...props} />} />
             <Route path="/roletomenupermission" render={(props) => <RoleToMenuPermission {...props} />} />
             <Route path="/feedback" render={(props) => <Feedback {...props} />} />
+            <Route path="/productcategory" render={(props) => <ProductCategory {...props} />} />
+            <Route path="/supplier" render={(props) => <Supplier {...props} />} />
             {/* <Route path="/client" render={(props) => <Client {...props} />} />
             <Route path="/branch" render={(props) => <Branch {...props} />} /> */}
             <Route path="/auditlog" render={(props) => <AuditLog {...props} />} />

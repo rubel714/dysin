@@ -11,6 +11,8 @@ function BeforeLoginNavbar(props) {
           <img alt="..." src={require("assets/img/logo.png")}></img>
         </div>
         {/* <span class="demotext">This is DEMO site</span> */}
+        
+        <span style={{color:"red", fontWeight:"bold"}}>!!!!!!!!!!  This is DEMO site  !!!!!!!!!!</span>
 
         {/* <!-- USER PANEL --> */}
         <div class="userPanel">

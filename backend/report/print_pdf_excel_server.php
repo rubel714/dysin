@@ -29,6 +29,12 @@ switch ($task) {
 	case "DesignationExport":
 		DesignationExport();
 		break;
+	case "ProductCategoryExport":
+		ProductCategoryExport();
+		break;
+	case "SupplierExport":
+		SupplierExport();
+		break;
 	case "DepartmentExport":
 		DepartmentExport();
 		break;
@@ -191,6 +197,67 @@ function DesignationExport()
 
 	//Report save name. Not allow any type of special character
 	$tableProperties["report_save_name"] = 'Designation';
+}
+
+
+function ProductCategoryExport()
+{
+
+	global $sql, $tableProperties, $TEXT, $siteTitle;
+	// $ClientId = $_REQUEST['ClientId'];
+
+	$sql = "SELECT `CategoryName`
+	FROM t_productcategory 
+	ORDER BY `CategoryName`;";
+
+	$tableProperties["query_field"] = array("CategoryName");
+	$tableProperties["table_header"] = array('Category Name');
+	$tableProperties["align"] = array("left");
+	$tableProperties["width_print_pdf"] = array("100%"); //when exist serial then here total 95% and 5% use for serial
+	$tableProperties["width_excel"] = array("80");
+	$tableProperties["precision"] = array("string"); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0); //not total=0, total=1
+	$tableProperties["color_code"] = array(0); //colorcode field = 1 not color code field = 0
+	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
+	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
+
+	//Report header list
+	$tableProperties["header_list"][0] = $siteTitle;
+	$tableProperties["header_list"][1] = 'Category List';
+	// $tableProperties["header_list"][1] = 'Heading 2';
+
+	//Report save name. Not allow any type of special character
+	$tableProperties["report_save_name"] = 'CategoryList';
+}
+
+function SupplierExport()
+{
+
+	global $sql, $tableProperties, $TEXT, $siteTitle;
+	// $ClientId = $_REQUEST['ClientId'];
+
+	$sql = "SELECT `SupplierName`, `Address`, `Email`, `OfficePhone`, `ContactName`, `ContactPhone`
+	FROM t_supplier 
+	ORDER BY `SupplierName`;";
+
+	$tableProperties["query_field"] = array("SupplierName","Address","Email","OfficePhone","ContactName","ContactPhone");
+	$tableProperties["table_header"] = array('Supplier Name','Address','Email','Office Phone','Contact Name','Contact Phone');
+	$tableProperties["align"] = array("left","left","left","left","left","left");
+	$tableProperties["width_print_pdf"] = array("30%","30%","10%","10%","10%","10%"); //when exist serial then here total 95% and 5% use for serial
+	$tableProperties["width_excel"] = array("30","30","20","20","20","20");
+	$tableProperties["precision"] = array("string","string","string","string","string","string"); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0,0,0,0,0,0); //not total=0, total=1
+	$tableProperties["color_code"] = array(0,0,0,0,0,0); //colorcode field = 1 not color code field = 0
+	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
+	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
+
+	//Report header list
+	$tableProperties["header_list"][0] = $siteTitle;
+	$tableProperties["header_list"][1] = 'Supplier List';
+	// $tableProperties["header_list"][1] = 'Heading 2';
+
+	//Report save name. Not allow any type of special character
+	$tableProperties["report_save_name"] = 'SupplierList';
 }
 
 

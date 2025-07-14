@@ -36,6 +36,8 @@ function AfterLoginNavbar(props) {
           <img alt="..." src={require("assets/img/logo.png")}></img>
         </div>
 
+        <span style={{color:"red", fontWeight:"bold"}}>!!!!!!!!!!  This is DEMO site  !!!!!!!!!!</span>
+
         {/* <!-- MENUE LIST  BAR --> */}
         <div class="menuBar">
           <div class="menuListBar">
@@ -290,6 +292,42 @@ function AfterLoginNavbar(props) {
                   </ul>
                 </li>
               )}
+
+              {menuShowPermision("products") === 1 && (
+                <li class="dropdownMenu">
+                  {" "}
+                  Products
+                  <ul class="dropdownList">
+                    {menuShowPermision("productcategory") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("productcategory")
+                          }
+                        >
+                          Product Category
+                        </a>
+                      </li>
+                    )}
+                     {menuShowPermision("supplier") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("supplier")
+                          }
+                        >
+                          Supplier
+                        </a>
+                      </li>
+                    )}
+                    
+      
+                  </ul>
+                </li>
+              )}
+
 
               {menuShowPermision("reports") === 1 && (
                 <li class="dropdownMenu">
