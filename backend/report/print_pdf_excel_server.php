@@ -29,6 +29,9 @@ switch ($task) {
 	case "DesignationExport":
 		DesignationExport();
 		break;
+	case "ProductExport":
+		ProductExport();
+		break;
 	case "ProductCategoryExport":
 		ProductCategoryExport();
 		break;
@@ -197,6 +200,38 @@ function DesignationExport()
 
 	//Report save name. Not allow any type of special character
 	$tableProperties["report_save_name"] = 'Designation';
+}
+
+
+function ProductExport()
+{
+
+	global $sql, $tableProperties, $TEXT, $siteTitle;
+	// $ClientId = $_REQUEST['ClientId'];
+
+	$sql = "SELECT b.CategoryName,a.ProductCode, a.ProductName,a.ProductShortName,a.Price
+		FROM t_product a
+		INNER JOIN t_productcategory b on a.ProductCategoryId=b.ProductCategoryId
+		ORDER BY b.CategoryName ASC,a.ProductCode, a.ProductName ASC;";
+
+	$tableProperties["query_field"] = array("CategoryName", "ProductCode", "ProductName", "ProductShortName", "Price");
+	$tableProperties["table_header"] = array("Category Name", "Product Codee", "Product Name", "Product ShortName", "Price");
+	$tableProperties["align"] = array("left", "left", "left", "left", "left", "right");
+	$tableProperties["width_print_pdf"] = array("20%", "15%", "25%", "25%", "15%"); //when exist serial then here total 95% and 5% use for serial
+	$tableProperties["width_excel"] = array("25", "25", "30", "30", "20");
+	$tableProperties["precision"] = array("string", "string", "string", "string", 2); //string,date,datetime,0,1,2,3,4
+	$tableProperties["total"] = array(0, 0, 0, 0, 0); //not total=0, total=1
+	$tableProperties["color_code"] = array(0, 0, 0, 0, 0); //colorcode field = 1 not color code field = 0
+	$tableProperties["header_logo"] = 0; //include header left and right logo. 0 or 1
+	$tableProperties["footer_signatory"] = 0; //include footer signatory. 0 or 1
+
+	//Report header list
+	$tableProperties["header_list"][0] = $siteTitle;
+	$tableProperties["header_list"][1] = 'Product';
+	// $tableProperties["header_list"][1] = 'Heading 2';
+
+	//Report save name. Not allow any type of special character
+	$tableProperties["report_save_name"] = 'Product';
 }
 
 

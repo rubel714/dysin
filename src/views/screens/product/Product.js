@@ -1,102 +1,90 @@
 import React, { forwardRef, useRef } from "react";
 import swal from "sweetalert";
 import { DeleteOutline, Edit } from "@material-ui/icons";
-import { Button } from "../../../components/CustomControl/Button";
+import {Button}  from "../../../components/CustomControl/Button";
 
 import CustomTable from "components/CustomTable/CustomTable";
-import { apiCall, apiOption, LoginUserInfo, language } from "../../../actions/api";
+import { apiCall, apiOption , LoginUserInfo, language} from "../../../actions/api";
 import ExecuteQueryHook from "../../../components/hooks/ExecuteQueryHook";
 
-import SupplierAddEditModal from "./SupplierAddEditModal";
+import ProductAddEditModal from "./ProductAddEditModal";
 
-const Supplier = (props) => {
-  const serverpage = "supplier"; // this is .php server page
+const Product = (props) => {
+  const serverpage = "product"; // this is .php server page
 
   const permissionType = props.permissionType;
   const { useState } = React;
   const [bFirst, setBFirst] = useState(true);
   const [currentRow, setCurrentRow] = useState([]);
   const [showModal, setShowModal] = useState(false); //true=show modal, false=hide modal
-
-  const { isLoading, data: dataList, error, ExecuteQuery } = ExecuteQueryHook(); //Fetch data
+  
+  const {isLoading, data: dataList, error, ExecuteQuery} = ExecuteQueryHook(); //Fetch data
   const UserInfo = LoginUserInfo();
-
   /* =====Start of Excel Export Code==== */
   const EXCEL_EXPORT_URL = process.env.REACT_APP_API_URL;
 
-  const PrintPDFExcelExportFunction = () => {
+  const PrintPDFExcelExportFunction = (reportType) => {
     let finalUrl = EXCEL_EXPORT_URL + "report/print_pdf_excel_server.php";
 
     window.open(
       finalUrl +
-      "?action=SupplierExport" +
-      "&reportType=excel" +
-      "&ClientId=" + UserInfo.ClientId +
-      "&BranchId=" + UserInfo.BranchId +
-      "&TimeStamp=" +
-      Date.now()
+        "?action=ProductExport" +
+        "&reportType=excel" +
+        "&ClientId=" + UserInfo.ClientId +
+        "&BranchId=" + UserInfo.BranchId +
+        "&TimeStamp=" +
+        Date.now()
     );
   };
   /* =====End of Excel Export Code==== */
 
-
   const columnList = [
     { field: "rownumber", label: "SL", align: "center", width: "5%" },
-    // { field: 'SL', label: 'SL',width:'10%',align:'center',visible:true,sort:false,filter:false },
     {
-      field: "SupplierName",
-      label: "Supplier Name",
+      field: "CategoryName",
+      label: "Category Name",
+      width:'15%',
       align: "left",
       visible: true,
       sort: true,
       filter: true,
     },
     {
-      field: "Address",
-      label: "Address",
+      field: "ProductCode",
+      label: "Product Code",
+      width:'10%',
       align: "left",
       visible: true,
       sort: true,
       filter: true,
-      width: "20%",
     },
     {
-      field: "Email",
-      label: "Email",
+      field: "ProductName",
+      label: "Product Full Name",
       align: "left",
       visible: true,
       sort: true,
       filter: true,
-      width: "10%",
     },
-    {
-      field: "OfficePhone",
-      label: "Office Phone",
+        {
+      field: "ProductShortName",
+      label: "Product Short Name",
       align: "left",
       visible: true,
       sort: true,
       filter: true,
-      width: "10%",
     },
-    {
-      field: "ContactName",
-      label: "Contact Name",
-      align: "left",
+            {
+      field: "Price",
+      label: "Price",
+      align: "right",
       visible: true,
       sort: true,
       filter: true,
-      width: "10%",
+      width: "8%",
+
     },
-    {
-      field: "ContactPhone",
-      label: "Contact Phone",
-      align: "left",
-      visible: true,
-      sort: true,
-      filter: true,
-      width: "10%",
-    },
-    {
+      {
       field: "custom",
       label: "Action",
       width: "7%",
@@ -107,7 +95,7 @@ const Supplier = (props) => {
     },
   ];
 
-
+  
   if (bFirst) {
     /**First time call for datalist */
     getDataList();
@@ -115,8 +103,7 @@ const Supplier = (props) => {
   }
 
   /**Get data for table list */
-  function getDataList() {
-
+  function getDataList(){
 
     let params = {
       action: "getDataList",
@@ -141,7 +128,7 @@ const Supplier = (props) => {
           }}
         />)}
 
-        {permissionType === 0 && (<DeleteOutline
+{permissionType === 0 && (<DeleteOutline
           className={"table-delete-icon"}
           onClick={() => {
             deleteData(rowData);
@@ -152,32 +139,30 @@ const Supplier = (props) => {
   }
 
   const addData = () => {
-    // console.log("rowData: ", rowData);
-    // console.log("dataList: ", dataList);
 
     setCurrentRow({
-      id: "",
-      CategoryName: "",
-    });
+            id: "",
+            ProductCategoryId: "",
+            ProductCode: "",
+            ProductName: "",
+            ProductShortName: "",
+            Price: "",
+          });
     openModal();
   };
 
   const editData = (rowData) => {
-    // console.log("rowData: ", rowData);
-    // console.log("dataList: ", dataList);
 
     setCurrentRow(rowData);
     openModal();
   };
 
-
+  
   function openModal() {
     setShowModal(true); //true=modal show, false=modal hide
   }
 
   function modalCallback(response) {
-    //response = close, addedit
-    // console.log('response: ', response);
     getDataList();
     setShowModal(false); //true=modal show, false=modal hide
 
@@ -213,9 +198,7 @@ const Supplier = (props) => {
   };
 
   function deleteApi(rowData) {
-
-
-
+ 
     let params = {
       action: "deleteData",
       lan: language(),
@@ -225,7 +208,6 @@ const Supplier = (props) => {
       rowData: rowData,
     };
 
-    // apiCall.post("productgroup", { params }, apiOption()).then((res) => {
     apiCall.post(serverpage, { params }, apiOption()).then((res) => {
       console.log('res: ', res);
       props.openNoticeModal({
@@ -238,31 +220,31 @@ const Supplier = (props) => {
 
   }
 
-
   return (
     <>
       <div class="bodyContainer">
         {/* <!-- ######-----TOP HEADER-----####### --> */}
         <div class="topHeader">
           <h4>
-            <a href="#">Home</a> ❯ Stationary ❯ Supplier
+            <a href="#">Home</a> ❯ Stationary ❯ Product
           </h4>
         </div>
 
         {/* <!-- TABLE SEARCH AND GROUP ADD --> */}
         <div class="searchAdd">
-        
+          {/* <input type="text" placeholder="Search Product Group"/> */}
+
           <Button label={"Export"} class={"btnPrint"} onClick={PrintPDFExcelExportFunction} />
-          <Button disabled={permissionType} label={"ADD"} class={"btnAdd"} onClick={addData} />
-   
+          <Button disabled={permissionType}  label={"ADD"} class={"btnAdd"} onClick={addData} />
+
         </div>
 
         {/* <!-- ####---THIS CLASS IS USE FOR TABLE GRID PRODUCT INFORMATION---####s --> */}
-        <div class="subContainer">
-          <div className="App tableHeight">
+        <div class="subContainer tableHeight">
+          <div className="App">
             <CustomTable
               columns={columnList}
-              rows={dataList ? dataList : {}}
+              rows={dataList?dataList:{}}
               actioncontrol={actioncontrol}
             />
           </div>
@@ -271,11 +253,11 @@ const Supplier = (props) => {
       {/* <!-- BODY CONTAINER END --> */}
 
 
-      {showModal && (<SupplierAddEditModal masterProps={props} currentRow={currentRow} modalCallback={modalCallback} />)}
+      {showModal && (<ProductAddEditModal masterProps={props} currentRow={currentRow} modalCallback={modalCallback}/>)}
 
 
     </>
   );
 };
 
-export default Supplier;
+export default Product;

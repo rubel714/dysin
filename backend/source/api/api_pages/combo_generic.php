@@ -34,6 +34,9 @@ switch ($task) {
 	case "TeamList":
 		$returnData = TeamList($data);
 		break;
+	case "CategoryList":
+		$returnData = CategoryList($data);
+		break;
 	case "MachineList":
 		$returnData = MachineList($data);
 		break;
@@ -374,6 +377,29 @@ function TeamList($data)
 	return $returnData;
 }
 
+
+function CategoryList($data)
+{
+	try {
+		$ClientId = trim($data->ClientId);
+		// $BranchId = trim($data->BranchId); 
+
+		$dbh = new Db();
+		$query = "SELECT ProductCategoryId id, CategoryName `name` FROM t_productcategory ORDER BY CategoryName;";
+		$resultdata = $dbh->query($query);
+
+		$returnData = [
+			"success" => 1,
+			"status" => 200,
+			"message" => "",
+			"datalist" => $resultdata
+		];
+	} catch (PDOException $e) {
+		$returnData = msg(0, 500, $e->getMessage());
+	}
+
+	return $returnData;
+}
 
 function MachineList($data)
 {

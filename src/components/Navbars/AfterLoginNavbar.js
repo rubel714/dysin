@@ -293,10 +293,10 @@ function AfterLoginNavbar(props) {
                 </li>
               )}
 
-              {menuShowPermision("products") === 1 && (
+              {menuShowPermision("stationary") === 1 && (
                 <li class="dropdownMenu">
                   {" "}
-                  Products
+                  Stationary
                   <ul class="dropdownList">
                     {menuShowPermision("productcategory") === 1 && (
                       <li>
@@ -307,6 +307,18 @@ function AfterLoginNavbar(props) {
                           }
                         >
                           Product Category
+                        </a>
+                      </li>
+                    )}
+                    {menuShowPermision("product") === 1 && (
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.history.push("product")
+                          }
+                        >
+                          Product
                         </a>
                       </li>
                     )}

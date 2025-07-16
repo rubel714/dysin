@@ -209,7 +209,7 @@ const ProductCategory = (props) => {
         {/* <!-- ######-----TOP HEADER-----####### --> */}
         <div class="topHeader">
           <h4>
-            <a href="#">Home</a> ❯ Products ❯ Product Category
+            <a href="#">Home</a> ❯ Stationary ❯ Product Category
           </h4>
         </div>
 
