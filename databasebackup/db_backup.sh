@@ -1,0 +1,2 @@
+find /home/ngsslcom/dysin.ng-ssl.com/databasebackup -name "*.sql.gz" -mtime +30 -delete
+mysqldump -u dysin_db_user '-pt2A6K7L0Xqpy' dysin_db | gzip >/home/ngsslcom/dysin.ng-ssl.com/databasebackup/dysin_db_$(date "+%b_%d_%Y_%H_%M_%S").sql.gz

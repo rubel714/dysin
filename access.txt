@@ -22,3 +22,24 @@ CHOKIDAR_USEPOLLING=true
 REACT_APP_BASE_NAME=
 REACT_APP_API_URL=https://www.dysindemo.ng-ssl.com/backend/
 REACT_APP_FRONT_URL= https://www.dysindemo.ng-ssl.com/
+
+
+
+=========================Web demo form CRM .env========================================
+FAST_REFRESH = false
+CHOKIDAR_USEPOLLING=true
+REACT_APP_BASE_NAME=
+REACT_APP_API_URL=https://www.crm.ng-ssl.com/backend/
+REACT_APP_FRONT_URL=https://www.crm.ng-ssl.com/
+
+
+
+==========================
+Domain: crm.ng-ssl.com
+User:Admin
+Pass:Net@pp096
+
+Database
+Name: crm_db
+User: dysin_db_user
+Pass: t2A6K7L0Xqpy
