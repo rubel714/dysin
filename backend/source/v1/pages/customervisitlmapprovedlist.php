@@ -41,7 +41,7 @@ try{
 	left join t_machine e on a.MachineId=e.MachineId
 	left join t_machinemodel f on a.MachineModelId=f.MachineModelId
 
-	where a.UserId=$UserId and a.TransactionTypeId=1
+	where a.UserId=$UserId and a.TransactionTypeId=1 and a.IsLinemanFeedback='Y'
 	and (a.TransactionDate between '$FromDate' and '$ToDate')
 	ORDER BY a.TransactionDate DESC;";		
 
