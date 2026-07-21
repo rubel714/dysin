@@ -11,6 +11,10 @@ switch ($task) {
 		$returnData = getDataList($data);
 		break;
 
+	case "EmployeeList":
+		$returnData = EmployeeList($data);
+		break;
+
 	case "dataAddEdit":
 		$returnData = dataAddEdit($data);
 		break;
@@ -26,6 +30,33 @@ switch ($task) {
 		break;
 }
 
+function EmployeeList($data)
+{
+	$UserId = trim($data->UserId); // Line man user id; 0 = all employees
+
+	try {
+		$dbh = new Db();
+
+		$query = "SELECT `UserId` id, `UserName` `name`
+			FROM `t_users`
+			WHERE (LinemanUserId=$UserId OR $UserId=0)
+			ORDER BY UserName;";
+
+		$resultdata = $dbh->query($query);
+
+		$returnData = [
+			"success" => 1,
+			"status" => 200,
+			"message" => "",
+			"datalist" => $resultdata
+		];
+	} catch (PDOException $e) {
+		$returnData = msg(0, 500, $e->getMessage());
+	}
+
+	return $returnData;
+}
+
 function getDataList($data)
 {
 
@@ -33,6 +64,7 @@ function getDataList($data)
 	$UserId = trim($data->UserId);
 	//$BranchId = trim($data->BranchId); 
 	$Search =  isset($data->Search) ? $data->Search : 0; //0=All, Y=LM approved, N=LM not approved
+	$EmployeeId = isset($data->EmployeeId) ? trim($data->EmployeeId) : 0; //0=All
 
 	try {
 		$dbh = new Db();
@@ -42,6 +74,10 @@ function getDataList($data)
 			$sWhere = " AND a.IsLinemanFeedback='Y' ";
 		} else if ($Search === "N") {
 			$sWhere = " AND a.IsLinemanFeedback='N' ";
+		}
+
+		if ($EmployeeId != 0 && $EmployeeId != "") {
+			$sWhere .= " AND a.UserId=$EmployeeId ";
 		}
 
 		$query = "SELECT 1 AS SysValue,'Successful' AS SysMessage, 
@@ -181,8 +217,14 @@ function approveAll($data)
 
 		$lan = trim($data->lan);
 		$UserId = trim($data->UserId);
+		$EmployeeId = isset($data->EmployeeId) ? trim($data->EmployeeId) : 0; //0=All
 
 		$IsLinemanFeedback = "Y";
+
+		$sWhere = "";
+		if ($EmployeeId != 0 && $EmployeeId != "") {
+			$sWhere = " AND a.UserId=$EmployeeId ";
+		}
 
 		try {
 
@@ -196,7 +238,7 @@ function approveAll($data)
 		
 			FROM t_transaction a
 			inner join t_users g on a.UserId=g.UserId
-			where (g.LinemanUserId=$UserId OR $UserId=0)
+			where (g.LinemanUserId=$UserId OR $UserId=0) $sWhere 
 			and a.TransactionTypeId=1
 			and a.IsVisitorFeedback='Y'
 			AND a.IsLinemanFeedback='N'

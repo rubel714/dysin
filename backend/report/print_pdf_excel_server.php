@@ -492,12 +492,17 @@ function FeedbackExport()
 	global $sql, $tableProperties, $TEXT, $siteTitle;
 	$UserId = $_REQUEST['UserId'];
 	$Search = $_REQUEST['Search'];
+	$EmployeeId = isset($_REQUEST['EmployeeId']) ? $_REQUEST['EmployeeId'] : 0;
 
 	$sWhere = "";
 		if ($Search === "Y") {
 			$sWhere = " AND a.IsLinemanFeedback='Y' ";
 		} else if ($Search === "N") {
 			$sWhere = " AND a.IsLinemanFeedback='N' ";
+		}
+
+		if ($EmployeeId != 0 && $EmployeeId != "") {
+			$sWhere .= " AND a.UserId=$EmployeeId ";
 		}
 
 		$sql = "SELECT  

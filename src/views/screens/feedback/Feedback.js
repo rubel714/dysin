@@ -23,6 +23,8 @@ const Feedback = (props) => {
   const { useState } = React;
   const [bFirst, setBFirst] = useState(true);
   const [currSearch, setCurrSearch] = useState("N"); //0=All, Y=LM approved, N=LM not approved
+  const [currEmployeeId, setCurrEmployeeId] = useState(0); //0=All
+  const [employeeList, setEmployeeList] = useState([{ id: 0, name: "All" }]);
   const [currentRow, setCurrentRow] = useState([]);
   const [showModal, setShowModal] = useState(false); //true=show modal, false=hide modal
   const [approvedStatusList, setApprovedStatusList] = useState([
@@ -49,6 +51,8 @@ const Feedback = (props) => {
         (CurrRoleId == 1 ? 0 : UserInfo.UserId) +
         "&Search=" +
         currSearch +
+        "&EmployeeId=" +
+        currEmployeeId +
         "&TimeStamp=" +
         Date.now()
     );
@@ -198,8 +202,22 @@ const Feedback = (props) => {
 
   if (bFirst) {
     /**First time call for datalist */
+    getEmployeeList();
     getDataList();
     setBFirst(false);
+  }
+
+  function getEmployeeList() {
+    let params = {
+      action: "EmployeeList",
+      lan: language(),
+      UserId: CurrRoleId == 1 ? 0 : UserInfo.UserId,
+    };
+
+    apiCall.post(serverpage, { params }, apiOption()).then((res) => {
+      setEmployeeList([{ id: 0, name: "All" }].concat(res.data.datalist || []));
+      setCurrEmployeeId(0);
+    });
   }
 
   /**Get data for table list */
@@ -209,6 +227,7 @@ const Feedback = (props) => {
       lan: language(),
       UserId: CurrRoleId == 1 ? 0 : UserInfo.UserId,
       Search: currSearch,
+      EmployeeId: currEmployeeId,
 
       // ClientId: UserInfo.ClientId,
       // BranchId: UserInfo.BranchId,
@@ -332,12 +351,14 @@ const Feedback = (props) => {
 
     if (name === "IsLinemanFeedback") {
       setCurrSearch(value);
-      //getUser(value);
+    }
+    if (name === "EmployeeId") {
+      setCurrEmployeeId(value);
     }
   };
   React.useEffect(() => {
     getDataList();
-  }, [currSearch]);
+  }, [currSearch, currEmployeeId]);
 
 
 
@@ -380,6 +401,7 @@ const Feedback = (props) => {
       UserId: (CurrRoleId == 1 ? 0 : UserInfo.UserId),
       ClientId: UserInfo.ClientId,
       BranchId: UserInfo.BranchId,
+      EmployeeId: currEmployeeId,
       // rowData: rowData,
     };
 
@@ -409,6 +431,44 @@ const Feedback = (props) => {
 
         {/* <!-- TABLE SEARCH AND GROUP ADD --> */}
         <div class="searchAdd">
+          <div>
+            <label>Employee</label>
+            <div class="">
+              <Autocomplete
+                autoHighlight
+                disableClearable
+                className="chosen_dropdown"
+                id="EmployeeId"
+                name="EmployeeId"
+                autoComplete
+                options={employeeList ? employeeList : []}
+                getOptionLabel={(option) => option.name}
+                value={
+                  employeeList
+                    ? employeeList[
+                        employeeList.findIndex(
+                          (list) => list.id === currEmployeeId
+                        )
+                      ] || employeeList[0]
+                    : { id: 0, name: "All" }
+                }
+                onChange={(event, valueobj) =>
+                  handleChangeFilterDropDown(
+                    "EmployeeId",
+                    valueobj ? valueobj.id : 0
+                  )
+                }
+                renderOption={(option) => (
+                  <Typography className="chosen_dropdown_font">
+                    {option.name}
+                  </Typography>
+                )}
+                renderInput={(params) => (
+                  <TextField {...params} variant="standard" fullWidth />
+                )}
+              />
+            </div>
+          </div>
           <div>
             <label>Approved Status</label>
             <div class="">

@@ -12,7 +12,7 @@ function BeforeLoginNavbar(props) {
         </div>
         {/* <span class="demotext">This is DEMO site</span> */}
         
-        <span style={{color:"red", fontWeight:"bold"}}>!!!!!!!!!!  This is DEMO site  !!!!!!!!!!</span>
+        {/* <span style={{color:"red", fontWeight:"bold"}}>!!!!!!!!!!  This is DEMO site  !!!!!!!!!!</span> */}
 
         {/* <!-- USER PANEL --> */}
         <div class="userPanel">
