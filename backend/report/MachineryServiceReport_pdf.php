@@ -237,7 +237,7 @@ $pdf->setMargins(5, 0, 8);
 
 // Image example with resizing
 // $pdf->Image('../../image/appmenu/reportimage.png', 0, 0, 10, 10, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
-$pdf->Image('../../image/appmenu/reportheaderimage.png', 7, 2, 105, 22, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
+$pdf->Image('../../image/appmenu/reportheaderlogo.jpg', 7, 2, 105, 22, 'JPG', '', '', true, 150, '', false, false, 1, false, false, false);
 
 $tblHeader0 = '<br/><br/><br/><!DOCTYPE html>
             <html>
